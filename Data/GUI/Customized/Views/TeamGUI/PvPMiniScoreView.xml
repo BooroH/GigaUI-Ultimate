@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked"
+      blue_bar_gfx="PvP/totem_bars_blue.tga"
+      red_bar_gfx="PvP/totem_bars_red.tga"
+      respawn_red="PvP/respawn_red.tga"
+      respawn_blue="PvP/respawn_blue.tga"
+      respawn_grey="PvP/respawn_grey.tga"
+      pvp_intro_gfx="PvP/pvp_intro_map_%d.tga"
+	  join_sound="sfx/particles/special/cymbal_of_doom/3d_particle_cymbal_of_doom_1.wav"
+	  mpvp_player_guild_color="0xFE5604"
+	  mpvp_other_guild_color="0x8A8A89"
+	  minigame_team1_color="0xC10000"
+	  minigame_team2_color="0x194FE5"
+	  minigame_neutral_color="0x8A8A89"
+	  >
+	        
+    <template:BitmapView template:name="MiniScoreVDivider"
+        bitmap_gfx="GUIcomponents/list_vertical_divider.tga"
+        max_size_extend="Point(-1,COORD_MAX)"        
+        layout_borders="Rect(10,0,10,0)"/>
+            
+    <BorderView view_layout="vertical" h_alignment="CENTER" 
+          layout_borders="Rect(0,5,15,0)"
+          layout_inner_borders="Rect(0,0,0,15)"
+          view_local_alpha="0.33"
+    	  gfx_tl         = "PortraitGUI/small_black_window_topleft.tga"
+    	  gfx_tr         = "PortraitGUI/small_black_window_topright.tga"
+          gfx_bl         = "PortraitGUI/small_black_window_bottomleft.tga"
+    	  gfx_br         = "PortraitGUI/small_black_window_bottomright.tga"
+    	  gfx_left       = "PortraitGUI/small_black_window_left.tga"
+    	  gfx_top        = "PortraitGUI/small_black_window_top.tga"
+    	  gfx_right      = "PortraitGUI/small_black_window_right.tga"
+    	  gfx_bottom     = "PortraitGUI/small_black_window_bottom.tga"
+    	  gfx_background = "PortraitGUI/small_black_window_background.tga">
+    	<View name="MainScoreView" view_layout="horizontal" layout_inner_borders="Rect(5,10,5,10)" view_flags="WID_IGNORE_WHEN_HIDDEN">
+            <BitmapView name="MyFlag" layout_borders="Rect(5,0,5,0)">
+                <nocreate:Bitmap name="PvP/team_blue.tga"/>
+                <nocreate:Bitmap name="PvP/team_red.tga"/>
+            </BitmapView>
+            <TextView name="ScoreView" font="HYBORIANLARGE" default_color="standard" layout_borders="Rect(20,0,20,0)"
+                      feature_flags="TVF_RENDER_HALO|TVF_RENDER_SHADOW|TVF_ENABLE_SHADOW"/>        
+            <BitmapView name="OtherFlag" layout_borders="Rect(5,0,5,0)">
+                <nocreate:Bitmap name="PvP/team_blue.tga"/>
+                <nocreate:Bitmap name="PvP/team_red.tga"/>
+            </BitmapView>            
+    	</View>
+        <View name="StatusBars" view_layout="stacked" view_flags="WID_IGNORE_WHEN_HIDDEN">
+            <BitmapView bitmap_gfx="PvP/totem_bars_background.tga"/>
+            <View view_layout="vertical" view_flags="WID_IGNORE_WHEN_HIDDEN">
+                <CharStatBar name="MyTeamAnniBar" layout_borders="Rect(0,-3,0,0)"
+                     stat_type="health"
+                     orientation="right"
+                     left_margin="1"
+                     bg_gfx=""
+                     fg_gfx="PvP/totem_bars_blue.tga"
+                     do_not_auto_init="true"/>
+                <CharStatBar name="TheirTeamAnniBar" layout_borders="Rect(0,7,0,0)"
+                     stat_type="health"
+                     orientation="right"
+                     left_margin="1"
+                     bg_gfx=""
+                     fg_gfx="PvP/totem_bars_red.tga"
+                     do_not_auto_init="true"/>
+            </View>
+        </View>
+        <TextView value="Time Left" name="TimeLabelView" font="Large" default_color="standard" view_flags="WID_IGNORE_WHEN_HIDDEN" layout_borders="Rect(10,10,10,0)"
+                  feature_flags="TVF_RENDER_HALO|TVF_RENDER_SHADOW|TVF_ENABLE_SHADOW"/>
+        <TextView name="TimeView" font="Large" default_color="standard" feature_flags="TVF_RENDER_HALO|TVF_RENDER_SHADOW|TVF_ENABLE_SHADOW"/>
+        <View name="SecondBasesDock" view_layout="vertical" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <View name="SideMiniScoresDock" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="stacked" layout_borders="Rect(0,10,0,0)">
+            <!--LayoutRow>
+                <View min_size_extend="Point(130,-1)"/>
+                <BitmapView template:source="VDivider" layout_row_span="-1"/>
+                <View min_size_extend="Point(130,-1)"/>
+            </LayoutRow-->
+        </View>
+		<View name="MiniStatusDock" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="vertical" layout_borders="Rect(0,10,0,0)" h_alignment="​CENTER"/>
+    </BorderView>
+</View>

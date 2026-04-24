@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical" layout_inner_borders="Rect(10,7,11,14)">
+    <template:TextView feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+  <TabSelector border_gfx_center="sidebars/darksetin_t.tga"
+   border_gfx_left="sidebars/darksetin_tl.tga"
+   border_gfx_right="sidebars/darksetin_tr.tga"
+   layout_borders="Rect(10,0,10,0)"
+   name="TabSelector"
+   tab_gfx_selected_left="../../Customized/gfx/sidebars/darksetin_tab_active_left.png"
+   tab_gfx_selected_middle="../../Customized/gfx/sidebars/darksetin_tab_active_center.png"
+   tab_gfx_selected_right="../../Customized/gfx/sidebars/darksetin_tab_active_right.png"
+   tab_gfx_unselected_left="../../Customized/gfx/sidebars/darksetin_tab_inactive_left.png"
+   tab_gfx_unselected_middle="../../Customized/gfx/sidebars/darksetin_tab_inactive_center.png"
+   tab_gfx_unselected_right="../../Customized/gfx/sidebars/darksetin_tab_inactive_right.png"
+   tab_label_borders_selected="Rect(13,4,15,3)"
+   tab_label_borders_unselected="Rect(13,4,15,3)"
+   tab_spacing="-4.0">
+    <Tab label="&lt;localized category=GenericGUI token=TabPVPStats&gt;"/>
+    <Tab label="&lt;localized category=GenericGUI token=TabPVPCombat&gt;"/>
+    <Tab label="&lt;localized category=GenericGUI token=Skills&gt;"/>
+  </TabSelector>
+      
+  <View max_size_extend="Point(COORD_MAX,COORD_MAX)" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="vertical">
+    <ScrollView view_flags="WID_HANDLE_MOUSE" v_scrollctrl_mode="SCROLLBAR_AUTO_RESERVE" view_layout="vertical">
+      <ScrollViewChild view_layout="stacked">
+        <BorderView gfx_background="../../Customized/gfx/sidebars/darksetin_bg.png"
+    			    gfx_bl="sidebars/darksetin_ll.tga"
+    			    gfx_bottom="sidebars/darksetin_bottom.tga"
+    			    gfx_br="sidebars/darksetin_lr.tga"
+    			    gfx_left="sidebars/darksetin_l.tga"
+    			    gfx_right="sidebars/darksetin_r.tga"
+    			    gfx_tl=""
+    			    gfx_top=""
+    			    gfx_tr=""
+    			    layout_borders="Rect(10,0,5,0)"
+    			    layout_inner_borders="Rect(10,5,10,10)"
+    			    max_size_extend="Point(COORD_MAX,COORD_MAX)"
+    			    v_alignment="TOP"
+		  view_flags="WID_IGNORE_WHEN_HIDDEN"
+    			    view_layout="stacked">
+          <ViewSelector name="ViewSelector"> 
+            <View name="PvPStatsDock"
+                view_flags="WID_IGNORE_WHEN_HIDDEN"
+                view_layout="vertical"
+                layout_inner_borders="Rect(2,2,0,0)"
+                filter="3"
+                hostile="true"
+    				  />
+            <View name="PvPAttributesDock"
+                view_flags="WID_IGNORE_WHEN_HIDDEN"
+                view_layout="vertical"
+                layout_inner_borders="Rect(2,2,0,0)"
+                filter="3"
+                hostile="true"
+    				  />
+            <View name="SkillsDock"
+                view_flags="WID_IGNORE_WHEN_HIDDEN"
+                view_layout="vertical"
+                layout_inner_borders="Rect(2,2,0,0)"
+                filter="3"
+                hostile="true"
+    				  />
+
+          </ViewSelector>
+  </BorderView>
+      </ScrollViewChild>
+    </ScrollView>    
+  </View>
+</View>

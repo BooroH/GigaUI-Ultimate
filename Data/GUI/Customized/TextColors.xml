@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 601173 $ (must be within the first 200 characters of the file) -->
+<Root>
+	<HTMLColor name="html_link_color"			color="0x3355ff"/>
+	<HTMLColor name="black"				color="0x000000"/>
+	<HTMLColor name="green"				color="0x008000"/>
+	<HTMLColor name="silver"				color="0xC0C0C0"/>
+	<HTMLColor name="lime"				color="0x00FF00"/>
+	<HTMLColor name="gray"				color="0x808080"/>
+	<HTMLColor name="olive"				color="0x808000"/>
+	<HTMLColor name="white"				color="0xFFFFFF"/>
+	<HTMLColor name="yellow"				color="0xFFFF00"/>
+	<HTMLColor name="maroon"			color="0x800000"/>
+	<HTMLColor name="navy"				color="0x000080"/>
+	<HTMLColor name="red"				color="0xff0000"/>
+	<HTMLColor name="blue"				color="0x0000ff"/>
+	<HTMLColor name="purple"				color="0x800080"/>
+	<HTMLColor name="teal"				color="0x008080"/>
+	<HTMLColor name="fuchsia"				color="0xFF00FF"/>
+	<HTMLColor name="aqua"				color="0x00FFFF"/>
+	<HTMLColor name="orange"			color="0xFF7F00"/>
+	<HTMLColor name="eldritch"			color="0x8A2BE2"/>
+	<HTMLColor name="occult"				color="0x6A5ACD"/>
+	<HTMLColor name="chaos"				color="0x8B0000"/>
+	<HTMLColor name="divine"				color="0xB0E0E6"/>
+	<HTMLColor name="blessed"			color="0xFFFFF0"/>
+	<HTMLColor name="onslaught"			color="0xFF0000"/>
+	<HTMLColor name="kuthcheman"			color="0x000000"/>
+	<HTMLColor name="hyperborean"			color="0x61E5FF"/>
+	<HTMLColor name="whitehand"			color="0xFFFDF7"/>
+
+	<HTMLColor name="active"				color="0xFEA100"/>
+	<HTMLColor name="actv_disabled"			color="0xA57B4A"/>
+	<HTMLColor name="standard"			color="0x989898"/>
+	<HTMLColor name="std_disabled"			color="0x585858"/>
+	<HTMLColor name="negative"			color="0xB41D1D"/>
+	<HTMLColor name="positive"			color="0x5B933D"/>
+	<HTMLColor name="paperstd"			color="0x5E4326"/>
+	<HTMLColor name="standard_bright"			color="0xB7B7B7"/>
+	<HTMLColor name="tooltip_positive"			color="0x7BE35D"/>
+	<HTMLColor name="tooltip_negative"			color="0xFF3020"/>
+	<HTMLColor name="friends"				color="0x6d6dff"/>
+
+	<!-- Colors for item powerlevels -->
+	<HTMLColor name="mundane"			color="0x8A8A89"/>
+	<HTMLColor name="superior"			color="0xb7b7b7"/>
+	<HTMLColor name="enchanted"			color="0x5b933d"/>
+	<HTMLColor name="rare"				color="0x006ea7"/>
+	<HTMLColor name="epic"				color="0x8d11be"/>
+	<HTMLColor name="legendary"			color="0xE38F35"/>
+
+	<!-- Colors for light (world drop) versions of the same powerlevels -->
+	<HTMLColor name="enchantedlight"			color="0x99bc87"/>
+	<HTMLColor name="rarelight"			color="0x66b7e1"/>
+	<HTMLColor name="epiclight"			color="0xa66ebd"/>
+
+	<!-- Colors for money -->
+	<HTMLColor name="money_gold"			color="0xFE5604"/>
+	<HTMLColor name="money_silver"			color="0x8A8A89"/>
+	<HTMLColor name="money_copper"			color="0xA57B4A"/>
+	<HTMLColor name="money_tin"			color="0x707070"/>
+
+	<!-- Colors for money -->
+	<HTMLColor name="gold_rank"			color="0xCFB52B"/>
+	<HTMLColor name="silver_rank"			color="0xE6E8FA"/>
+	<HTMLColor name="bronze_rank"			color="0xA67D3D"/>
+	
+	<!-- Colors damage texts -->
+	<HTMLFont name="self_healed"			color="0x5B933D" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="-1"/>
+	<HTMLFont name="other_healed"			color="0x5B9364" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="-1"/>
+	<HTMLFont name="self_healed_critical"		color="0x5B933D" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="2.0" direction="0"/>
+	<HTMLFont name="other_healed_critical"		color="0x5B9364" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="2.0" direction="-1"/>
+
+	<HTMLFont name="self_attacked"			color="0xb41d1d" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="other_attacked"			color="0x8a8a89" font-size="small" font-style="bold" font-family=''  speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="self_attacked_unshielded"		color="0xb41d1d" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="other_attacked_unshielded"		color="0xd7d7d7" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="self_attacked_critical"		color="0xb41d1d" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="1"/>
+	<HTMLFont name="other_attacked_critical"		color="0xd7d7d7" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="0"/>
+
+	<HTMLFont name="self_attacked_spell"		color="0xb41d1d" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="other_attacked_spell"		color="0xFFFFFF" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="self_attacked_spell_critical"		color="0xFFFFFF" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="0"/>
+	<HTMLFont name="other_attacked_spell_critical"	color="0xFFFFFF" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="0"/>
+
+	<HTMLFont name="self_attacked_combo"		color="0xb41d1d" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="other_attacked_combo"		color="0xFF8040" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="self_attacked_combo_critical"	color="0xb41d1d" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="1"/>
+	<HTMLFont name="other_attacked_combo_critical"	color="0xFF8040" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="0"/>
+	<HTMLFont name="self_combo_name"		color="0xb41d1d" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="other_combo_name"		color="0xFF8040" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+
+	<HTMLFont name="self_dodged"			color="0xFFFFFF" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="other_dodged"			color="0x999999" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="self_attacked_environment"		color="0xb41d1d" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="other_attacked_environment"	color="0xBBBBBB" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+
+	<HTMLFont name="stamina_gained"			color="0x6da0ff" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="-1"/>
+	<HTMLFont name="stamina_lost"			color="0x6da0ff" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+	<HTMLFont name="mana_gained"			color="0x2222FF" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="-1"/>
+	<HTMLFont name="mana_lost"			color="0x2222FF" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="1"/>
+
+	<HTMLFont name="stamina_gained_critical"		color="0x6da0ff" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="-1"/>
+	<HTMLFont name="mana_gained_critical"		color="0x2222FF" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="-1"/>
+	<HTMLFont name="stamina_loss_critical"		color="0x6da0ff" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="1"/>
+	<HTMLFont name="mana_loss_critical"			color="0x2222FF" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="1"/>
+
+	<HTMLFont name="xp_gained"			color="0x9999ff" font-size="small" font-style="bold" font-family='' speed= "50" waitonscreen="3.0" direction="-1"/>
+	<HTMLFont name="murder_points_gained"		color="0xa65300" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="-1"/>
+	<HTMLFont name="murder_points_gained_murderer"	color="0xb41d1d" font-size="small" font-style="bold" font-family='' speed= "100" waitonscreen="2.0" direction="-1"/>
+
+	<!-- "Magic" HTML colors used for the various chat groups -->
+
+	<HTMLColor name="ct_error"         			color="red"/>
+	<HTMLColor name="ct_system"        			color="white"/>
+	<HTMLColor name="ct_cmd_feedback"  		color="yellow"/>
+
+	<HTMLColor name="ctch_admin_name"       		color="0xf35f00"/>
+	<HTMLColor name="ctch_admin_text"       		color="0xf35f00"/>
+
+	<HTMLColor name="ctch_clan_name"        		color="0x1edd1d"/>
+	<HTMLColor name="ctch_clan_text"        		color="0x1edd1d"/>
+
+	<HTMLColor name="ctch_emote_name"      		color="0xE38F35"/>
+	<HTMLColor name="ctch_emote_text"       		color="0xE38F35"/>
+
+	<HTMLColor name="ctch_gm_name"          		color="0xe38f35"/>
+	<HTMLColor name="ctch_gm_text"          		color="0xe38f35"/>
+
+	<HTMLColor name="ctch_misc_name"        		color="0xb8b1aa"/>
+	<HTMLColor name="ctch_misc_text"        		color="0xb8b1aa"/>
+
+	<HTMLColor name="ctch_newbie_name"      		color="0xb8b1aa"/>
+	<HTMLColor name="ctch_newbie_text"      		color="0xb8b1aa"/>
+
+	<HTMLColor name="ctch_news_name"        		color="0xb8b1aa"/>
+	<HTMLColor name="ctch_news_text"        		color="0xb8b1aa"/>
+
+	<HTMLColor name="ctch_pgroup_name"      		color="0xb8b1aa"/>
+	<HTMLColor name="ctch_pgroup_text"      		color="0xb8b1aa"/>
+
+	<HTMLColor name="ctch_seekingteam_name" 		color="0xb8b1aa"/>
+	<HTMLColor name="ctch_seekingteam_text" 		color="0xb8b1aa"/>
+
+	<HTMLColor name="ctch_vicinity_name"    		color="standard_bright"/>
+	<HTMLColor name="ctch_vicinity_text"    		color="standard_bright"/>
+
+	<HTMLColor name="ctch_whisper_name"     		color="0xce6bce"/>
+	<HTMLColor name="ctch_whisper_text"     		color="0xce6bce"/>
+
+	<HTMLColor name="ctch_shout_name"       		color="0xffffff"/>
+	<HTMLColor name="ctch_shout_text"       		color="0xffffff"/>
+
+	<HTMLColor name="ctch_team_name"        		color="0x6ea0ff"/>
+	<HTMLColor name="ctch_team_text"        		color="0x6ea0ff"/>
+
+	<HTMLColor name="ctch_raid_name"        		color="0xd27813"/>
+	<HTMLColor name="ctch_raid_text"        		color="0xd27813"/>
+
+	<HTMLColor name="ctch_tell_name"        		color="0xce6bce"/>
+	<HTMLColor name="ctch_tell_text"        		color="0xce6bce"/>
+
+	<HTMLColor name="ctch_mehit_name"       		color="0xbd4400"/>
+	<HTMLColor name="ctch_mehit_text"       		color="0xbd4400"/>
+
+	<HTMLColor name="ctch_mehealed_name"   	 	color="ctch_megotxp_name"/>
+	<HTMLColor name="ctch_mehealed_text"    		color="ctch_megotxp_text"/>
+
+	<HTMLColor name="ctch_mypet"           		color="standard"/>
+	<HTMLColor name="ctch_otherpet"        		color="standard"/>
+	<HTMLColor name="ctch_megotxp_name"    		color="0x9799fe"/>
+	<HTMLColor name="ctch_megotxp_text"    		color="0x9799fe"/>
+
+	<HTMLColor name="ctch_"				color="0x9799fe"/>
+
+	<!-- Guild Renowm colors -->
+	<HTMLColor name="renown_valor"			color="0x99c264"/>
+	<HTMLColor name="renown_glory"			color="0xed1c24"/>
+	<HTMLColor name="renown_artistry"			color="0x0076a3"/>
+	
+	<!-- Alternate Advancement colors -->
+	<HTMLColor name="aa_general"			color="0x006699"/>
+	<HTMLColor name="aa_archetype"			color="0x990000"/>
+	<HTMLColor name="aa_class"			color="0x339933"/>
+	
+	<HTMLColor name="pvp"				color="0xfe9711"/>
+	<HTMLColor name="pve"				color="0xfff600"/>
+	
+	<!-- Quest Colors -->
+	<HTMLColor name="quest_selected_active"		color="active"/>
+	<HTMLColor name="quest_selected_inactive"		color="actv_disabled"/>
+	
+	<HTMLColor name="quest_tracked_active"		color="0xc851ff"/>
+	<HTMLColor name="quest_tracked_inactive"		color="0x73008c"/>
+	
+	<HTMLColor name="quest_nonetracked_active"		color="silver"/>
+	<HTMLColor name="quest_nonetracked_inactive"	color="std_disabled"/>
+</Root>

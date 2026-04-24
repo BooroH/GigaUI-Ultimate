@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 599229 $ (must be within the first 200 characters of the file) -->
+<View name="right_portrait" view_layout="vertical"
+	energy_empty_gfx="../../Customized/gfx/portrait/e_0.png"
+	energy_low_gfx="../../Customized/gfx/portrait/e_1.png"
+	energy_high_gfx="../../Customized/gfx/portrait/e_2.png"
+	energy_full_gfx="../../Customized/gfx/portrait/e_3.png"
+>
+	<template:ProgressBar template:name = "ManaBarShort"
+		bg_gfx="../../Customized/gfx/portrait/var_mana_s_bg_img"
+		fg_gfx="../../Customized/gfx/portrait/mana_s.png"
+		left_margin="0"
+		right_margin="var_margin"
+	/>
+	<template:ProgressBar template:name = "ManaBarLong"
+		bg_gfx="../../Customized/gfx/portrait/var_stam_bg_img"
+		fg_gfx="../../Customized/gfx/portrait/mana.png"
+		left_margin="var_margin"
+		right_margin="var_margin"
+	/>
+	<template:ProgressBar template:name = "StaminaBarShort"
+		bg_gfx="../../Customized/gfx/portrait/var_stam_s_bg_img"
+		fg_gfx="../../Customized/gfx/portrait/stam_s.png"
+		left_margin="var_margin"
+		right_margin="0"
+	/>
+	<template:ProgressBar template:name = "StaminaBarLong"
+		bg_gfx="../../Customized/gfx/portrait/var_stam_bg_img"
+		fg_gfx="../../Customized/gfx/portrait/stam.png"
+		left_margin="var_margin"
+		right_margin="var_margin"
+	/>
+
+	<BuffListView name="BuffListView"
+		layout_borders="Rect(0,0,0,5)"
+		var_buff_filter
+		icon_size="Point(var_icon_size,var_icon_size)"
+		full_size_limit="0"
+		icon_spacing="Point(var_icon_spacing,var_icon_spacing)"
+		max_columns="var_max_columns"
+	/>
+	<View view_layout="horizontal" layout_borders="Rect(0,0,0,-5)">
+		<TextView name         = "NameView"
+			feature_flags  = "TVF_RENDER_SHADOW|TVF_RENDER_HALO"
+			font           = "LARGE_BOLD"
+		/>
+		<TextView name           = "LevelView"
+			view_flags="WID_IGNORE_WHEN_HIDDEN"
+ 			feature_flags  = "TVF_RENDER_SHADOW|TVF_RENDER_HALO"
+			font           = "LARGE_BOLD"
+		/>
+	</View>
+	<View view_layout="vertical" v_alignment="BOTTOM">
+		<BitmapView name="StatBarsContainer"
+			view_layout="stacked"
+			view_flags="WID_HANDLE_MOUSE"
+			v_alignment="TOP"
+			var_container_size
+		>
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- minion -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- normal -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- miniboss -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- boss -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- group_minion -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_elite.png"/>		<!-- group_normal -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_boss.png"/>		<!-- group_boss -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- raid_minion -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- raid_subnormal -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_elite.png"/>		<!-- raid_normal -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_boss.png"/>		<!-- raid_boss -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- player_right -->
+			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_object.png"/>	<!-- object -->
+			<ProgressBar name="HealthBar"
+				flash_on_reduce="false"
+				slide_down_time="0.07"
+				bg_gfx="../../Customized/gfx/portrait/var_hp_bg_img"
+				fg_gfx="../../Customized/gfx/portrait/hp.png"
+				left_margin="var_margin"
+				right_margin="var_margin"
+				label_color="#f6f6f6"
+				var_label_font
+				var_hp_size
+			/>
+			<View view_layout="horizontal" layout_borders="Rect(0,var_stam_layout_top,0,0)"var_stam_size>
+				<ProgressBar name="StaminaBar"
+					flash_on_reduce="false"
+					slide_down_time="0.02"
+					view_flags="WID_IGNORE_WHEN_HIDDEN"
+					label_color="#000000"
+					label_offset="Point(0,40)"
+				/>
+				<ProgressBar name="ManaBar"
+					flash_on_reduce="false"
+					slide_down_time="0.02"
+					view_flags="WID_IGNORE_WHEN_HIDDEN"
+					label_color="#000000"
+					label_offset="Point(0,40)"
+				/>
+			</View>
+			<BitmapView name="EnergyIcon" layout_borders="Rect(0,0,0,var_energy_layout_bottom)" v_local_alignment="BOTTOM"/>
+		</BitmapView>
+		<View name="TargetContainerView" view_layout="stacked" v_alignment="BOTTOM" layout_borders="Rect(var_tot_layout_left,var_tot_layout_top,var_tot_layout_right,0)">
+			<BitmapView name="TargetHealthBarBg" view_layout="vertical" bitmap_gfx="../../Customized/gfx/portrait/var_t_bg_img"var_tot_size>
+				<CharStatBar name="TargetHealthBar"
+					stat_type="health"
+					flash_on_reduce="false"
+					fg_gfx="../../Customized/gfx/portrait/t_hp.png"
+					var_tot_left_margin
+					var_tot_right_margin
+				/>
+			</BitmapView>
+			<TextView name="TargetNameView"
+				default_color="#ffff00"
+				font="LARGE_BOLD"
+				feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"
+				layout_borders="Rect(0,0,0,var_tot_name_layout_bottom)"
+				max_size_limit="Point(var_tot_name_width, COORD_MAX)"
+			/>
+		</View>
+	</View>
+</View>

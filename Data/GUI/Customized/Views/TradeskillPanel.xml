@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked"
+      h_alignment="LEFT"
+      v_alignment="TOP"
+      text_color ="paperstd"
+      recipes_per_page ="20"
+      >
+  <BitmapView name="Background" bitmap_gfx="../../Customized/gfx/tradeskill/book.png" min_size_limit="Point(COORD_MAX,COORD_MAX)" max_size_extend="Point(-1,-1)"/>
+  <View view_layout="vertical" h_alignment="LEFT" layout_borders="Rect(0,0,0,0)">
+    <VLayoutSpacer min_size ="35.0" max_size="35.0"/>
+    <Button name="Weapons"             
+            gfxid_raised="tradeskills/tab_weapons.tga" 
+            gfxid_pressed="tradeskills/tab_weapons_active.tga" 
+            gfxid_highlight="tradeskills/tab_weapons_hover.tga"
+            view_flags="BTF_NOT_HOVER_ON_HL | WID_IGNORE_WHEN_HIDDEN"
+            layout_borders="Rect(2,0,0,0)"/>
+    <Button name="ArmorSmithing"             
+            gfxid_raised="tradeskills/tab_armorsmithing.tga" 
+            gfxid_pressed="tradeskills/tab_armorsmithing_active.tga" 
+            gfxid_highlight="tradeskills/tab_armorsmithing_hover.tga"
+            view_flags="BTF_NOT_HOVER_ON_HL | WID_IGNORE_WHEN_HIDDEN"
+            layout_borders="Rect(2,0,0,0)"/>
+    <Button name="Alchemy"             
+            gfxid_raised="tradeskills/tab_alchemy.tga" 
+            gfxid_pressed="tradeskills/tab_alchemy_active.tga" 
+            gfxid_highlight="tradeskills/tab_alchemy_hover.tga"
+            view_flags="BTF_NOT_HOVER_ON_HL | WID_IGNORE_WHEN_HIDDEN"
+            layout_borders="Rect(2,0,0,0)"/>
+    <Button name="Engineering"             
+            gfxid_raised="tradeskills/tab_engineering.tga" 
+            gfxid_pressed="tradeskills/tab_engineering_active.tga" 
+            gfxid_highlight="tradeskills/tab_engineering_hover.tga"
+            view_flags="BTF_NOT_HOVER_ON_HL | WID_IGNORE_WHEN_HIDDEN"
+            layout_borders="Rect(2,0,0,0)"/>
+    <Button name="GemCutting"             
+            gfxid_raised="tradeskills/tab_gemcutting.tga" 
+            gfxid_pressed="tradeskills/tab_gemcutting_active.tga" 
+            gfxid_highlight="tradeskills/tab_gemcutting_hover.tga"
+            view_flags="BTF_NOT_HOVER_ON_HL | WID_IGNORE_WHEN_HIDDEN"
+            layout_borders="Rect(2,0,0,0)"/>
+    <Button name="Gathering"             
+            gfxid_raised="tradeskills/tab_gathering.tga" 
+            gfxid_pressed="tradeskills/tab_gathering_active.tga" 
+            gfxid_highlight="tradeskills/tab_gathering_hover.tga"
+            view_flags="BTF_NOT_HOVER_ON_HL | WID_IGNORE_WHEN_HIDDEN"
+            layout_borders="Rect(2,0,0,0)"/>
+  </View>
+  <View view_layout="vertical" layout_borders="Rect(105,65,70,30)" >
+    <View view_layout="horizontal" >
+      <View view_layout="vertical" h_alignment="LEFT">          
+          <MultiColListView 
+              name="LeftPage" 
+              view_flags="MLF_ALLOW_SINGLE_SELECT|MLF_AUTOLAYOUT|MLF_HIDE_HEADERS|MLF_DISABLE_REARANGING|MLF_DISABLE_BEGIN_DRAG|MLF_DISABLE_SORTING"              
+              layout_borders="Rect(0,26,0,0)" 
+              list_cell_borders="Rect(0,0,0,0)"
+              min_size_extend="Point(400,420)" 
+              max_size_limit="Point(400,420)"              
+              row_bg_alpha_even="0"
+              row_bg_alpha_odd="0"
+              border_gfx_tl="" 
+              border_gfx_tr="" 
+              border_gfx_bl=""
+              border_gfx_br=""
+              border_gfx_left=""
+              border_gfx_top=""
+              border_gfx_right=""
+              border_gfx_bottom=""
+              border_gfx_background=""
+              content_borders="Rect(0,0,0,0)"
+          />
+      </View>
+      <HLayoutSpacer/>
+      <View view_layout="vertical" h_alignment="RIGHT">          
+          <MultiColListView 
+              name="RightPage" 
+              view_flags="MLF_ALLOW_SINGLE_SELECT|MLF_AUTOLAYOUT|MLF_HIDE_HEADERS|MLF_DISABLE_REARANGING|MLF_DISABLE_BEGIN_DRAG|MLF_DISABLE_SORTING"
+              view_layout="vertical"  
+              min_size_extend="Point(400,420)" 
+              max_size_limit="Point(400,420)"
+              row_bg_alpha_even="0"
+              row_bg_alpha_odd="0"
+              layout_borders="Rect(25,26,0,0)"
+              list_cell_borders="Rect(0,0,0,0)"
+              border_gfx_tl="" 
+              border_gfx_tr="" 
+              border_gfx_bl=""
+              border_gfx_br=""
+              border_gfx_left=""
+              border_gfx_top=""
+              border_gfx_right=""
+              border_gfx_bottom=""
+              border_gfx_background=""
+              content_borders="Rect(0,0,0,0)"
+          />
+      </View>         
+    </View> 
+    <VLayoutSpacer/>
+  </View>
+  <View view_layout="stacked" h_alignment="RIGHT" max_size_extend="Point(COORD_MAX,-1)">
+      <Button name="CloseButton"
+        gfxid_raised="GUIcomponents/closebuttons/close_black.tga"
+        gfxid_pressed="GUIcomponents/closebuttons/close_black_pressed.tga"
+        layout_borders="Rect(0,20,100,0)"/>
+  </View>
+  <TextView name="TabTitle" font="LARGE_BOLD" default_color="paperstd" layout_borders="Rect(115,50,0,0)"/>
+  <View name="PageButtons" layout_borders="Rect(150,327,165,0)" view_layout="horizontal" view_flags="WIDI_IGNORE_WHEN_HIDDEN">
+    <Button name="LeftArrowButton" gfxid_highlight="Misc/arrow_left_active.tga" gfxid_pressed="Misc/arrow_left_black.tga" gfxid_raised="Misc/arrow_left.tga" layout_borders="Rect(0,0,0,0)"/>
+    <HLayoutSpacer/>
+    <Button name="RightArrowButton" gfxid_highlight="Misc/arrow_right_active.tga" gfxid_pressed="Misc/arrow_right_black.tga" gfxid_raised="Misc/arrow_right.tga" layout_borders="Rect(0,0,0,0)"/>		
+  </View>
+</View>

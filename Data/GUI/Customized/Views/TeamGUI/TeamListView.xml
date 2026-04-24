@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical" h_alignment="LEFT">
+	<MiniCharListView name="ListView"
+		max_char_count="6"
+		hide_empty_slots="true"
+		layout_borders="Rect(4,4,4,4)"
+	/>
+</View>

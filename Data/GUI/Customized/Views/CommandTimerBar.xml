@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked" v_alignment="TOP">
+	<ProgressBar name="TimerBar"
+		flash_on_reduce = "false"
+		bg_gfx="../../Customized/gfx/castbar/top_bg_a70.png"
+		fg_gfx="../../Customized/gfx/castbar/top_fg.png"
+		left_margin="5.5"
+		right_margin="5.5"
+		sparkle_gfx="../../Customized/gfx/castbar/fx_top_37.png"
+		sparkle_offset="-8"
+		max_size_limit="Point(233,37)"
+	/>
+	<TextView name="ActionName"
+		value="Casting"
+		default_color="#ffffff"
+		layout_borders="Rect(0,2,0,0)"
+	/>
+</View>

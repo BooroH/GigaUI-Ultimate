@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 61799 $ (must be within the first 200 characters of the file) -->
+<View xmlns:template="template.dtd"
+        view_layout="vertical"
+        layout_inner_borders="Rect(0,7,0,14)"
+        >
+  <template:BitmapView template:name="HDivider"
+          layout_col_span="3"
+          bitmap_gfx="sidebars/horizontal_dividerline.tga"
+          max_size_extend="Point(COORD_MAX,-1)"
+          _min_size_extend="Point(300,-1)"
+          layout_borders="Rect(0,6,0,6)"/>
+  <template:BitmapView template:name="VDivider"
+          bitmap_gfx="GUIcomponents/list_vertical_divider.tga"
+          max_size_extend="Point(-1,COORD_MAX)"
+          layout_borders="Rect(15,0,15,0)"/>
+  <template:TextView feature_flags="TVF_ENABLE_SHADOW|TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+  <View view_layout="vertical" min_size_extend="Point(COORD_MAX,-1)" layout_inner_borders="Rect(0,10,0,15)" h_local_alignment="LEFT">
+
+    <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+
+      <LayoutRow>
+        <TextView value_token="CombatStats"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView value_token="Rating"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView value_token="Effect"
+            font="LARGE"
+            default_color="ACTIVE"
+            h_local_alignment="LEFT"
+            layout_borders="Rect(0,0,8,3  )"/>
+
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="CriticalChance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="CriticalChance_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="CriticalChance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="CriticalBonusDamage_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CriticalBonusDamage_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CriticalBonusDamage_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="FatalityChance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="FatalityChance_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="FatalityChance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="HateModification_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="HateModification_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="HateModification_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="HitBonusChance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="HitBonusChance_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="HitBonusChance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView value_token="TabMagical"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView value_token="Rating"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView value_token="Effect"
+            font="LARGE"
+            default_color="ACTIVE"
+            h_local_alignment="LEFT"
+            layout_borders="Rect(0,0,8,3  )"/>
+
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="ImmunityChance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="ImmunityChance_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="ImmunityChance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView value_token="MeleeRanged"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView value_token="Rating"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView value_token="Effect"
+            font="LARGE"
+            default_color="ACTIVE"
+            h_local_alignment="LEFT"
+            layout_borders="Rect(0,0,8,3  )"/>
+
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="CombatDamageIncrease_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CombatDamageIncrease_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CombatDamageIncrease_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="EvadeChance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="EvadeChance_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="EvadeChance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="OffhandHitBonusChance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="OffhandHitBonusChance_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="OffhandHitBonusChance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="MeleeWeaponDamage_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="MeleeWeaponDamage_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="MeleeWeaponDamage_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="RangedWeaponDamage_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="RangedWeaponDamage_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="RangedWeaponDamage_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView   name="CritigationNameView" 
+                    value_token="Critigation"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView   name="CritigationRatingView"
+                    value_token="Rating"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView   name="CritigationEffectView"
+                    value_token="Effect"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="CriticalMitigationChance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CriticalMitigationChance_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CriticalMitigationChance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="CriticalMitigationAmount_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CriticalMitigationAmount_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CriticalMitigationAmount_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="CriticalInsuredValue_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CriticalInsuredValue_rating" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="CriticalInsuredValue_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView   name="ResistancesNameView" 
+                    value_token="Resistances"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView   name="ResistancesEffectBlankView"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView   name="ResistancesEffectView"
+                    value_token="Effect"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="FearResistance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="FearResistance_blank" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="FearResistance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="KnockbackResistance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="KnockbackResistance_blank" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="KnockbackResistance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="RootResistance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="RootResistance_blank" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="RootResistance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="SilenceResistance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="SilenceResistance_blank" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="SilenceResistance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="SnareResistance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="SnareResistance_blank" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="SnareResistance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="StunResistance_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="StunResistance_blank" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+        <TextView name="StunResistance_effect" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+      </LayoutRow>
+
+    </View>
+  </View>
+</View>

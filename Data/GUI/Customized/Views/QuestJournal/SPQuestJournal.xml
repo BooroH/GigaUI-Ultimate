@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View layout_inner_borders="Rect(0,0,0,15)" 
+      listview_color_selected="active" 
+      listview_color_unselected="standard" 
+      listview_font="LARGE_SC" 
+      selected_icon="" 
+      unselected_icon="" 
+      view_layout="vertical">
+    <TabSelector border_gfx_center="sidebars/darksetin_t.tga" 
+                 border_gfx_left="sidebars/darksetin_tl.tga" 
+                 border_gfx_right="sidebars/darksetin_tr.tga" 
+                 layout_borders="Rect(10,10,10,0)" 
+                 name="TabSelector" 
+                 tab_gfx_selected_left="../../Customized/gfx/sidebars/darksetin_tab_active_left.png" 
+                 tab_gfx_selected_middle="../../Customized/gfx/sidebars/darksetin_tab_active_center.png" 
+                 tab_gfx_selected_right="../../Customized/gfx/sidebars/darksetin_tab_active_right.png" 
+                 tab_gfx_unselected_left="../../Customized/gfx/sidebars/darksetin_tab_inactive_left.png" 
+                 tab_gfx_unselected_middle="../../Customized/gfx/sidebars/darksetin_tab_inactive_center.png" 
+                 tab_gfx_unselected_right="../../Customized/gfx/sidebars/darksetin_tab_inactive_right.png"
+                 tab_label_borders_selected="Rect(13,4,15,3)" 
+                 tab_label_borders_unselected="Rect(13,4,15,3)" 
+                 tab_spacing="-4.0"/>
+    <ViewSelector name="ViewSelector">
+        <View view_layout="vertical">
+            <BorderView gfx_background="../../Customized/gfx/sidebars/darksetin_bg.png" gfx_bl="sidebars/darksetin_ll.tga" gfx_bottom="sidebars/darksetin_bottom.tga" gfx_br="sidebars/darksetin_lr.tga" gfx_left="sidebars/darksetin_l.tga" gfx_right="sidebars/darksetin_r.tga" layout_borders="Rect(10,0,10,0)" max_size_extend="Point(COORD_MAX,COORD_MAX)" v_alignment="TOP" view_layout="stacked">
+                <TextView font="LARGE" layout_borders="Rect(0,100,0,0)" value="&lt;localized token=QuestJournal_SPQuestJournal_YouDoNotHaveAnyQuests category=Quests /&gt;"/>
+            </BorderView>
+        </View>        
+        <View view_layout="vertical">
+            <BorderView gfx_background="../../Customized/gfx/sidebars/darksetin_bg.png" gfx_bl="sidebars/darksetin_ll.tga" gfx_bottom="sidebars/darksetin_bottom.tga" gfx_br="sidebars/darksetin_lr.tga" gfx_left="sidebars/darksetin_l.tga" gfx_right="sidebars/darksetin_r.tga" layout_borders="Rect(10,0,10,0)" layout_inner_borders="Rect(10,5,10,5)" view_layout="vertical">
+                <ScrollView view_flags="WID_HANDLE_MOUSE" v_scrollctrl_mode="SCROLLBAR_AUTO_RESERVE">
+                    <TreeView name="QuestTreeView" selector_arrow_gfx=""/>
+                </ScrollView>
+            </BorderView>
+        </View>        
+    </ViewSelector>
+</View>

@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="horizontal">
+	<Button name="AttackButton"
+		view_tooltip_text = "Attack"
+		gfxid_raised = "../../Customized/gfx/pet/attack.png"
+		gfxid_pressed = "../../Customized/gfx/pet/attack_click.png"
+		gfxid_highlight = "../../Customized/gfx/pet/attack_hover.png"
+	/>
+	<Button name="DefendButton"
+		view_tooltip_text = "Defend"
+		gfxid_raised = "../../Customized/gfx/pet/guard.png"
+		gfxid_pressed = "../../Customized/gfx/pet/guard_click.png"
+		gfxid_highlight = "../../Customized/gfx/pet/guard_hover.png"
+	/>
+	<Button name="MoveButton"
+		view_tooltip_text = "Follow"
+		gfxid_raised = "../../Customized/gfx/pet/follow.png"
+		gfxid_pressed = "../../Customized/gfx/pet/follow_click.png"
+		gfxid_highlight = "../../Customized/gfx/pet/follow_hover.png"
+	/>
+	<Button name="AssistButton"
+		view_tooltip_text = "Assist"
+		gfxid_raised = "../../Customized/gfx/pet/assist.png"
+		gfxid_pressed = "../../Customized/gfx/pet/assist_click.png"
+		gfxid_highlight = "../../Customized/gfx/pet/assist_hover.png"
+	/>
+	<Button name="DismissButton"
+		view_tooltip_text = "Dismiss"
+		gfxid_raised = "../../Customized/gfx/pet/dismiss.png"
+		gfxid_pressed = "../../Customized/gfx/pet/dismiss_click.png"
+		gfxid_highlight = "../../Customized/gfx/pet/dismiss_hover.png"
+	/>
+</View>

@@ -1,0 +1,5 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="horizontal">
+	<View name="PetPointContainer" view_layout="horizontal"/>
+</View>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View name="floating_portrait" view_layout="vertical" v_alignment="TOP">
+	var_mana_template
+	<BitmapView view_layout="horizontal" bitmap_gfx="../../Customized/gfx/portrait/nameplate.png" layout_borders="Rect(0,0,0,var_nameplate_layout_bottom)"var_nameplate_sizevar_nameplate_alpha>
+		<View view_layout="horizontal" layout_borders="Rect(0,var_name_layout_top,0,0)">
+			<TextView name="NameView" font="LARGE_BOLD" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+			<TextView name="LevelView" font="LARGE_BOLD" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+		</View>
+	</BitmapView>
+	<View name="StatBarsContainer" view_layout="stacked" v_alignment="TOP" view_flags="WID_HANDLE_MOUSE">
+		<ProgressBar name="HealthBar"
+			flash_on_reduce="false"
+			slide_down_time="0.04"
+			bg_gfx="../../Customized/gfx/portrait/var_hp_bg_img"
+			fg_gfx="../../Customized/gfx/portrait/hp.png"
+			left_margin="var_margin"
+			right_margin="var_margin"
+			label_color="#e3ebf2"
+			var_label_font
+			var_hp_size
+			view_local_alpha="0.94"
+		/>
+		var_mana_bar
+	</View>
+	var_buff_view
+</View>

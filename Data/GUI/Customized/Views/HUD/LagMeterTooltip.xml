@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical" h_alignment="LEFT">
+	<View view_layout="horizontal">
+		<TextView value_token="PingMeterLatencyLabel" font="LARGE" default_color="active"/>
+		<TextView name="LatencyView" font="LARGE" default_color="active"/>
+		<TextView value_token="PingMeterLatencySuffix" font="LARGE" default_color="active"/>
+	</View>
+	<View view_layout="horizontal" layout_borders="Rect(0,5,0,0)">
+		<TextView value_token="PingMeterFramerateLabel" font="LARGE" default_color="active"/>
+		<TextView name="ClientFramerateView" font="LARGE" default_color="active"/>
+		<TextView value_token="PingMeterFramerateSuffix" font="LARGE" default_color="active"/>
+	</View>
+</View>

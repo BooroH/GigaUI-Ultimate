@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View name="CSIView" view_layout="var_view_layout">
+	<template:BitmapView template:name="DirUpperLeftTemp" bitmap_gfx="../../Customized/gfx/bottombar/var_img_file" view_layout="stacked"var_layout_borders max_size_limit="Point(var_size,var_size)">
+		<BitmapView name="MissView"       bitmap_gfx="../../Customized/gfx/csi/miss.png"var_highlight_alpha/>
+		<BitmapView name="HitView"         bitmap_gfx="../../Customized/gfx/csi/hit.png"var_highlight_alpha/>
+		<BitmapView name="HighlightView" bitmap_gfx="../../Customized/gfx/csi/hl.png"var_highlight_alpha/>
+		<BitmapView bitmap_gfx="../../Customized/gfx/csi/ul.png"/>
+	</template:BitmapView>
+	<template:BitmapView template:name="DirUpperRightTemp" bitmap_gfx="../../Customized/gfx/bottombar/var_img_file" view_layout="stacked"var_layout_borders max_size_limit="Point(var_size,var_size)">
+		<BitmapView name="MissView"       bitmap_gfx="../../Customized/gfx/csi/miss.png"var_highlight_alpha/>
+		<BitmapView name="HitView"         bitmap_gfx="../../Customized/gfx/csi/hit.png"var_highlight_alpha/>
+		<BitmapView name="HighlightView" bitmap_gfx="../../Customized/gfx/csi/hl.png"var_highlight_alpha/>
+		<BitmapView bitmap_gfx="../../Customized/gfx/csi/ur.png"/>
+	</template:BitmapView>
+	<template:BitmapView template:name="DirHeadTemp" bitmap_gfx="../../Customized/gfx/bottombar/var_img_file" view_layout="stacked"var_layout_borders max_size_limit="Point(var_size,var_size)">
+		<BitmapView name="MissView"       bitmap_gfx="../../Customized/gfx/csi/miss.png"var_highlight_alpha/>
+		<BitmapView name="HitView"         bitmap_gfx="../../Customized/gfx/csi/hit.png"var_highlight_alpha/>
+		<BitmapView name="HighlightView" bitmap_gfx="../../Customized/gfx/csi/hl.png"var_highlight_alpha/>
+		<BitmapView bitmap_gfx="../../Customized/gfx/csi/mid.png"/>
+	</template:BitmapView>
+	<template:BitmapView template:name="DirLowerLeftTemp" bitmap_gfx="../../Customized/gfx/bottombar/var_img_file" view_layout="stacked"var_layout_borders max_size_limit="Point(var_size,var_size)">
+		<BitmapView name="MissView"       bitmap_gfx="../../Customized/gfx/csi/miss.png"var_highlight_alpha/>
+		<BitmapView name="HitView"         bitmap_gfx="../../Customized/gfx/csi/hit.png"var_highlight_alpha/>
+		<BitmapView name="HighlightView" bitmap_gfx="../../Customized/gfx/csi/hl.png"var_highlight_alpha/>
+		<BitmapView bitmap_gfx="../../Customized/gfx/csi/ll.png"/>
+	</template:BitmapView>
+	<template:BitmapView template:name="DirLowerRightTemp" bitmap_gfx="../../Customized/gfx/bottombar/var_img_file" view_layout="stacked"var_layout_borders max_size_limit="Point(var_size,var_size)">
+		<BitmapView name="MissView"       bitmap_gfx="../../Customized/gfx/csi/miss.png"var_highlight_alpha/>
+		<BitmapView name="HitView"         bitmap_gfx="../../Customized/gfx/csi/hit.png"var_highlight_alpha/>
+		<BitmapView name="HighlightView" bitmap_gfx="../../Customized/gfx/csi/hl.png"var_highlight_alpha/>
+		<BitmapView bitmap_gfx="../../Customized/gfx/csi/lr.png"/>
+	</template:BitmapView>
+	<BitmapView bitmap_gfx="../../Customized/gfx/bottombar/var_img_file" view_layout="stacked"var_icon_layout_borders max_size_limit="Point(var_size,var_size)">
+		<ItemIconView name="ComboIconView" icon_size="Point(var_icon_size,var_icon_size)" view_flags="F_DISABLE_TOOLTIP|F_DISABLE_COOLDOWN"/>
+		<BitmapView name="ComboMissView" bitmap_gfx="../../Customized/gfx/csi/miss.png"var_highlight_alpha/>
+		<BitmapView name="ComboHitView" bitmap_gfx="../../Customized/gfx/csi/hit.png"var_highlight_alpha/>
+	</BitmapView>
+	<View name="DirIconContainer" view_layout="var_view_layout"/>
+	var_end_img
+</View>

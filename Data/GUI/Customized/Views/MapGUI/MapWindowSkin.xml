@@ -1,0 +1,300 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 73724 $ (must be within the first 200 characters of the file) -->
+<View name="NormalWindowRoot"
+	resize_tl="Point(20,20)"
+	resize_tr="Point(20,20)"
+	resize_bl="Point(20,20)"
+	resize_br="Point(20,20)"
+	resize_edge_borders="Rect(0,0,0,0)"
+	resize_edges="Rect(10,10,10,10)"
+	dragbar_height="23"
+	minimum_border_size="Point(321,293)"
+	show_sound="sfx/gui/gui_window_popup.wav"
+	hide_sound="sfx/gui/gui_window_close.wav"
+>
+	<View view_layout="stacked" layout_borders="Rect(7,33,7,47)" v_alignment="BOTTOM">
+		<ViewSelector name="WndViewSelector" min_size_extend="Point(300,200)" max_size_limit="Point(1200,900)"/>
+		<View view_layout="stacked" h_alignment="LEFT" h_local_alignment="LEFT" v_local_alignment="TOP" >
+      <View name="LegendContainer" view_layout="stacked" layout_borders="Rect(0,0,0,19)">
+	<BitmapView bitmap_gfx="Misc/black.tga" view_alpha="0.7" min_size_limit="Point(-1,-1)" max_size_extend="Point(COORD_MAX,COORD_MAX)"/>
+	<BitmapView bitmap_gfx="GUIcomponents/menu/menu_divider.tga" max_size_extend="Point(COORD_MAX,-1)" layout_borders="Rect(0,18,0,0)" v_local_alignment="TOP"/>
+	<ScrollView view_flags="WID_HANDLE_MOUSE" v_scrollctrl_mode="SCROLLBAR_AUTO" layout_borders="Rect(0,20,0,0)">
+	  <ScrollViewChild name="LegendBG" layout_inner_borders="Rect(0,0,5,5)" view_flags="SVCF_USE_H_PREFSIZE|SVCF_USE_V_PREFSIZE" view_layout="vertical" h_alignment="LEFT">
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_arrowself.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_CharacterLoc /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_questgiver.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_QuestGiver /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_quest_done.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_QuestSolver /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_questlocation_selected_active.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_selected_active /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_questlocation_selected_inactive.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_selected_inactive /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_questlocation_tracked_active.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_tracked_active /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_questlocation_tracked_inactive.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_tracked_inactive /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_questlocation_nonetracked_active.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_nonetracked_active /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_questlocation_nonetracked_inactive.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_nonetracked_inactive /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_shop.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_Merchant /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_resurrectionpoint.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_ResPoint /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_resurrectionpoint_red.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_MurdererResPoint /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_tombstone.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_Tombstone /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_marker.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_CustomWaypoint /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_marker_yellow.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_TravelPoint /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_marker_red.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_Dungeon /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_marker_green.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_POI /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_marker_blue.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_TortageSmuggler /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_travel.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_Travel/&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_tracking.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_TrackedTarget /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/ctf_flag_red.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_RedFlag /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/ctf_flag_blue.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_BlueFlag /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_resourcegathering_active.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_ResourceInUse /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_stone.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_StoneResource /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_wood.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_WoodResource /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_gold.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_PreciousResource /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_iron.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_MetalResource /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/minimap_cloth.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_ClothResource /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/worldmap_hub.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_Hub /&gt;"/>
+	    </View>
+	    <View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/worldmap_playfield.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_Region /&gt;"/>
+	    </View>
+		<View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/locked.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_Locked /&gt;"/>
+	    </View>
+		<View view_layout="horizontal" h_alignment="LEFT">
+	      <View view_layout="stacked" width_group="Icons" width_group_owner="LegendBG" >
+		<BitmapView bitmap_gfx="WorldmapGUI/unlocked.tga"/>
+	      </View>
+	      <TextView value="&lt;localized token=MapGUI_Legend_Unlocked /&gt;"/>
+	    </View>
+	  </ScrollViewChild>
+	</ScrollView>
+      </View>
+      
+      <View view_layout="horizontal" h_local_alignment = "LEFT" v_local_alignment = "TOP">
+	<Button name              = "LegendButton"
+		layout_borders    = "Rect(0,0,0,0)"
+		gfxid_raised      = "Misc/collapse_right.tga"
+		gfxid_pressed     = "Misc/collapse_left.tga"
+		gfxid_highlight   = "Misc/collapse_glow.tga"
+		/>
+	<TextView name="LegendTitleView"
+		  value_token="MapGUI:MapWaypointLegendTitle"
+		  feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"
+		  layout_borders = "Rect(5,0,0,0)"
+		  default_color="active"/>
+      </View>
+    </View>
+		<View view_layout="stacked" min_size_limit="Point(-1,-1)" max_size_extend="Point(COORD_MAX,-1)">
+			<View name="BottomHeaderContainer" view_layout="stacked">
+				<BitmapView bitmap_gfx="Misc/black.tga" view_alpha="0.7" min_size_limit="Point(-1,-1)" max_size_extend="Point(COORD_MAX,-1)"/>
+				<View view_layout="horizontal">
+					<TextView layout_borders="Rect(25,3,0,3)" default_color="active" value_token="MapGUI:RegionMapActiveQuest"/>
+					<TextView name="ActiveQuestName" layout_borders="Rect(0,3,0,3)" feature_flags="TVF_ENABLE_ELLIPSIS" min_size="Point(15,-1)"/>
+					<HLayoutSpacer layout_weight="0"/>
+					<CheckBox name="ShowActiveQuestCB" label="<localized category=MapGUI token=MapShowOnlyActiveQuest>" layout_borders="Rect(0,0,15,0)"/>
+				</View>
+			</View>
+			<Button name="BottomHeaderButton" _layout_borders="Rect(0,-3,0,-11)" h_local_alignment="LEFT"
+				gfxid_raised="Misc/collapse_up.tga"
+				gfxid_pressed="Misc/collapse_down.tga"
+				gfxid_highlight="Misc/collapse_glow.tga"
+			/>
+		</View>
+	<TextView name="CoordinatesView" view_layout="horizontal" default_color="#dddddd" layout_borders="Rect(0,0,0,22)"/>
+	<View view_layout="vertical" h_local_alignment="RIGHT" v_local_alignment="TOP">
+		<Button name="ZoomInButton" template:source="ClearButton" label="+" label_font="SC_LARGE_BOLD" layout_borders="Rect(-8,0,-13,-5)" interaction_borders="Rect(8,0,13,5)"/>
+		<Button name="ZoomOutButton" template:source="ClearButton" label="-" label_font="SC_LARGE_BOLD" layout_borders="Rect(-8,-5,-13,0)" interaction_borders="Rect(8,5,13,0)"/>
+	</View>
+	</View>
+	<BorderView view_layout="stacked"
+		gfx_tl="../../Customized/gfx/borders/map_tl.png"
+		gfx_top="../../Customized/gfx/borders/map_t.png"
+		gfx_tr="../../Customized/gfx/borders/map_tr.png"
+		gfx_left="../../Customized/gfx/borders/map_lr.png"
+		gfx_right="../../Customized/gfx/borders/map_lr.png"
+		gfx_bl="../../Customized/gfx/borders/map_bl_default.png"
+		gfx_bottom="../../Customized/gfx/borders/map_b_default.png"
+		gfx_br="../../Customized/gfx/borders/map_br_default.png"
+		gfx_background=""
+		v_alignment="TOP"
+	>
+		<TextView name="WndTitleView"
+			layout_borders="Rect(0,11,0,0)"
+			font="LARGE_BOLD"
+			default_color="#c9c4d4"
+		/>
+		<Button name="WndCloseButton" h_local_alignment="RIGHT"
+			layout_borders="Rect(0,9,12,0)"
+			gfxid_raised="GUIcomponents/closebuttons/close_white.tga"
+			gfxid_pressed="GUIcomponents/closebuttons/close_white_pressed.tga"
+			gfxid_highlight="GUIcomponents/closebuttons/close_white_hover.tga"
+		/>
+		<View view_layout="horizontal" v_local_alignment="BOTTOM" layout_borders="Rect(12,0,10,3)">
+			<DropdownMenu name="DistrictMenu"
+				view_flags="_DMF_DONT_UPDATE_LABEL"
+				current_text="&lt;localized token=Region /&gt;"
+				min_size_limit="Point(70,-1)"
+			/>
+			<DropdownMenu name="RegionMenu"
+				view_flags="DMF_DONT_AUTOSELECT_ON_INSERT"
+				current_text="&lt;localized token=Region /&gt;"
+				max_size_limit="Point(250,50)"
+				max_size_extend="Point(250,-1)"
+				min_size_limit="Point(70,-1)"
+			/>
+			<Button name="WorldMapButton" template:source="ClearButton" label="<localized category=MapGUI token=MapGUI_WorldMapButton>" label_font="SC_BOLD" layout_borders="Rect(-13,0,-15,0)"/>
+			<Button name="CurrentPFButton"
+				gfxid_raised="WorldmapGUI/current_location_icon.tga"
+				gfxid_pressed="WorldmapGUI/current_location_icon_click.tga"
+				gfxid_highlight="WorldmapGUI/current_location_icon_hover.tga"
+				layout_borders="Rect(0,0,0,1)"
+			/>
+		</View>
+	</BorderView>
+</View>

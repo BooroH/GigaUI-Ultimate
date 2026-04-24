@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 62838 $ (must be within the first 200 characters of the file) -->
+<View xmlns:template="template.dtd"
+        view_layout="vertical"
+        layout_inner_borders="Rect(0,7,0,14)"
+        >
+  <template:BitmapView template:name="HDivider"
+          layout_col_span="3"
+          bitmap_gfx="sidebars/horizontal_dividerline.tga"
+          max_size_extend="Point(COORD_MAX,-1)"
+          _min_size_extend="Point(300,-1)"
+          layout_borders="Rect(0,6,0,6)"/>
+  <template:BitmapView template:name="VDivider"
+          bitmap_gfx="GUIcomponents/list_vertical_dividesr.tga"
+          max_size_extend="Point(-1,COORD_MAX)"
+          layout_borders="Rect(8,0,8,0)"/>
+  <template:TextView feature_flags="TVF_ENABLE_SHADOW|TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+
+  <View view_layout="vertical" min_size_extend="Point(COORD_MAX,-1)" layout_inner_borders="Rect(0,10,0,15)" h_local_alignment="LEFT">
+
+    <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+
+      <LayoutRow>
+        <TextView value_token="Level"
+            font="LARGE"
+            default_color="ACTIVE"
+            h_local_alignment="LEFT"
+            layout_borders="Rect(0,0,10,3 )"/>
+        <TextView value_token="Experience"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,0,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="PvPLevel_value" default_color="positive" h_local_alignment="LEFT" layout_borders="Rect(0,0,10,3 )"/>
+        <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)">
+          <TextView name="Experience_value" default_color="positive" h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3 )"/>
+          <TextView value=" / " h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3 )"/>
+          <TextView name="Next_Experience_value" default_color="positive" h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3 )"/>
+          <TextView value=" " h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3 )"/>
+          <TextView value="( " h_local_alignment="LEFT"  layout_borders="Rect(0,0,0,3 )"/>
+          <TextView name="Experience_Percentage_value" default_color="positive" h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3 )"/>
+          <TextView value=" )" h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3 )" />
+        </View>
+      </LayoutRow>
+    </View>
+    
+    <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView value_token="PvPStats"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3 )"/>
+        <TextView value_token="PvPStatsSeasonal"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3 )"/>
+        <TextView value_token="PvPStatsOverall"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3 )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPKills_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPKills_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPKills_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPDeaths_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPDeaths_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPDeaths_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPFatalities_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPFatalities_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPFatalities_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPMurderPoints_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPMurderPoints_value_seasonal" value="-" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPMurderPoints_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPArenaKills_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPArenaKills_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPArenaKills_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPAnnihilationMatchesWon_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPAnnihilationMatchesWon_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPAnnihilationMatchesWon_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPAnnihilationMatchesLost_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPAnnihilationMatchesLost_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPAnnihilationMatchesLost_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPCTFMatchesWon_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPCTFMatchesWon_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPCTFMatchesWon_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPCTFMatchesLost_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPCTFMatchesLost_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+        <TextView name="PvPCTFMatchesLost_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3 )"/>
+      </LayoutRow>
+	  <LayoutRow>
+        <TextView name="PvPConquestMatchesWon_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPConquestMatchesWon_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPConquestMatchesWon_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+	  <LayoutRow>
+        <TextView name="PvPConquestMatchesLost_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPConquestMatchesLost_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPConquestMatchesLost_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+	  <LayoutRow>
+        <TextView name="PvPTournamentMatchesWon_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPTournamentMatchesWon_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPTournamentMatchesWon_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPSiegeMatchesWon_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPSiegeMatchesWon_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPSiegeMatchesWon_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPSiegeMatchesLost_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPSiegeMatchesLost_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPSiegeMatchesLost_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="PvPMachesAbandoned_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPMachesAbandoned_value_seasonal" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="PvPMachesAbandoned_value" h_local_alignment="LEFT"  layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+    </View>
+    <VLayoutSpacer/>
+  </View>
+</View>

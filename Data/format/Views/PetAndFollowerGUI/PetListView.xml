@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical"var_alpha>
+	<PetCommandBar name="MovablePetCommandBar"/>
+	<PetPointView name="PetPointView"
+		petpoint_gfx_empty="../../Customized/gfx/pet/empty.png"
+		petpoint_gfx_full="../../Customized/gfx/pet/full.png"
+		max_pet_points = "12"
+	/>
+	<MiniCharListView name="ListView"
+		hide_empty_slots="true"
+		show_char_stats_in_hoverinfo="false"
+		max_char_count="20"
+		view_layout="vertical"
+		layout_borders="Rect(3,0,0,0)"
+		var_size_limit
+	/>
+</View>

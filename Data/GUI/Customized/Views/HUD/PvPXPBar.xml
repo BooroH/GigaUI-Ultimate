@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 86949 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked"
+      v_alignment="BOTTOM"
+      view_flags="WID_IGNORE_WHEN_HIDDEN|WID_HANDLE_MOUSE"
+      interaction_borders="Rect(0,10,0,0)"
+      tooltip_x_offset="1.0"
+      tooltip_y_offset="-20.0"
+      marker_count    = "21"
+      bar_gfx_normal  = "bottombars/experiencebar_full.tga"
+      bar_gfx_strong  = "bottombars/experiencebar_full_hyperpower.tga"
+      bar_sparkle_normal = "bottombars/experiencebar_sparkle.tga"
+      bar_sparkle_strong = "bottombars/experiencebar_sparkle_strong.tga"
+>
+    <CharStatBar name="XPBar"
+		 stat_type="pvpxp"
+		 orientation="right"
+		 flash_on_reduce="true"				 
+		 view_flags="PBF_TILE_BG_HORIZONTAL|PBF_TILE_FG_HORIZONTAL"
+		 slider_mode="clip"
+		 bg_gfx="bottombars/experiencebar_empty.tga"
+		 fg_gfx=""
+		 sparkle_gfx=""
+		 sparkle_offset="0.0"
+		 min_size_extend="Point(COORD_MAX,-1)"				 
+		 layout_borders="Rect(0,0,0,0)" />
+</View>

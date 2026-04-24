@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="horizontal">
+	<View name="HoverInfoArea" view_layout="vertical" view_flags="WID_AUTO_HIGHLIGHT">
+		<BitmapView view_layout="horizontal" bitmap_gfx="../../Customized/gfx/teamlist/name_bg.png" layout_borders="Rect(0,0,0,-4)"var_nameBg_alpha max_size_limit="Point(var_width,var_nameBg_height)">
+			<View view_layout="horizontal">
+				<TeamMemberClassView name="ClassIconView"/>
+				<TextView name="NameView"
+					var_name_layout_borders
+					min_size_extend="Point(var_text_width,-1)"
+					max_size_limit="Point(var_text_width,23)"
+					feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"
+					font="NORMAL_BOLD"
+				/>
+			</View>
+		</BitmapView>
+		<View name="Health" view_layout="stacked" max_size_limit="Point(var_width,var_height)">
+			<CharStatBar name="HealthBar"
+				stat_type="health"
+				flash_on_reduce="false"
+				bg_gfx="../../Customized/gfx/teamlist/bg.png"
+				fg_gfx="../../Customized/gfx/teamlist/hp.png"
+				left_margin="var_left_margin"
+				right_margin="var_right_margin"
+				var_hp_alpha
+			/>
+			<BitmapView name="OutOfRangeOverlay" bitmap_gfx="../../Customized/gfx/teamlist/oor.png"/>
+			<TextView name="DeadOverlay"
+				view_flags="WID_DONT_INHERIT_ALPHA"
+				default_color="#c8c8c8"
+				value_token="TeamMemberDead"
+			/>
+		</View>
+	</View>
+	<BuffListView name="BuffListView"
+		layout_borders="Rect(4,0,0,0)"
+		v_local_alignment="BOTTOM"
+		filter="hostile"
+		icon_size="Point(15,15)"
+		full_size_limit="0"
+		icon_spacing="Point(1,1)"
+		max_columns="100"
+	/>
+</View>

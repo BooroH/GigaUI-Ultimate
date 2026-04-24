@@ -1,0 +1,175 @@
+************* Ver 2.3.1 *************
+- added bigger side panel size
+- changed font formats
+- added missing glyphs to font
+- adjusted text layouts
+- fixed minor bugs
+
+
+************* Ver 2.3.0 *************
+- new feature : castbar sparkling effect. you can turn on/off in the option
+- added experience bar back
+- enlarged tradeskill panel
+- cleaned up buff icons texts. now you can set stack number's layout
+- increased clarity of fonts
+- toned down 'outofrange' overlay on group/raid panel
+- tuned text colors subtly
+- fixed minor bugs
+
+
+************* Ver 2.2.0 *************
+- now you can resize left/right portraits
+- improved text area of buff icons
+- added world clock
+- added 'optimize' option. now you can remove features you don't need
+- adjusted HP slide down animation times
+- rebalanced color tones through the UI
+- improved UI scale presets on quick setup page. now you can choose 100% to 160%
+
+
+************* Ver 2.1.0 *************
+- retouched actionbar slot design
+- now you can adjust actionbar's background alpha
+- retouched combo sequencer design
+- now you can custom combo sequencer
+- retouched group/raid hp bar design
+- now you can adjust size of group/raid hp bar and alpha
+- retouched minimap design
+- now you can adjust size of minimap
+- tweaked overhead health bars
+- now you can adjust size of side panel
+- now you can adjust castbar's background alpha individually
+- fine-tuned left and right margins of castbar
+- now you can use moveable sidebars properly (you can't bind keys)
+- changed image process algorithm for darkmode. now it darkens components more naturally
+- enlarged font size cap
+- fixed bug on castbar text layout
+- fixed bug on group/raid hp alpha
+- Fixed bug on target's target coordinates were not being saved to profile
+
+
+************* Ver 2.0.0 *************
+- new feature : dark mode
+- you can adjust brightness of each element individually
+- new castbar. now you can resize castbar
+- added new 361 castbar colours
+- now you can adjust castbar text layout vertically
+- new floating portrait. now you can resize floating portrait
+- retouched main portrait design
+- now you can resize overhead hp bar
+- retouched overhead hp bar design
+- now you can adjust group/raid panel's alpha
+- retouched group/raid panel design
+- now you can resize assassin's soulshards
+- retouched soulshard design
+- added zoom in/out buttons on map window
+- added zoom in/out buttons on minimap
+- retouched instance button on minimap
+- fixed bug on mini slots
+- fixed bug on soulshard layout
+
+
+************* Ver 1.3.0 *************
+- improved readibility of castbar by enlarging text area
+- changed background of floating and team healthbar a bit
+- now you can adjust menu icons
+
+
+************* Ver 1.2.4 *************
+- now you can adjust castbar's thickness
+- fixed some bug on quest window
+
+
+************* Ver 1.2.3 *************
+- adjusted castbar
+- created new bottombar slot img for smallest size
+
+
+************* Ver 1.2.2 *************
+- enlarged group health bar
+- adjusted text layout for castbar - style1 - bottom
+- fixed a bug when some of text being square in NPC talk screen
+- removed 'boss' tag from normal boss (field bosses that you can kill alone)
+
+
+************* Ver 1.2.1 *************
+- added option for target's target layout (don't import previous version's profile. it will cause uneven layout between left and right portraits)
+- polished elements details
+- fixed the composing mail window being weird
+
+
+************* Ver 1.2.0 *************
+- restored the sound effect when map, side panel is opened
+- changed pet command icons and count
+- slightly increased visibility of directional attack icons on combo sequencer
+- changed emote window
+- optimized color of texts
+- Fixed minor bugs
+
+
+************* Ver 1.19 *************
+- polished colors, alpha of castbar, floating portraits, group and raid bars
+- removed 'Deepsea' from color pool
+- fine-tunred size scaling of mini slots
+- Fixed bug healthbar keep resetting to red
+- improved installer's UI
+
+
+************* Ver 1.18 *************
+- now you can save/load profile from app
+- added option for overhead health bar size
+- added option for buff stack/time text brightness
+
+
+************* Ver 1.17 *************
+- changed group, raid, overhead health bar to blend with floating portrait and castbar
+- replaced style 1 from castbar, floating portrait to style 3. old style 1 is not available anymore
+- stopped supporting funcom default font
+- added option for overhead name font
+- fixed bug on left/right portrait sync
+
+
+************* Ver 1.16 *************
+- enhanced design of castbar and floating portrait style 3
+- added +10 more colors for each bar
+- now you can use mini slots when column is bigger than 17 (when row is 2)
+
+
+************* Ver 1.15 *************
+- adjusted text margin for raid panel
+- changed side panel and map window design to match with HUD
+
+
+************* Ver 1.14 *************
+- changed font for chat. now you can see korean letters as default
+- removed korean font option due to font change
+- adjusted weight of font for each elements
+- added lots of features
+
+
+************* Ver 1.13 *************
+- upgraded font for Font Enhancement
+- adjusted text margin for Font Enhancement
+
+
+************* Ver 1.12 *************
+- added general font size option
+- made Font Enhancement as default setup
+- enhanced cd font
+- added even more bar columns (max 29)
+
+
+************* Ver 1.11 *************
+- added new cast bar, floating bar. this will be the new standard style
+- adjusted text margins for Font Enhancement
+- added more action bar column (maximum 25)
+- fixed minor bugs
+
+
+************* Ver 1.10 *************
+- added installer, customizer
+- added more bottom bar layouts
+- added different floating portrait style
+- added mini slot bars as option
+- adjusted alpha of components
+- added 'Font Enhancement' option

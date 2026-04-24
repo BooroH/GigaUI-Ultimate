@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked" max_size_limit="Point(112,30)">
+	<BitmapView bitmap_gfx="../../Customized/gfx/soulshard/bg.png"/>
+	<View view_layout="horizontal" h_local_alignment="LEFT">
+		<BitmapView name="Shard0" bitmap_gfx="../../Customized/gfx/soulshard/fg.png"/>
+		<BitmapView name="Shard1" bitmap_gfx="../../Customized/gfx/soulshard/fg.png"/>
+		<BitmapView name="Shard2" bitmap_gfx="../../Customized/gfx/soulshard/fg.png"/>
+		<BitmapView name="Shard3" bitmap_gfx="../../Customized/gfx/soulshard/fg.png"/>
+		<BitmapView name="Shard4" bitmap_gfx="../../Customized/gfx/soulshard/fg.png"/>
+	</View>
+</View>

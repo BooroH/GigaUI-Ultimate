@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 61112 $ (must be within the first 200 characters of the file) -->
+<View xmlns:template="template.dtd"
+        view_layout="vertical"
+        layout_inner_borders="Rect(0,7,0,14)"
+        >
+  <template:BitmapView template:name="HDivider"
+          layout_col_span="3"
+          bitmap_gfx="sidebars/horizontal_dividerline.tga"
+          max_size_extend="Point(COORD_MAX,-1)"
+          _min_size_extend="Point(300,-1)"
+          layout_borders="Rect(0,6,0,6)"/>
+  <template:BitmapView template:name="VDivider"
+          bitmap_gfx="GUIcomponents/list_vertical_divider.tga"
+          max_size_extend="Point(-1,COORD_MAX)"
+          layout_borders="Rect(15,0,15,0)"/>
+  <template:TextView feature_flags="TVF_ENABLE_SHADOW|TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+
+  <View view_layout="vertical" min_size_extend="Point(COORD_MAX,-1)" layout_inner_borders="Rect(0,10,0,15)" h_local_alignment="LEFT">
+
+    <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+
+      <LayoutRow>
+        <TextView value_token="Mana"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(5,0,5,3 )"
+                    layout_col_span="2"/>
+        <TextView value_token="Value"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Mana_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="Mana_value" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="ManaRegeneration_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="ManaRegeneration_value" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="NonCombatManaRegeneration_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="NonCombatManaRegeneration_value" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="ManaTapRating_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="ManaTapRating_value" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="MagicalManaTapRating_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="MagicalManaTapRating_value" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView value_token="BonusSpellDamage"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView value_token="Damage"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="BaseSpellDamage_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="BaseSpellDamage_value" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="SpellFatalityChance_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="SpellFatalityChance_value" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+      
+      <LayoutRow>
+        <TextView name="HolyDamage_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="HolyDamage_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="UnholyDamage_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="UnholyDamage_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="ColdDamage_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="ColdDamage_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="ElectricalDamage_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="ElectricalDamage_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="FireDamage_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="FireDamage_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView   name="BonusHealingNameView" 
+                    value_token="BonusHealing"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView   name="BonusHealingScoreView"
+                    value_token="Value"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Healing_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )" layout_col_span="2"/>
+        <TextView name="Healing_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView value_token="Protection"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(5,0,5,3 )"/>
+        <TextView value_token="Score"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(5,0,5,3 )"/>
+        <TextView value_token="Mitigation"
+            font="LARGE"
+            default_color="ACTIVE"
+            h_local_alignment="LEFT"
+            layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="HolyProtection_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="HolyProtection_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="HolyProtection_effect" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="UnholyProtection_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="UnholyProtection_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="UnholyProtection_effect" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="ColdProtection_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="ColdProtection_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="ColdProtection_effect" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="ElectricalProtection_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="ElectricalProtection_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="ElectricalProtection_effect" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="FireProtection_label" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="FireProtection_rating" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+        <TextView name="FireProtection_effect" h_local_alignment="LEFT" layout_borders="Rect(5,0,5,3 )"/>
+      </LayoutRow>
+    </View>
+    <VLayoutSpacer/>
+  </View>
+</View>

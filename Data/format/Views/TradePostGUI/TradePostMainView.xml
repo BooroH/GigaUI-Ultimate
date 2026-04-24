@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View cell_count="Point(var_column,var_row)"
+	name="Root"
+	icon_borders="Rect(1,1,1,1)"
+	icon_size="Point(63.0,63.0)"
+	inv_bitmaps_path="Views/TradePostGUI/BankInventoryBitmapPaths.xml"
+	max_icon_zoom="1.75"
+	number_of_columns="var_column"
+	number_of_lines="var_row"
+	preferred_icon_spacing="Point(3,3)" 
+	view_layout="stacked"
+	arrow_hover_timeout="0.5"
+>
+	<template:TextView template:source="LargeTextView"/>
+	<BitmapView view_layout="vertical" bitmap_gfx="Misc/rock_tile_darker.tga" view_flags="BMF_TILE|BMF_IGNORE_BITMAP_SIZE" max_size_extend="Point(COORD_MAX,COORD_MAX)">
+	<View name="PageHeader"/>
+	<VLayoutSpacer/>
+	<View name="ChangingView" view_layout="stacked" layout_borders="Rect(5,0,5,0)" layout_inner_borders="Rect(0,-3,0,0)"/>
+	<BitmapView name="PageNumerationDock"
+		view_flags="WID_HANDLE_MOUSE|BMF_IGNORE_BITMAP_SIZE"
+		layout_borders="Rect(24,0,24,0)"
+		layout_inner_borders="Rect(10,3,10,3)"
+		bitmap_gfx="Misc/black.tga"
+		view_layout="horizontal"
+		view_local_alpha="0.5"
+	>
+		<Button gfxid_highlight="Misc/arrow_left_active.tga"
+			gfxid_pressed="Misc/arrow_left_black.tga"
+			gfxid_raised="Misc/arrow_left.tga"
+			max_zoom="1"
+			name="LeftArrowButton"
+		/>
+		<HLayoutSpacer/>
+		<TextView name="PageNumeration"/>
+		<HLayoutSpacer/>
+		<Button gfxid_highlight="Misc/arrow_right_active.tga"
+			gfxid_pressed="Misc/arrow_right_black.tga"
+			gfxid_raised="Misc/arrow_right.tga"
+			max_zoom="1"
+			name="RightArrowButton"
+		/>		
+	</BitmapView>
+	<VLayoutSpacer/>
+	<BitmapView name="BottomView" v_alignment="CENTER" layout_inner_borders="Rect(20,13,20,0)" view_layout="horizontal" 
+		bitmap_gfx="TradeItemGUI/tradepost_bottom.tga" view_flags="BMF_IGNORE_BITMAP_SIZE"
+	>
+		<MoneyView name="BankMoneyView" value="0"/>
+		<HLayoutSpacer/>
+		<View name="BankExpansionArea" view_layout="horizontal">
+			<BorderView view_layout="stacked" layout_borders="Rect(0,0,-3,0)">
+				<BorderView view_layout="stacked"
+					gfx_left       = "Inventory/slot_left.tga"
+					gfx_background = "Inventory/slot_center.tga"
+					gfx_right      = "Inventory/slot_right.tga"
+				/>
+				<TextView name="AvailableSlots" layout_borders="Rect(7,0,5,0)"/>
+				</BorderView>
+				<HLayoutSpacer min_size="0" max_size="0"/>
+				<Button label="&lt;localized token=GetBankSlotsButton /&gt;" name="GetBankSlots"/>
+			</View>
+			<HLayoutSpacer/>
+			<Button label="&lt;localized token=Close /&gt;" name="Close"/>
+		</BitmapView>               
+	</BitmapView>
+</View>

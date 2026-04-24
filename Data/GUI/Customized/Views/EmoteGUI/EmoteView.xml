@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical">
+	<template:ShortcutView out_of_range_bitmap="../../Customized/gfx/bottombar/oor_emote.png" slot_bg_gfx="../../Customized/gfx/bottombar/slot_43x43_edge.png" slot_template="SlotTemplate">
+		<template:ItemSlotView
+			slot_size="Point(43,43)"
+			icon_borders="Point(2,2)"
+			template:name="SlotTemplate"
+		/>
+	</template:ShortcutView>
+	<DropdownMenu view_tooltip_text="&lt;localized token=TXT_Allemotes category=Emotes /&gt;" name="FullEmoteList" max_size_limit="Point(139,40)" layout_borders="Rect(-3,0,-6,-6)"/>
+	<View name="ButtonGrid" view_layout="vertical">
+		<ShortcutView name="LeftBar1"
+			first_slot="10006"
+			slot_count="3"
+		/>
+		<ShortcutView name="LeftBar2"
+			first_slot="10009"
+			slot_count="3"
+		/>
+		<ShortcutView name="LeftBar3"
+			first_slot="10012"
+			slot_count="3"
+		/>
+		<ShortcutView name="LeftBar4"
+			first_slot="10015"
+			slot_count="3"
+		/>
+	</View>
+</View>

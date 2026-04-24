@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 61112 $ (must be within the first 200 characters of the file) -->
+<View xmlns:template="template.dtd"
+        view_layout="vertical"
+        layout_inner_borders="Rect(0,7,0,14)"
+        >
+  <template:BitmapView template:name="HDivider"
+          layout_col_span="3"
+          bitmap_gfx="sidebars/horizontal_dividerline.tga"
+          max_size_extend="Point(COORD_MAX,-1)"
+          _min_size_extend="Point(300,-1)"
+          layout_borders="Rect(0,8,0,8)"/>
+  <template:BitmapView template:name="VDivider"
+          bitmap_gfx="GUIcomponents/list_vertical_divider.tga"
+          max_size_extend="Point(-1,COORD_MAX)"
+          layout_borders="Rect(15,0,15,0)"/>
+  <template:TextView feature_flags="TVF_ENABLE_SHADOW|TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+
+  <View view_layout="vertical" min_size_extend="Point(COORD_MAX,-1)" layout_inner_borders="Rect(0,10,0,15)" h_local_alignment="LEFT">
+
+    <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+      <LayoutRow>
+        <TextView name="CharNameView" font="LARGE_BOLD" default_color="active" layout_borders="Rect(0,0,0,3)" h_local_alignment="LEFT" />
+      </LayoutRow>
+      <LayoutRow>
+        <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+          <TextView name="CharBreadClassView" font="LARGE" layout_borders="Rect(0,0,0,3)" h_local_alignment="LEFT"/>
+          <TextView value=" (" font="LARGE"  layout_borders="Rect(0,0,0,3)" h_local_alignment="LEFT" />
+          <TextView name="Level_value" default_color="positive" font="LARGE" layout_borders="Rect(0,0,0,3)" h_local_alignment="LEFT" />
+          <TextView value=")" font="LARGE" layout_borders="Rect(0,0,0,3)" h_local_alignment="LEFT" />
+      </View>
+      </LayoutRow>
+    </View>
+
+    <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView value_token="Experience"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,0,3)"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        
+        <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)">
+          <TextView name="Experience_value" default_color="positive" h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3)"/>
+          <TextView value=" / " h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3)"/>
+          <TextView name="Next_Experience_value" default_color="positive" h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3)"/>
+          <TextView value=" " h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3)"/>
+          <TextView value="( " h_local_alignment="LEFT"  layout_borders="Rect(0,0,0,3)"/>
+          <TextView name="Experience_Percentage_value" default_color="positive" h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3)"/>
+          <TextView value=" )" h_local_alignment="LEFT" layout_borders="Rect(0,0,0,3)" />
+        </View>
+      </LayoutRow>
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+    </View>
+
+    <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+      <LayoutRow>
+        <TextView value_token="BaseStat"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"
+                    min_size_extend="Point(100,-1)"/>
+        <TextView value_token="Score"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="Health_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Health_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Mana_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Mana_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Stamina_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Stamina_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3p  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Armor_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Armor_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      
+      <LayoutRow>
+        <TextView name="DPS_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="DPS_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView value_token="Attributes"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView value_token="Score"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Strength_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Strength_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Intelligence_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Intelligence_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Constitution_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Constitution_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Dexterity_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Dexterity_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Wisdom_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Wisdom_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Ferocity_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Ferocity_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+    </View>
+    <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+      <LayoutRow>
+        <TextView value_token="Factions"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,0 )"/>
+      </LayoutRow>
+
+      <LayoutRow>
+	<Button gfx_icon="QuestJournal/share_icon.tga" gfx_icon_highlight="QuestJournal/share_icon_hover.tga" name="FactionsButton" template:source="ClearButton" label="&lt;localized token=Factions /&gt;" label_font="SC_BOLD" layout_borders="Rect(75,0,0,0)"/>
+      </LayoutRow>
+    </View>
+    <View view_layout="grid" _max_size_extend="Point(COORD_MAX,-1)" h_local_alignment="LEFT">
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView value_token="CraftingProfession"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView value_token="SkillLevel"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Crafting1_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Crafting1_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="Crafting2_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Crafting2_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <BitmapView template:source="HDivider"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView value_token="GatheringProfession"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+        <TextView value_token="SkillLevel"
+                    font="LARGE"
+                    default_color="ACTIVE"
+                    h_local_alignment="LEFT"
+                    layout_borders="Rect(0,0,8,3  )"/>
+
+      </LayoutRow>
+
+      <LayoutRow>
+        <TextView name="Gathering1_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Gathering1_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="Gathering2_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Gathering2_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="Gathering3_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Gathering3_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="Gathering4_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Gathering4_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="Gathering5_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Gathering5_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+      <LayoutRow>
+        <TextView name="Gathering6_label" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+        <TextView name="Gathering6_value" h_local_alignment="LEFT" layout_borders="Rect(0,0,8,3  )"/>
+      </LayoutRow>
+
+    </View>
+    <VLayoutSpacer/>
+  </View>
+</View>

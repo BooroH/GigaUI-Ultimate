@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 73724 $ (must be within the first 200 characters of the file) -->
+<View name="NormalWindowRoot"
+	resize_tl="Point(20,20)"
+	resize_tr="Point(20,20)"
+	resize_bl="Point(20,20)"
+	resize_br="Point(20,20)"
+	resize_edge_borders="Rect(0,0,0,0)"
+	resize_edges="Rect(10,10,10,10)"
+	dragbar_height="23"
+	minimum_border_size="Point(321,293)"
+	show_sound="sfx/gui/gui_window_popup.wav"
+	hide_sound="sfx/gui/gui_window_close.wav"
+>
+	<ViewSelector name="WndViewSelector" min_size_extend="Point(300,200)" max_size_limit="Point(1200,900)" layout_borders="Rect(7,33,7,7)"/>
+	<BorderView view_layout="stacked"
+		gfx_tl="../../Customized/gfx/borders/map_tlvar_bg_chroma.png"
+		gfx_top="../../Customized/gfx/borders/map_tvar_bg_chroma.png"
+		gfx_tr="../../Customized/gfx/borders/map_trvar_bg_chroma.png"
+		gfx_left="../../Customized/gfx/borders/map_lrvar_bg_chroma.png"
+		gfx_right="../../Customized/gfx/borders/map_lrvar_bg_chroma.png"
+		gfx_bl="../../Customized/gfx/borders/map_bl_minimalvar_bg_chroma.png"
+		gfx_bottom="../../Customized/gfx/borders/map_b_minimalvar_bg_chroma.png"
+		gfx_br="../../Customized/gfx/borders/map_br_minimalvar_bg_chroma.png"
+		gfx_background=""
+		v_alignment="TOP"
+	>
+		<TextView name="WndTitleView"
+			layout_borders="Rect(0,var_title_margin,0,0)"
+			font="LARGE_BOLD"
+			default_color="#c9c4d4"
+		/>
+		<Button name="WndCloseButton" h_local_alignment="RIGHT"
+			layout_borders="Rect(0,10,12,0)"
+			gfxid_raised="GUIcomponents/closebuttons/close_white.tga"
+			gfxid_pressed="GUIcomponents/closebuttons/close_white_pressed.tga"
+			gfxid_highlight="GUIcomponents/closebuttons/close_white_hover.tga"
+		/>
+	</BorderView>
+</View>

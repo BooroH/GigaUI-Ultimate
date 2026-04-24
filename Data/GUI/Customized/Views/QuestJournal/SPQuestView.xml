@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View ItemsOnFirstLine="3" 
+      MainQuestRewardAlpha="0.5" 
+      TaskListItemBorders="Rect(7,10,7,0)" 
+      TaskListItemColor="std_disabled" 
+      TaskListItemDot="QuestJournal/quest_dot.tga" 
+      TaskListItemFont="LARGE" 
+      layout_inner_borders="Rect(0,0,0,15)" 
+      view_layout="vertical" xmlns:template="template.dtd">
+    <template:QJRewardItemsView icon_borders="Point(4,4)" max_items_for_row="5" slot_borders="Rect(5,0,0,0)" slot_size="Point(54,54)"/>
+    <ViewSelector max_size_extend="Point(COORD_MAX,COORD_MAX)" name="ViewSelector">
+        <View v_alignment="TOP" view_layout="stacked">
+            <TextView font="LARGE" layout_borders="Rect(0,100,0,0)" value="&lt;localized token=QuestJournal_SPQuestView_NoQuestSelected category=Quests /&gt;"/>
+        </View>
+        <View view_layout="vertical">
+            <View h_alignment="LEFT" layout_borders="Rect(10,10,10,10)" layout_inner_borders="Rect(0,0,0,0)" max_size_extend="Point(COORD_MAX,COORD_MAX)" view_layout="vertical">
+                <BorderView name="TitleView" view_layout="stacked">
+                    <BitmapView bitmap_gfx="QuestJournal/background_ornament.tga" max_size_extend="Point(COORD_MAX,COORD_MAX)" view_flags="BMF_TILE_VERTICALLY|BMF_FILTER|BMF_IGNORE_BITMAP_SIZE"/>
+                    <View layout_borders="Rect(0,7,0,3)" view_layout="horizontal">
+                        <Button gfxid_pressed="Misc/arrow_left.tga" gfxid_raised="Misc/arrow_left.tga" layout_borders="Rect(15,0,0,0)" name="PrevQuestButton"/>						
+                        <View max_size_extend="Point(COORD_MAX,-1)" v_alignment="CENTER" view_layout="vertical">
+                            <TextView name="MainQuestName" default_color="active" feature_flags="TVF_MULTILINE|TVF_WORD_WRAP|TVF_ENABLE_SHADOW|TVF_RENDER_SHADOW|TVF_RENDER_HALO" font="LARGE_BOLD" layout_borders="Rect(5,7,5,10)" pref_size_mode="FLEXIBLE_WIDTH"/>
+                        </View>
+                        <Button gfxid_pressed="Misc/arrow_right.tga" gfxid_raised="Misc/arrow_right.tga" layout_borders="Rect(0,0,10,0)" name="NextQuestButton"/>						
+                    </View>
+                </BorderView>
+
+                <ScrollView view_flags="WID_HANDLE_MOUSE" layout_borders="Rect(0,-1,0,5)" v_scrollctrl_mode="SCROLLBAR_AUTO">
+                    <ScrollViewChild h_alignment="LEFT" layout_inner_borders="Rect(0,0,0,0)" max_size_extend="Point(COORD_MAX,-1)" view_layout="vertical">
+                        <BorderView gfx_bottom="" h_alignment="LEFT" layout_inner_borders="Rect(15,5,20,0)" view_layout="vertical" min_size_extend="Point(373,-1)">
+                            <TextView name="TaskName" default_color="active" feature_flags="TVF_MULTILINE|TVF_WORD_WRAP|TVF_ENABLE_SHADOW|TVF_RENDER_SHADOW|TVF_RENDER_HALO" font="LARGE" pref_size_mode="FLEXIBLE_WIDTH"/>
+                            <TextView name="TaskDesc" default_color="#b7b4b0" feature_flags="TVF_MULTILINE|TVF_WORD_WRAP|TVF_ACTIVE_HYPERLINKS|TVF_ALLOW_TEXT_SELECTION" font="LARGE" layout_borders="Rect(0,15,0,10)" pref_size_mode="FLEXIBLE_WIDTH"/>
+                            <QJGoalListView name="GoalListView" layout_borders="Rect(15,5,0,5)" max_size_limit="Point(300,COORD_MAX)" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+                        </BorderView>		
+
+                        <View name="GoalAndRewardViewsContainer" h_alignment="LEFT" max_size_extend="Point(COORD_MAX,-1)" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="vertical">
+                            
+                            <View name="CurrentRewardMainView" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="vertical">
+                                <BorderView gfx_top="" h_alignment="LEFT" layout_inner_borders="Rect(0,0,0,5)" max_size_extend="Point(COORD_MAX,-1)" view_layout="vertical">				    				    
+                                    <View view_layout="horizontal">
+                                        <BitmapView bitmap_gfx="sidebars/horizontal_dividerline.tga" max_size_extend="Point(COORD_MAX,-1)"/>
+                                        <TextView default_color="active" layout_borders="Rect(10,0,10,0)" value="&lt;localized token=QuestJournal_SPQuestView_CurrentReward category=Quests /&gt;"/>
+                                        <BitmapView bitmap_gfx="sidebars/horizontal_dividerline.tga" max_size_extend="Point(COORD_MAX,-1)"/>
+                                    </View>
+                                    <View layout_borders="Rect(0,-5,0,-5)" name="CurrentRewardInn" view_layout="stacked">
+                                        <BitmapView bitmap_gfx="QuestJournal/background_ornament.tga" max_size_extend="Point(COORD_MAX,COORD_MAX)" view_flags="BMF_TILE_VERTICALLY|BMF_FILTER|BMF_IGNORE_BITMAP_SIZE"/>									
+                                        <View layout_borders="Rect(0,0,0,0)" view_layout="vertical">
+                                            <View layout_borders="Rect(20,0,0,0)" view_layout="horizontal">
+                                                <View h_alignment="LEFT" min_size_extend="Point(-1,68)" view_layout="vertical">
+                                                    <VLayoutSpacer/>
+                                                    <View view_layout="horizontal">
+                                                        <TextView default_color="active" layout_borders="Rect(0,0,5,0)" value="&lt;localized token=QuestJournal_SPQuestView_Xp category=Quests /&gt;"/>
+                                                        <TextView name="TaskXPView"/>
+                                                    </View>
+                                                    <View view_layout="horizontal">
+                                                        <TextView default_color="active" layout_borders="Rect(0,0,5,0)" value="&lt;localized token=Generic_MoneyLabel /&gt;"/>
+                                                        <TextView name="TaskMoneyView"/>
+                                                    </View>
+                                                    <VLayoutSpacer/>
+                                                </View>
+                                                <HLayoutSpacer/>
+                                                <View name="TaskRewardViewDock" view_layout="stacked">
+                                                    <QJRewardItemsView name="TaskRewardView"/>
+                                                </View>																								
+                                                <HLayoutSpacer/>
+                                            </View>
+                                            <View max_size_extend="Point(COORD_MAX,-1)" name="TaskRewardViewMoreThan3Dock" view_layout="stacked"/>
+                                            <TextView layout_borders="Rect(0,8,0,8)" max_size_extend="Point(COORD_MAX,-1)" name="TaskRewardPlusOne" value="&lt;localized token=QuestJournal_SPQuestView_PlusOneOfThese category=Quests /&gt;" view_flags="WID_IGNORE_WHEN_HIDDEN"/>											
+                                            <View layout_borders="Rect(0,0,0,0)" view_layout="horizontal">
+                                                <HLayoutSpacer/>																							
+                                                <QJRewardItemsView name="TaskOptionalRewardView"/>
+                                                <HLayoutSpacer/>																							
+                                            </View>
+                                        </View>																			
+                                    </View>								
+                                </BorderView>								
+                                <BitmapView bitmap_gfx="sidebars/horizontal_dividerline.tga" layout_borders="Rect(0,-2,0,0)" max_size_extend="Point(COORD_MAX,-1)"/>
+                            </View>
+
+                            <BorderView h_alignment="LEFT" layout_borders="Rect(0,5,0,0)" layout_inner_borders="Rect(10,10,10,10)" max_size_extend="Point(COORD_MAX,-1)" name="TaskListMainView" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="vertical">
+                                <View layout_borders="Rect(0,0,0,0)" name="TaskListView" view_layout="vertical"/>
+                            </BorderView>
+
+                            <View view_layout="horizontal">
+                                <HLayoutSpacer/>
+                                <View name="FinalRewardMainView" layout_borders="Rect(0,10,0,0)" layout_inner_borders="Rect(0,0,0,0)" view_layout="vertical">
+                                    <View name="FinalRewardTop" view_layout="horizontal">
+                                        <BitmapView bitmap_gfx="QuestJournal/ornament_reward_top.tga" layout_borders="Rect(0,0,0,0)"/>
+                                    </View>
+                                    <View layout_borders="Rect(0,-3,0,0)" name="FinalRewardInn" view_layout="stacked">
+                                        <BorderView gfx_background="QuestJournal/background_ornament.tga" layout_borders="Rect(0,0,0,0)" max_size_extend="Point(COORD_MAX,COORD_MAX)" view_flags="BVF_TILE_BACKGROUND">
+                                        </BorderView>
+                                        <View layout_borders="Rect(0,5,0,7)" view_layout="vertical">
+                                            <View layout_borders="Rect(20,0,0,0)" name="FinalRewardContents" view_layout="horizontal">
+                                                <View h_alignment="LEFT" min_size_extend="Point(-1,68)" view_layout="vertical">
+                                                    <VLayoutSpacer/>
+                                                    <View view_layout="horizontal">
+                                                        <TextView default_color="active" layout_borders="Rect(0,0,5,0)" name="MainQuestXPTitle" value="&lt;localized token=QuestJournal_SPQuestView_Xp category=Quests /&gt;"/>
+                                                        <TextView name="MainQuestXPView"/>
+                                                    </View>
+                                                    <View view_layout="horizontal">
+                                                        <TextView default_color="active" layout_borders="Rect(0,0,5,0)" name="MainQuestMoneyTitle" value="&lt;localized token=Generic_MoneyLabel /&gt;"/>
+                                                        <TextView name="MainQuestMoneyView"/>
+                                                    </View>
+                                                    <VLayoutSpacer/>
+                                                </View>
+                                                <HLayoutSpacer/>
+                                                <View name="MainQuestRewardViewDock" view_layout="stacked">
+                                                    <QJRewardItemsView name="MainQuestRewardView"/>
+                                                </View>
+                                                <HLayoutSpacer/>																							
+                                            </View>
+                                            <View max_size_extend="Point(COORD_MAX,-1)" name="MainQuestRewardViewMoreThan3Dock" view_layout="stacked"/>
+                                            <TextView layout_borders="Rect(0,8,0,8)" max_size_extend="Point(COORD_MAX,-1)" name="MainQuestRewardPlusOne" value="&lt;localized token=QuestJournal_SPQuestView_PlusOneOfThese category=Quests /&gt;" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+                                            <View layout_borders="Rect(0,0,0,0)" view_layout="horizontal">
+                                                <HLayoutSpacer/>																							
+                                                <QJRewardItemsView name="MainQuestOptionalRewardView"/>
+                                                <HLayoutSpacer/>																							
+                                            </View>		
+                                        </View>																																									
+                                    </View>
+                                    <BitmapView bitmap_gfx="QuestJournal/ornament_reward_bottom.tga" layout_borders="Rect(0,-4,0,0)" name="FinalRewardBottom"/>
+                                </View>
+                                <HLayoutSpacer/>
+                            </View>
+
+                        </View>
+
+                    </ScrollViewChild>
+                </ScrollView>
+            </View>
+            <View h_alignment="RIGHT" layout_borders="Rect(3,0,3,0)" max_size_extend="Point(COORD_MAX,-1)" view_layout="horizontal">
+		<Button gfx_icon="QuestJournal/share_icon.tga" gfx_icon_highlight="QuestJournal/share_icon_hover.tga" name="ShareButton" template:source="ClearButton" label="&lt;localized token=QuestJournal_SPQuestView_Share category=Quests /&gt;" label_font="SC_BOLD" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+		<Button gfx_icon="QuestJournal/delete_icon.tga" gfx_icon_highlight="QuestJournal/delete_icon_hover.tga" name="DeleteButton" template:source="ClearButton" label="&lt;localized token=QuestJournal_SPQuestView_Delete category=Quests /&gt;" label_font="SC_BOLD" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+            </View>
+        </View>
+    </ViewSelector>
+</View>

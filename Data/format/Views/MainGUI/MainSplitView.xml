@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked" v_alignment="TOP" panel_size_normal="Point(var_panel_size_x,var_panel_size_y)" slide_sound="sfx/gui/gui_sidebar_sliding.wav">
+	<!-- Left Panel -->
+	<View name="LeftPanelBorders" view_layout="vertical" h_local_alignment="LEFT" layout_inner_borders="Rect(0,21,0,0)">
+		<BorderView view_layout="vertical"
+			layout_inner_borders = "Rect(0,0,-19,-33)"
+			gfx_tr="../../Customized/gfx/borders/trvar_bg_chroma.png"
+			gfx_br="../../Customized/gfx/borders/brvar_bg_chroma.png"
+			gfx_top="../../Customized/gfx/borders/tvar_bg_chroma.png"
+			gfx_right="../../Customized/gfx/borders/rvar_bg_chroma.png"
+			gfx_bottom="../../Customized/gfx/borders/bvar_bg_chroma.png"
+			gfx_background="../../Customized/gfx/borders/bgvar_bg_chroma.png"
+		>
+			<TextView name="LeftPanelTitle" default_color="#dce2e8" font="LARGE_BOLD" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO" layout_borders="Rect(-34,16,0,4)"/>
+			<SideBarDock name="LeftPanelDock" layout_borders="Rect(0,0,28,43)" dock_type_name="SideBarLeft" view_layout="vertical"/>
+		</BorderView>
+	</View>
+	<!-- Right Panel View -->
+	<View name="RightPanelBorders" view_layout="vertical" h_local_alignment="RIGHT" layout_inner_borders="Rect(0,21,0,0)">
+		<BorderView view_layout="vertical"
+			layout_inner_borders = "Rect(8,0,0,10)"
+			gfx_tl="../../Customized/gfx/borders/tlvar_bg_chroma.png"
+			gfx_bl="../../Customized/gfx/borders/blvar_bg_chroma.png"
+			gfx_left="../../Customized/gfx/borders/lvar_bg_chroma.png"
+			gfx_top="../../Customized/gfx/borders/tvar_bg_chroma.png"
+			gfx_bottom="../../Customized/gfx/borders/bvar_bg_chroma.png"
+			gfx_background="../../Customized/gfx/borders/bgvar_bg_chroma.png"
+		>
+			<TextView name="RightPanelTitle" default_color="#dce2e8" font="LARGE_BOLD" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO" layout_borders="Rect(20,16,0,4)"/>
+			<SideBarDock name="RightPanelDock" dock_type_name="SideBarRight" view_layout="vertical"/>
+		</BorderView>
+	</View>
+	<!-- Menu -->
+	<View view_layout="var_menu_layout" v_local_alignment="BOTTOM" h_local_alignment="var_menu_location_h">
+		<SidepanelTab name="SPTabInventoryView"
+			gfx_inactive="../../Customized/gfx/icons/inventory.png"
+			gfx_inactive_h="../../Customized/gfx/icons/inventory_active.png"
+			gfx_active="../../Customized/gfx/icons/inventory_active.png"
+			gfx_left_active="../../Customized/gfx/icons/inventory_active.png"
+			gfx_right_active="../../Customized/gfx/icons/inventory_active.png"
+			gfx_active_h="../../Customized/gfx/icons/empty.png"
+			gfx_left_active_h="../../Customized/gfx/icons/empty.png"
+			gfx_right_active_h="../../Customized/gfx/icons/empty.png"
+			view_tooltip_text="&lt;localized token=TabInventoryTooltip&gt;"
+			hotkey="Toggle_InventoryView"
+			left_module="SPWearView"
+			right_module="SPInventoryView"
+			var_inventory_layout_borders
+		/>
+		<SidepanelTab name="SPTabCharacter"
+			gfx_inactive="../../Customized/gfx/icons/character.png"
+			gfx_inactive_h="../../Customized/gfx/icons/character_active.png"
+			gfx_active="../../Customized/gfx/icons/character_active.png"
+			gfx_left_active="../../Customized/gfx/icons/character_active.png"
+			gfx_right_active="../../Customized/gfx/icons/character_active.png"
+			gfx_active_h="../../Customized/gfx/icons/empty.png"
+			gfx_left_active_h="../../Customized/gfx/icons/empty.png"
+			gfx_right_active_h="../../Customized/gfx/icons/empty.png"
+			view_tooltip_text="&lt;localized token=TabCharacterTooltip&gt;"
+			hotkey="Toggle_SP_Character"
+			left_module="SPCharAttribView"
+			right_module="SPCharSkillsView"
+			layout_borders="Rect(-2,0,-2,0)"
+		/>
+		<SidepanelTab name="SPTabSpells"
+			view_flags="WID_IGNORE_WHEN_HIDDEN"
+			gfx_inactive="../../Customized/gfx/icons/spell.png"
+			gfx_inactive_h="../../Customized/gfx/icons/spell_active.png"
+			gfx_active="../../Customized/gfx/icons/spell_active.png"
+			gfx_left_active="../../Customized/gfx/icons/spell_active.png"
+			gfx_right_active="../../Customized/gfx/icons/spell_active.png"
+			gfx_active_h="../../Customized/gfx/icons/empty.png"
+			gfx_left_active_h="../../Customized/gfx/icons/empty.png"
+			gfx_right_active_h="../../Customized/gfx/icons/empty.png"
+			view_tooltip_text="&lt;localized token=TabSpellsTooltip&gt;"
+			hotkey="Toggle_SP_Spells"
+			left_module="SPSpellsLeft"
+			right_module="SPSpellsRight"
+			layout_borders="Rect(-2,0,-1,0)"
+		/>
+		<SidepanelTab name="SPTabFeats"
+			view_flags="WID_IGNORE_WHEN_HIDDEN"
+			gfx_inactive="../../Customized/gfx/icons/feat.png"
+			gfx_inactive_h="../../Customized/gfx/icons/feat_active.png"
+			gfx_active="../../Customized/gfx/icons/feat_active.png"
+			gfx_active_h="../../Customized/gfx/icons/empty.png"
+			view_tooltip_text  = "&lt;localized token=TabFeatsTooltip&gt;"
+			left_module  = "FeatPlanner"
+			view_show_expression="s:level>=10"
+		/>
+		<SidepanelTab name="SPTabJournal"
+			gfx_inactive="../../Customized/gfx/icons/quest.png"
+			gfx_inactive_h="../../Customized/gfx/icons/quest_active.png"
+			gfx_active="../../Customized/gfx/icons/quest_active.png"
+			gfx_left_active="../../Customized/gfx/icons/quest_active.png"
+			gfx_right_active="../../Customized/gfx/icons/quest_active.png"
+			gfx_active_h="../../Customized/gfx/icons/empty.png"
+			gfx_left_active_h="../../Customized/gfx/icons/empty.png"
+			gfx_right_active_h="../../Customized/gfx/icons/empty.png"
+			view_tooltip_text="&lt;localized token=TabQuestJournalTooltip&gt;"
+			hotkey="Toggle_SP_Journal"
+			left_module="SPQuestJournal"
+			right_module="SPQuestView"
+			layout_borders="Rect(-1,0,-2,-1)"
+		/>
+		<SidepanelTab name="SPTabAchievement"
+			gfx_inactive       = "../../Customized/gfx/icons/acheivement.png"
+			gfx_inactive_h     = "../../Customized/gfx/icons/acheivement_active.png"
+			gfx_active         = "../../Customized/gfx/icons/acheivement_active.png"
+			gfx_active_h  = "../../Customized/gfx/icons/acheivement_active.png"
+			view_tooltip_text  = "&lt;localized token=TabAchievementsTooltip&gt;"
+			hotkey      = "Toggle_AchievementLore"
+			left_module  = "AchievementLoreWindow"
+			layout_borders="Rect(-2,0,-2,0)"
+		/>
+		<SidepanelTab name="SPTabDailyBrowser"
+			gfx_inactive       = "../../Customized/gfx/icons/daily_reward.png"
+			gfx_inactive_h="../../Customized/gfx/icons/daily_reward_active.png"
+			gfx_active="../../Customized/gfx/icons/daily_reward_active.png"
+			gfx_active_h="../../Customized/gfx/icons/empty.png"
+			view_tooltip_text  = "&lt;localized token=TabDailyBrowserTooltip&gt;"
+			hotkey      = "Toggle_DailyLoginBrowser"
+			left_module  = "DailyLoginBrowser"
+			layout_borders="Rect(-2,0,-2,-1)"
+		/>
+		<SidepanelTab name="SPTabChallengeJournal"
+			gfx_inactive       = "../../Customized/gfx/icons/challenge.png"
+			gfx_inactive_h="../../Customized/gfx/icons/challenge_active.png"
+			gfx_active="../../Customized/gfx/icons/challenge_active.png"
+			gfx_active_h="../../Customized/gfx/icons/empty.png"
+			view_tooltip_text  = "&lt;localized token=TabChallengeJournalTooltip&gt;"
+			hotkey      = "Toggle_ChallengeJournal"
+			left_module  = "ChallengeJournal"
+			layout_borders="Rect(-2,0,-2,0)"
+		/>
+		<SidepanelTab name="SPTabItemShopView"
+			gfx_inactive       = "../../Customized/gfx/icons/shop.png"
+			gfx_inactive_h="../../Customized/gfx/icons/shop_active.png"
+			gfx_active         = "../../Customized/gfx/icons/shop_active.png"
+			gfx_active_h="../../Customized/gfx/icons/empty.png"
+			view_tooltip_text  = "&lt;localized token=TabItemSaleTooltip&gt;"
+			left_module = "ItemShopWindow"
+			var_shop_layout_borders
+		/>
+	</View>
+</View>

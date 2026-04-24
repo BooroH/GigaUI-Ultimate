@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 599229 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical">
+	<template:ShortcutView icon_spacing="-6" out_of_range_bitmap="../../Customized/gfx/bottombar/outofrange.png" slot_bg_gfx="../../Customized/gfx/bottombar/a45.png" slot_template="SlotTemplate">
+		<template:ItemSlotView
+			slot_size="Point(59,59)"
+			icon_borders="Point(7,7)"
+			template:name="SlotTemplate"
+		/>
+	</template:ShortcutView>
+	<template:PerkView icon_spacing="-6" slot_template="PerkTemplate">
+		<template:ItemSlotView
+			slot_size="Point(49,49)"
+			icon_borders="Point(2,2)"
+			template:name="PerkTemplate"
+		/>
+	</template:PerkView>
+
+	<View view_layout="stacked" v_alignment="BOTTOM">
+		<Button name="PerkBarSwitchButton" layout_borders="Rect(-18,0,862,-8)" template:source="ClearButton" label="Perk" label_font="SC_LARGE_BOLD"/>
+		<View name="LPortraitViewDock" view_layout="vertical" layout_borders="Rect(0,0,546,48)"/>
+		<View name="RPortraitViewDock" view_layout="vertical" layout_borders="Rect(546,0,0,7)"/>
+		
+		<SoulFragmentBar name="MovableSoulFragmentBar" layout_borders="Rect(0,0,0,5)"/>
+	</View>
+
+	<!-- 2x17 -->
+	<View view_layout="horizontal" v_alignment="BOTTOM" layout_borders="Rect(16,-6,0,4)">
+		<!-- Left Section -->
+		<View view_layout="vertical" layout_borders="Rect(0,0,0,1)">
+			<View view_layout="horizontal">
+				<ViewSelector name="ViewSelector">
+					<ShortcutView name="LeftBar"
+						first_slot="10000"
+						slot_count="6"
+						hotkeyrange_start="Shortcutbar_Left_1"
+						hotkeyrange_length="6"
+					/>
+					<PerkView name="PerkBar"
+						first_slot="13000"
+						slot_count="6"
+					/>
+				</ViewSelector>
+				<ShortcutView name="SideBar1_1"
+					first_slot="20000"
+					slot_count="1"
+					hotkeyrange_start="Shortcutbar_Extra1_1"
+					hotkeyrange_length="1"
+					layout_borders="Rect(-6,0,0,0)"
+				/>
+			</View>
+			<ShortcutView name="SideBar1_2"
+				first_slot="20001"
+				slot_count="7"
+				hotkeyrange_start="Shortcutbar_Extra1_2"
+				hotkeyrange_length="7"
+				layout_borders="Rect(0,-6,0,0)"
+			/>
+		</View>
+		<!-- Mid Section -->
+		<View view_layout="vertical" layout_borders="Rect(-6,0,-6,0)">
+			<template:ShortcutView slot_bg_gfx="../../Customized/gfx/bottombar/dir_a45.png">
+				<template:ItemSlotView
+					slot_size="Point(61,61)"
+					icon_borders="Point(8,8)"
+					template:name="SlotTemplate"
+				/>
+			</template:ShortcutView>
+			<ShortcutView name="MultiBar1"
+				first_slot="0"
+				slot_count="3"
+				hotkeyrange_start="Shortcutbar_1"
+				hotkeyrange_length="3"
+			/>
+			<ShortcutView name="MultiBar3"
+				first_slot="10"
+				slot_count="3"
+				hotkeyrange_start="Shortcutbar_11"
+				hotkeyrange_length="3"
+				layout_borders="Rect(0,-6,0,0)"
+			/>
+		</View>
+		<!-- Right Section -->
+		<View view_layout="vertical" layout_borders="Rect(0,0,0,1)">
+			<ShortcutView name="MultiBar2"
+				first_slot="3"
+				slot_count="7"
+				hotkeyrange_start="Shortcutbar_4"
+				hotkeyrange_length="7"
+			/>
+			<ShortcutView name="SideBar1_3"
+				first_slot="20008"
+				slot_count="7"
+				hotkeyrange_start="Shortcutbar_Extra1_9"
+				hotkeyrange_length="7"
+				layout_borders="Rect(0,-6,0,0)"
+			/>
+		</View>
+		<!-- Shortcutbar Page Button -->
+		<View view_layout="vertical" layout_borders="Rect(0,0,0,63)">
+			<Button name="NextShortcutbarButton"
+				gfxid_raised    = "../../Customized/gfx/bottombar/arrow_up.png"
+				gfxid_highlight = "../../Customized/gfx/bottombar/arrow_up_hover.png"
+			/>
+			<TextView name="CurShortcutbarLabel" font="LARGE" layout_borders="Rect(0,-1,0,-1)"/>
+			<Button name="PrevShortcutbarButton"
+				gfxid_raised    = "../../Customized/gfx/bottombar/arrow_down.png"
+				gfxid_highlight = "../../Customized/gfx/bottombar/arrow_down_hover.png"
+			/>
+		</View>
+	</View>
+	<BitmapView name="LagIndicator" view_flags="WID_AUTO_HIGHLIGHT" layout_borders="Rect(0,0,0,2)">
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/1.png"/>
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/2.png"/>
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/3.png"/>
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/4.png"/>
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/5.png"/>
+	</BitmapView>
+</View>

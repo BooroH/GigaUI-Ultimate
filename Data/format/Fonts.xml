@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 61157 $ (must be within the first 200 characters of the file) -->
+<Fonts>
+	<FontMemResource name="Gui/Default/Fonts/hyborian3.ttf"/>
+	<FontMemResource name="Gui/Default/Fonts/hyborian.ttf"/>
+	<FontMemResource name="Gui/Customized/Fonts/GG-Comic-Black.ttf"/>
+	<FontMemResource name="Gui/Customized/Fonts/GG-Bold.ttf"/>
+	<FontMemResource name="Gui/Customized/Fonts/GG-Medium.ttf"/>
+	<FontMemResource name="Gui/Customized/Fonts/GG-Text-Regular.ttf"/>
+	var_import_font
+
+	<Font name="NORMAL" face="GG Medium" size="var_normal_size" antialias="Full"/>
+	<Font name="NORMAL_ITALIC" face="GG Text Regular" size="var_normal_size" antialias="Full"/>
+	<Font name="NORMAL_BOLD" face="GG Bold" size="var_normal_size" antialias="Full"/>
+	<Font name="SMALL" face="var_cd_font_weight" size="var_cd_font_size" antialias="Full"/>
+	<Font name="LARGE" face="GG Text Regular" size="var_large_size" antialias="Full"/>
+	<Font name="LARGE_BOLD" face="GG Bold" size="var_large_bold_size" antialias="Full"/>
+	<Font name="HUGE" face="GG Text Regular" size="var_huge_size" antialias="Full"/>
+	<Font name="CHAT" size="1"/>
+
+	<Font name="HYBORIANSMALL" face="hyborian2" size="var_hyb_small_size" antialias="Full"/>
+	<Font name="HYBORIANLARGE" face="hyborian2" size="var_hyb_large_size" antialias="Full"/>
+
+	<Font name="LARGE_SC" face="GG Text Regular" size="var_large_size" antialias="Full"/>
+
+	<Font name="3D_TEXT" face="var_3d_normal_font" size="var_3d_normal_size" antialias="Full"/>
+	<Font name="3D_TEXT_BOLD" size="1"/>
+	<Font name="3D_TEXT_SMALL" face="var_3d_small_font" size="var_3d_small_size" antialias="Full"/>
+	<Font name="3D_TEXT_ARIAL" size="1"/>
+	<Font name="3D_TEXT_HYB" size="1"/>
+
+	<Font name="SCALED" face="GG Text Regular" size="Scaled(var_scaled_size)" antialias="Full"/>
+
+	<Font name="MEDIUM_BOLD" face="GG Bold" size="var_medium_size" antialias="Full"/>
+	<Font name="SC_BOLD" face="GG Comic Black" size="14" antialias="Full"/>
+	<Font name="SC_LARGE_BOLD" face="GG Comic Black" size="16" antialias="Full"/>
+</Fonts>

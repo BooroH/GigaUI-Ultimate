@@ -1,0 +1,74 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+
+<View view_layout="stacked" view_flags="WID_HANDLE_MOUSE" light_text_color="#FFE595" dark_text_color="#888866">
+	<!-- background bitmap -->
+	<View name="ImageView" max_size_extend="Point(COORD_MAX, COORD_MAX)"/>
+    
+	<!-- progress bars and status text -->
+	<BitmapView bitmap_gfx="zoning/zoning_bottom.tga" view_flags="BMF_TILE_HORIZONTALLY" v_local_alignment="BOTTOM" max_size_extend="Point(COORD_MAX,-1)"/>
+	<ProgressBar name="UpdateManagerBar"
+		bg_gfx=""
+		fg_gfx="zoning/zoning_progress_small.tga"
+		view_flags="PBF_TILE_FG_HORIZONTAL"
+		max_size_extend="Point(COORD_MAX,-1)"
+		v_local_alignment="BOTTOM"
+		layout_borders="Rect(0,0,0,67)"
+	/>
+	<ProgressBar name="PatcherBar"
+		bg_gfx=""
+		fg_gfx="zoning/zoning_progress_big.tga"
+		view_flags="PBF_TILE_FG_HORIZONTAL"
+		max_size_extend="Point(COORD_MAX,-1)"
+		v_local_alignment="BOTTOM"
+		layout_borders="Rect(0,0,0,43)"
+	/>
+	<TextView name="PatchingInfo" feature_flags="TVF_RENDER_HALO|TVF_RENDER_SHADOW" v_local_alignment="BOTTOM" layout_borders="Rect(0,0,0,47)"/>
+
+    	<!-- message "bubble" -->
+	<TextView value="GigaUI Ultimate v2.3.1" font="LARGE_BOLD" v_local_alignment="TOP" h_local_alignment="RIGHT"/>
+	<View name="TipsAndDescription" view_layout="horizontal">
+		<HLayoutSpacer min_size="50" max_size="50"/>
+		<View view_layout = "vertical">
+			<VLayoutSpacer min_size="80" max_size="80"/>
+			<BorderView view_layout="vertical"
+				gfx_tl="zoning/zoning_text_topleft.tga"
+				gfx_tr="zoning/zoning_text_topright.tga"
+				gfx_bl="zoning/zoning_text_bottomleft.tga"
+				gfx_br="zoning/zoning_text_bottomright.tga"
+				gfx_left="zoning/zoning_text_left.tga"
+				gfx_top="zoning/zoning_text_top.tga"
+				gfx_right="zoning/zoning_text_right.tga"
+				gfx_bottom="zoning/zoning_text_bottom.tga"
+				gfx_background="zoning/zoning_text_background.tga"
+				layout_inner_borders="Rect(20,20,20,50)"
+				_min_size_extend="Point(-1, 400)"
+			>
+				<BitmapView bitmap_gfx = "logos/conanlogo_small_unchained.tga"/>
+				<TextView name="PlayfieldTextView" pref_size_mode="FLEXIBLE_WIDTH" feature_flags="TVF_MULTILINE|TVF_WORD_WRAP|TVF_RENDER_HALO|TVF_RENDER_SHADOW"/>
+			</BorderView>
+			<VLayoutSpacer min_size="25" max_size="25"/>
+			<BorderView view_layout = "vertical"
+				gfx_tl         = "zoning/zoning_text_topleft.tga"
+				gfx_tr         = "zoning/zoning_text_topright.tga"
+				gfx_bl         = "zoning/zoning_text_bottomleft.tga"
+				gfx_br         = "zoning/zoning_text_bottomright.tga"
+ 				gfx_left       = "zoning/zoning_text_left.tga"
+				gfx_top        = "zoning/zoning_text_top.tga"
+				gfx_right      = "zoning/zoning_text_right.tga"
+				gfx_bottom     = "zoning/zoning_text_bottom.tga"
+				gfx_background = "zoning/zoning_text_background.tga"
+				layout_inner_borders = "Rect(20,20,20,25)"
+				_min_size_extend = "Point(-1, 400)"
+			>
+				<TextView name="TipsTextView"
+					pref_size_mode = "FLEXIBLE_WIDTH"
+					feature_flags = "TVF_MULTILINE|TVF_WORD_WRAP|TVF_RENDER_HALO|TVF_RENDER_SHADOW"
+					_value = "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah..."
+				/>
+			</BorderView>
+			<HLayoutSpacer/>
+		</View>
+		<VLayoutSpacer/>
+	</View>
+</View>

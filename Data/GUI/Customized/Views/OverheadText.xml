@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 595638 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical">
+	<BitmapView name="AggressorView" view_flags="WID_IGNORE_WHEN_HIDDEN">
+		<nocreate:Bitmap name="PortraitGUI/free_prey_48.tga"/>
+		<nocreate:Bitmap name="PortraitGUI/criminal_48.tga"/>
+		<nocreate:Bitmap name="PortraitGUI/murderer_48.tga"/>
+	</BitmapView>
+  	<View name="TextLockDownView" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="horizontal">
+    		<BitmapView name="BadgeLeftView" view_flags = "WID_IGNORE_WHEN_HIDDEN">
+      			<nocreate:Bitmap name="PortraitGUI/badge_icons/little_skull_48.tga"/>
+    		</BitmapView>
+    		<TextView name="NameView" feature_flags="TVF_MULTILINE|TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+		<BitmapView name="BadgeRightView" view_flags="WID_IGNORE_WHEN_HIDDEN">
+      			<nocreate:Bitmap name="PortraitGUI/badge_icons/little_skull_48.tga"/>
+    		</BitmapView>
+  	</View>
+	<ProgressBar name="HealthBar"
+		view_flags="WID_IGNORE_WHEN_HIDDEN"
+		flash_on_reduce="false"
+		slide_down_time="0.05"
+		bg_gfx="../../Customized/gfx/overhead/bg_2.png"
+		fg_gfx="../../Customized/gfx/overhead/fg_2.png"
+		max_size_limit="Point(121,14)"
+		view_alpha="0.94"
+	/>
+</View>

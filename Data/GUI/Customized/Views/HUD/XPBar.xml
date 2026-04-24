@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 86949 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked"
+      v_alignment="BOTTOM"
+      view_flags="WID_IGNORE_WHEN_HIDDEN|WID_HANDLE_MOUSE"
+      interaction_borders="Rect(0,7,0,0)"
+      tooltip_x_offset="1.0"
+      tooltip_y_offset="-20.0"
+      marker_count    = "21"
+      bar_gfx_normal  = "../../Customized/gfx/xpbar/experiencebar_full.png"
+      bar_gfx_strong  = "../../Customized/gfx/xpbar/experiencebar_full_hyperpower.png"
+      bar_sparkle_normal = "bottombars/experiencebar_sparkle.tga"
+      bar_sparkle_strong = "bottombars/experiencebar_sparkle_strong.tga"
+      
+      power_session_border_normal_left   = "bottombars/powersession_left.png"
+      power_session_border_normal_center = "bottombars/powersession_center.png"
+      power_session_border_normal_right  = "bottombars/powersession_right.png"
+
+      power_session_border_group_left    = "bottombars/powersession_group_left.png"
+      power_session_border_group_center  = "bottombars/powersession_group_center.png"
+      power_session_border_group_right   = "bottombars/powersession_group_right.png"
+>
+    <CharStatBar name="XPBar"
+		 stat_type="xp"
+		 orientation="right"
+		 flash_on_reduce="true"				 
+		 view_flags="PBF_TILE_BG_HORIZONTAL|PBF_TILE_FG_HORIZONTAL"
+		 slider_mode="clip"
+		 bg_gfx="../../Customized/gfx/xpbar/experiencebar_empty.png"
+		 fg_gfx=""
+		 sparkle_gfx=""
+		 sparkle_offset="0.0"
+		 min_size_extend="Point(COORD_MAX,-1)"				 
+		 layout_borders="Rect(0,0,0,0)" />
+    <View name="PowerSessionContainerView" max_size_extend="Point(COORD_MAX,COORD_MAX)">
+    	<BorderView name="PowerSessionBorderView" view_layout="stacked" >
+    	    <TextView name="PowerSessionCountView" layout_borders="Rect(11,7,11,0)" default_color="active"/>
+    	</BorderView>
+    </View>
+</View>

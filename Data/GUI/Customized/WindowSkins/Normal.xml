@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked"
+	name="NormalWindowRoot"
+	view_flags="WID_HANDLE_MOUSE"
+	h_alignment="STRETCH"
+	v_alignment="STRETCH"
+	resize_tl="Point(15,15)"
+	resize_tr="Point(36,15)"
+	resize_bl="Point(15,15)"
+	resize_br="Point(36,15)"
+	resize_edges="Rect(15,5,36,15)"
+	dragbar_height="38"
+	minimum_border_size="Point(130,120)"
+	show_sound="sfx/gui/gui_window_popup.wav"
+	hide_sound="sfx/gui/gui_window_close.wav"
+	>
+	<BorderView
+			v_alignment="TOP"
+			view_layout="stacked"
+			gfx_tl="../../Customized/gfx/borders/tl.png"
+			gfx_tr="../../Customized/gfx/borders/tr.png"
+			gfx_bl="../../Customized/gfx/borders/bl.png"
+			gfx_br="../../Customized/gfx/borders/br.png"
+			gfx_left="../../Customized/gfx/borders/l.png"
+			gfx_top="../../Customized/gfx/borders/t.png"
+			gfx_right="../../Customized/gfx/borders/r.png"
+			gfx_bottom="../../Customized/gfx/borders/b.png"
+			gfx_background="../../Customized/gfx/borders/bg.png"
+			view_local_alpha="0.95"
+		>
+			<View view_layout="horizontal">
+				<TextView name="WndTitleView"
+					font="LARGE"
+				 	default_color="#dddddd"
+				  	layout_borders="Rect(15,10,0,0)"
+				/>
+				<HLayoutSpacer/>
+				<Button name="WndCloseButton"
+					layout_borders="Rect(0,10,10,0)"
+					gfxid_raised="GUIcomponents/closebuttons/close_white.tga"
+					gfxid_pressed="GUIcomponents/closebuttons/close_white_pressed.tga"
+					gfxid_highlight="GUIcomponents/closebuttons/close_white_hover.tga"
+				/>
+			</View>
+		</BorderView>
+	<ViewSelector name="WndViewSelector" layout_borders="Rect(10,26,10,10)"/>
+</View>

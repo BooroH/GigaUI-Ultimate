@@ -1,0 +1,5 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical">
+	<Button name="Button" template:source="ClearButton" label="Search" label_font="SC_LARGE_BOLD" layout_borders="Rect(-13,0,-14,0)" interaction_borders="Rect(13,0,14,0)"/>
+</View>

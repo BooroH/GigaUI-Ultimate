@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_flags="WID_IGNORE_WHEN_HIDDEN" dragbar_width_closed="30" dragbar_width_grid="150" dragbar_width_horizontal="200" dragbar_width_vertical="100">
+    <View name="RightDragBar"
+	  view_flags="WID_HANDLE_MOUSE"
+	  min_size_extend="Point(10,-1)"
+	  max_size_extend="Point(10,COORD_MAX)"/>
+</View>

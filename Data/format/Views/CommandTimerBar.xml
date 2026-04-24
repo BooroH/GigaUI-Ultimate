@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked"var_alignment>
+	<ProgressBar name="TimerBar"
+		flash_on_reduce = "false"
+		bg_gfx="../../Customized/gfx/castbar/var_bg_imgName.png"
+		fg_gfx="../../Customized/gfx/castbar/var_text_locationfgvar_color.png"
+		var_left_margin
+		var_right_margin
+		var_sparkle_img
+		var_sparkle_offset
+		var_size
+	/>
+	<TextView name="ActionName"
+		value="Casting"
+		default_color="#ffffff"
+		var_text_layout
+	/>
+</View>

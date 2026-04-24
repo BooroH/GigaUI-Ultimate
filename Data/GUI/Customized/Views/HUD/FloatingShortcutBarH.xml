@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked" view_flags="WID_HANDLE_MOUSE">
+	<template:ShortcutView icon_spacing="-4" out_of_range_bitmap="../../Customized/gfx/bottombar/outofrange.png" slot_bg_gfx="../../Customized/gfx/bottombar/a45.png" slot_template="SlotTemplate">
+		<template:ItemSlotView
+			slot_size="Point(55,55)"
+			icon_borders="Point(7,7)"
+			template:name="SlotTemplate"
+		/>
+	</template:ShortcutView>	
+
+	<View name="BgView" view_layout="horizontal">
+		<BitmapView bitmap_gfx="bottombars/ASB/asb_left.tga"/>
+		<BitmapView bitmap_gfx="" max_size_extend="Point(COORD_MAX,0)"/>
+		<BitmapView name="ResizeKnob" bitmap_gfx="bottombars/ASB/asb_right.tga" view_flags="WID_HANDLE_MOUSE" />
+	</View>
+	<ShortcutView name="ShortcutView"
+		view_layout="horizontal"
+		h_alignment="EXTEND"
+		min_size_limit="Point(55,COORD_MAX)"
+		layout_borders="Rect(13,0,13,0)"
+		view_flags="SBF_HIDE_EMPTY_SLOTS"
+		first_slot="10006"
+		slot_count="20"
+	/>
+</View>

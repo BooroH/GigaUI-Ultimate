@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked" waypoint_cap_radius="65" layout_inner_borders="Rect(10,34,12,0)">
+	<RegionMapRenderer name="MapView"
+		view_flags="RMRF_DISABLE_WAYPOINT_LABELS"
+		min_size_extend="Point(224,224)"
+		max_size_limit="Point(-1,-1)"
+		zoom_level_count="5"
+		min_meter_per_pixel="4"
+		max_meter_per_pixel="100"
+	/>
+	<BitmapView bitmap_gfx="../../Customized/gfx/minimap/minimap.png" max_size_limit="Point(240,240)"/>
+	<View view_layout="vertical" h_local_alignment="RIGHT" layout_borders="Rect(0,0,-29,0)">
+		<Button name="ZoomInButton" template:source="ClearButton" label="+" label_font="SC_LARGE_BOLD" layout_borders="Rect(-6,0,0,-5)" interaction_borders="Rect(6,0,0,5)"/>
+		<Button name="ZoomOutButton" template:source="ClearButton" label="-" label_font="SC_LARGE_BOLD" layout_borders="Rect(-6,-5,0,0)" interaction_borders="Rect(6,5,0,0)"/>
+	</View>
+	<Button name="MenuButton" template:source="ClearButton" label="⌃" label_font="SC_LARGE_BOLD" v_local_alignment="TOP" layout_borders="Rect(0,-8,0,0)"/>
+	<Button name="RegionMapButton" template:source="ClearButton" label="<" label_font="SC_LARGE_BOLD" h_local_alignment="LEFT" layout_borders="Rect(-25,0,0,0)" view_tooltip_text="&lt;localized token=MinimapToggleRegionButtonTooltip&gt;"/>
+	<View view_layout="vertical" v_local_alignment="TOP" h_local_alignment="RIGHT" h_alignment="RIGHT" layout_borders="Rect(0,-4,-6,0)">
+		<BitmapView name="NewMailButton"
+			bitmap_gfx="../../Customized/gfx/icons/mail.png"
+			view_tooltip_text="&lt;localized token=YouVeGotNewMail category=Tradepost /&gt;"
+			view_flags="WID_IGNORE_WHEN_HIDDEN"
+			layout_borders="Rect(0,0,0,4)"
+		/>
+		<Button name="PendingQuestReward"
+			gfxid_raised="../../Customized/gfx/icons/pending.png"
+			gfxid_highlight="../../Customized/gfx/icons/pending_hover.png"
+			view_tooltip_text="Inventory is full"
+		/>
+	</View>
+</View>

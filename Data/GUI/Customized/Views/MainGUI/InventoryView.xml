@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View cell_count="Point(8,10)" icon_borders="Rect(2,2,2,2)" icon_size="Point(47,47)" preferred_icon_spacing="Point(0,0)" view_layout="vertical">
+	<View layout_borders="Rect(3,0,3,3)" view_layout="vertical">
+		<TabSelector
+			border_gfx_center            = "sidebars/darksetin_t.tga"
+			border_gfx_left              = "sidebars/darksetin_tl.tga"
+			border_gfx_right             = "sidebars/darksetin_tr.tga"                
+			name                         = "WndTabSelector"
+			tab_gfx_selected_left        = "../../Customized/gfx/sidebars/darksetin_tab_active_left.png"
+			tab_gfx_selected_middle      = "../../Customized/gfx/sidebars/darksetin_tab_active_center.png"
+			tab_gfx_selected_right       = "../../Customized/gfx/sidebars/darksetin_tab_active_right.png"
+			tab_gfx_unselected_left      = "../../Customized/gfx/sidebars/darksetin_tab_inactive_left.png"
+			tab_gfx_unselected_middle    = "../../Customized/gfx/sidebars/darksetin_tab_inactive_center.png"
+			tab_gfx_unselected_right     = "../../Customized/gfx/sidebars/darksetin_tab_inactive_right.png"
+			tab_label_borders_selected   = "Rect(13,4,20,3)"
+			tab_label_borders_unselected = "Rect(11,4,20,3)"
+			tab_selected_color           = "active"
+			tab_spacing                  = "-4.0"
+			tab_unselected_color         = "gray"
+			layout_borders               = "Rect(0,5,0,0)"
+		>
+			<Tab label="&lt;localized token=MainGUI_InventoryView_Bag /&gt;"/>
+			<Tab label="&lt;localized token=MainGUI_InventoryView_Quest /&gt;"/>
+			<Tab label="&lt;localized token=MainGUI_InventoryView_Resource /&gt;"/>
+		</TabSelector>
+		<ViewSelector name="ViewSelector"/>            
+		<BitmapView name="PageNumerationDock" view_flags="WID_HANDLE_MOUSE|BMF_IGNORE_BITMAP_SIZE" layout_borders="Rect(0,3,0,0)" layout_inner_borders="Rect(10,3,10,3)" bitmap_gfx="../../Customized/gfx/sidebars/black.png" view_layout="horizontal" view_local_alpha="0.5">
+			<Button gfxid_highlight = "../../Customized/gfx/sidebars/arrow_left_active.png"
+				gfxid_pressed   = "../../Customized/gfx/sidebars/arrow_left_black.png"
+				gfxid_raised    = "../../Customized/gfx/sidebars/arrow_left.png"
+				name            = "LeftArrowButton"
+			/>
+			<HLayoutSpacer/>
+			<TextView name="PageNumeration"/>
+			<HLayoutSpacer/>
+			<Button gfxid_highlight = "../../Customized/gfx/sidebars/arrow_right_active.png"
+				gfxid_pressed   = "../../Customized/gfx/sidebars/arrow_right_black.png"
+				gfxid_raised    = "../../Customized/gfx/sidebars/arrow_right.png"
+				name            = "RightArrowButton"
+			/>		
+		</BitmapView>             
+	</View>    
+	<TextView value="&lt;localized token=InventoryDepositoryExplanations /&gt;" name="DepositoryExplanations" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+	<View view_layout="horizontal" layout_borders="Rect(0,5,0,3)" min_size_extend="Point(COORD_MAX,1)">
+		<View view_layout="vertical">
+			<View view_layout="horizontal">
+				<View name="TextViews" view_layout="vertical" view_flags="WID_IGNORE_WHEN_HIDDEN">
+					<TextView value="&lt;localized token=InventoryCashText /&gt;" name="CashText" h_local_alignment="LEFT" layout_borders="Rect(0,0,0,5)"/>
+					<TextView value="&lt;localized token=InventoryDepositoryText /&gt;" name="DepositoryText" h_local_alignment="LEFT" layout_borders="Rect(0,5,0,0)"/>
+				</View>
+				<View name="MoneyViews" view_layout="vertical">
+					<MoneyView layout_borders="Rect(5,0,11,0)" layout_mode="horizontal" h_local_alignment="LEFT" name="InvMoneyView" value="0"/>
+					<MoneyView layout_borders="Rect(5,0,11,0)" layout_mode="horizontal" h_local_alignment="LEFT" name="InvDepositoryView" value="0" view_flags="WID_IGNORE_WHEN_HIDDEN"/>
+				</View>
+			</View>
+			<View view_layout="horizontal" name="PremiumButtonsView" view_flags="WID_IGNORE_WHEN_HIDDEN" layout_borders="Rect(21,13,0,0)">
+				<Button name="ClaimButton" template:source="ClearButton" label="&lt;localized token=ClaimGUI_Claims /&gt;" label_font="SC_BOLD"/>
+				<Button name="TokensButton" template:source="ClearButton" label="&lt;localized token=TokenGUI_Tokens /&gt;" label_font="SC_BOLD"/>
+			</View>	
+		</View>
+		<ItemSlotView
+			icon_borders = "Point(4,4)"
+			view_flags     = "WID_HANDLE_MOUSE"
+			name           = "BagSlot"
+			no_item_gfx    = "../../Customized/gfx/inventory/icon_bag.png"
+			slot_size      = "Point(55,55)"
+			tooltip_title  = "Bag"
+		/>
+	</View>
+	<View view_layout="horizontal" name="FreeButtonsView" view_flags="WID_IGNORE_WHEN_HIDDEN">
+		<Button name="GoPremiumButton" template:source="ClearButton" label="&lt;localized token=TokenGUI_GoPremium /&gt;" label_font="SC_BOLD"/>
+		<Button name="ClaimFreeButton" template:source="ClearButton" label="&lt;localized token=ClaimGUI_Claims /&gt;" label_font="SC_BOLD"/>
+		<Button name="TokensFreeButton" template:source="ClearButton" label="&lt;localized token=TokenGUI_Tokens /&gt;" label_font="SC_BOLD"/>
+	</View>	
+</View>

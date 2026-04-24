@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 595638 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical">
+	<BitmapView name="AggressorView" view_flags="WID_IGNORE_WHEN_HIDDEN">
+		<nocreate:Bitmap name="PortraitGUI/free_prey_48.tga"/>
+		<nocreate:Bitmap name="PortraitGUI/criminal_48.tga"/>
+		<nocreate:Bitmap name="PortraitGUI/murderer_48.tga"/>
+	</BitmapView>
+  	<View name="TextLockDownView" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="horizontal">
+    		<BitmapView name="BadgeLeftView" view_flags = "WID_IGNORE_WHEN_HIDDEN">
+      			<nocreate:Bitmap name="PortraitGUI/badge_icons/little_skull_48.tga"/>
+    		</BitmapView>
+    		<TextView name="NameView" feature_flags="TVF_MULTILINE|TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+		<BitmapView name="BadgeRightView" view_flags="WID_IGNORE_WHEN_HIDDEN">
+      			<nocreate:Bitmap name="PortraitGUI/badge_icons/little_skull_48.tga"/>
+    		</BitmapView>
+  	</View>
+	<ProgressBar name="HealthBar"
+		view_flags="WID_IGNORE_WHEN_HIDDEN"
+		flash_on_reduce="false"
+		bg_gfx="../../Customized/gfx/overhead/bgvar_img_size.png"
+		fg_gfx="../../Customized/gfx/overhead/fgvar_img_size.png"
+		var_hp_size
+		var_hp_alpha
+	/>
+</View>

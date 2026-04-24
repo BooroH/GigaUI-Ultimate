@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View name="HUDView" view_layout="stacked" v_alignment="TOP">
+	<View view_layout="horizontal" h_local_alignment="LEFT">
+		<View name="TeamButtonDock" view_layout="vertical"/>
+		<View view_layout="stacked">
+			<TextView value="Friend" font="SC_LARGE_BOLD" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+			<View name="SocialIconDock" view_layout="vertical" view_alpha="0" max_size_limit="Point(COORD_MAX,25)"/>
+		</View>
+		<Button name="PlayfieldAccessButton" template:source="ClearButton" label="TP" label_font="SC_LARGE_BOLD" layout_borders="Rect(-13,0,-16,0)" interaction_borders="Rect(13,0,16,0)"/>
+		<Button name="GroupFinderButton" template:source="ClearButton" label="RF" label_font="SC_LARGE_BOLD" layout_borders="Rect(-16,0,-17,0)" interaction_borders="Rect(16,0,17,0)"/>
+	</View>
+	<View view_layout="horizontal" h_local_alignment="RIGHT" v_alignment="TOP">
+		<Button name="ClaimButton"
+			gfxid_raised="../../Customized/gfx/icons/claim.png"
+			gfxid_highlight="../../Customized/gfx/icons/claim_hover.png"
+			view_tooltip_text="&lt;localized token=ClaimGUI_ClaimsAvailable /&gt;"
+		/>
+		<Button name="GuildManagementButton" template:source="ClearButton" label="Guild" label_font="SC_BOLD" layout_borders="Rect(-16,0,var_guild_layout_right,0)" interaction_borders="Rect(16,0,var_guild_interaction_right,0)"/>
+		var_rank_button
+		var_help_button
+		var_minimap_off
+	</View>
+	var_minimap_on
+	<BuffListView name="HudFriendlyBuffListView"
+		layout_borders="Rect(0,7,0,0)"
+		filter="friendly"
+		icon_size="Point(var_icon_size,var_icon_size)"
+		full_size_limit="0"
+		icon_spacing="Point(var_icon_spacing,var_icon_spacing)"
+		max_columns="var_icon_column"
+		hover_info_orientation="VERTICAL"
+	/>
+	<DrowningBar layout_borders="Rect(0,150,0,0)"/>
+	<View name="PetViewDock" view_layout="vertical" v_local_alignment="CENTER" h_local_alignment="LEFT"/>
+	<View name="PvPMiniScoreDock" view_layout="vertical" v_local_alignment="CENTER" h_local_alignment="RIGHT"/>
+	var_bottombar
+	<WindowDockView global_dock_name="DefaultChatWindowDock" v_local_alignment="BOTTOM" h_local_alignment="LEFT" min_size_limit="Point(50,50)"/>
+</View>

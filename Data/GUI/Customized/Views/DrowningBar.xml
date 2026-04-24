@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked" fg_gfx_diving="../../Customized/gfx/drowning/timerbar_full.png" fg_gfx_drowning="../../Customized/gfx/drowning/timerbar_full_blue.png">
+	<ProgressBar name="DrowningStatusBar"
+		flash_on_reduce = "false"
+		left_margin="1"
+		bg_gfx="../../Customized/gfx/drowning/timerbar.png"
+		fg_gfx="../../Customized/gfx/drowning/timerbar_full.png"
+	/>
+	<TextView name="StatusView" layout_borders="Rect(0,0,0,3)"/>
+</View>

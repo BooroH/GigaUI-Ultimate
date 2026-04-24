@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 599229 $ (must be within the first 200 characters of the file) -->
+<View view_layout="vertical">
+	<template:ShortcutView icon_spacing="var_icon_spacing" out_of_range_bitmap="../../Customized/gfx/bottombar/outofrange.png" slot_bg_gfx="../../Customized/gfx/bottombar/var_slot_img" slot_template="SlotTemplate"var_hide_empty_slots>
+		<template:ItemSlotView
+			slot_size="Point(var_slot_size,var_slot_size)"
+			icon_borders="Point(var_slot_margin,var_slot_margin)"
+			template:name="SlotTemplate"
+		/>
+	</template:ShortcutView>
+	<template:PerkView icon_spacing="var_icon_spacing" slot_template="PerkTemplate">
+		<template:ItemSlotView
+			slot_size="Point(var_perk_size,var_perk_size)"
+			icon_borders="Point(2,2)"
+			template:name="PerkTemplate"
+		/>
+	</template:PerkView>
+
+	<View view_layout="stacked" v_alignment="BOTTOM">
+		<Button name="PerkBarSwitchButton" layout_borders="Rect(-18,0,var_perk_switch_button_pos_x,-8)" template:source="ClearButton" label="Perk" label_font="SC_LARGE_BOLD"/>
+		<View name="LPortraitViewDock" view_layout="vertical" layout_borders="Rect(0,0,var_lp_pos_x,var_lp_pos_y)"/>
+		<View name="RPortraitViewDock" view_layout="vertical" layout_borders="Rect(var_rp_pos_x,0,0,var_rp_pos_y)"/>
+		var_mini_slot
+		<SoulFragmentBar name="MovableSoulFragmentBar" layout_borders="Rect(var_soulshard_pos_x1,0,var_soulshard_pos_x2,var_soulshard_pos_y)"/>
+	</View>
+
+	<!-- 2x27 -->
+	<View view_layout="horizontal" v_alignment="BOTTOM" layout_borders="Rect(16,-6,0,var_bottombar_pos_y)">
+		<!-- Left Section -->
+		<View view_layout="vertical" layout_borders="Rect(0,0,0,1)">
+			<View view_layout="horizontal">
+				<ViewSelector name="ViewSelector">
+					<ShortcutView name="LeftBar"
+						first_slot="10000"
+						slot_count="6"
+						hotkeyrange_start="Shortcutbar_Left_1"
+						hotkeyrange_length="6"
+					/>
+					<PerkView name="PerkBar"
+						first_slot="13000"
+						slot_count="6"
+					/>
+				</ViewSelector>
+				<ShortcutView name="SideBar1_1"
+					first_slot="20000"
+					slot_count="6"
+					hotkeyrange_start="Shortcutbar_Extra1_1"
+					hotkeyrange_length="6"
+					layout_borders="Rect(var_icon_spacing,0,0,0)"
+				/>
+			</View>
+			<View view_layout="horizontal" layout_borders="Rect(0,var_icon_spacing,0,0)">
+				<ShortcutView name="SideBar1_3"
+					first_slot="20011"
+					slot_count="9"
+					hotkeyrange_start="Shortcutbar_Extra1_12"
+					hotkeyrange_length="9"
+				/>
+				<ShortcutView name="SideBar2_1"
+					first_slot="20100"
+					slot_count="3"
+					hotkeyrange_start="Shortcutbar_Extra2_1"
+					hotkeyrange_length="3"
+					layout_borders="Rect(var_icon_spacing,0,0,0)"
+				/>
+			</View>
+		</View>
+		<!-- Mid Section -->
+		<View view_layout="vertical" layout_borders="Rect(var_icon_spacing,0,var_icon_spacing,0)">
+			<template:ShortcutView slot_bg_gfx="../../Customized/gfx/bottombar/var_dirSlot_img">
+				<template:ItemSlotView
+					slot_size="Point(var_dirSlot_size,var_dirSlot_size)"
+					icon_borders="Point(var_dir_margin,var_dir_margin)"
+					template:name="SlotTemplate"
+				/>
+			</template:ShortcutView>
+			<ShortcutView name="MultiBar1"
+				first_slot="0"
+				slot_count="3"
+				hotkeyrange_start="Shortcutbar_1"
+				hotkeyrange_length="3"
+			/>
+			<ShortcutView name="MultiBar3"
+				first_slot="10"
+				slot_count="3"
+				hotkeyrange_start="Shortcutbar_11"
+				hotkeyrange_length="3"
+				layout_borders="Rect(0,var_icon_spacing,0,0)"
+			/>
+		</View>
+		<!-- Right Section -->
+		<View view_layout="vertical" layout_borders="Rect(0,0,0,1)">
+			<View view_layout="horizontal">
+				<ShortcutView name="MultiBar2"
+					first_slot="3"
+					slot_count="7"
+					hotkeyrange_start="Shortcutbar_4"
+					hotkeyrange_length="7"
+				/>
+				<ShortcutView name="SideBar1_2"
+					first_slot="20006"
+					slot_count="5"
+					hotkeyrange_start="Shortcutbar_Extra1_7"
+					hotkeyrange_length="5"
+					layout_borders="Rect(var_icon_spacing,0,0,0)"
+				/>
+			</View>
+			<ShortcutView name="SideBar2_2"
+				first_slot="20103"
+				slot_count="12"
+				hotkeyrange_start="Shortcutbar_Extra2_4"
+				hotkeyrange_length="12"
+				layout_borders="Rect(0,var_icon_spacing,0,0)"
+			/>
+		</View>
+		<!-- Shortcutbar Page Button -->
+		<View view_layout="vertical" layout_borders="Rect(0,0,0,var_page_button_pos_y)">
+			<Button name="NextShortcutbarButton"
+				gfxid_raised    = "../../Customized/gfx/bottombar/arrow_up.png"
+				gfxid_highlight = "../../Customized/gfx/bottombar/arrow_up_hover.png"
+			/>
+			<TextView name="CurShortcutbarLabel" font="LARGE"var_page_margin/>
+			<Button name="PrevShortcutbarButton"
+				gfxid_raised    = "../../Customized/gfx/bottombar/arrow_down.png"
+				gfxid_highlight = "../../Customized/gfx/bottombar/arrow_down_hover.png"
+			/>
+		</View>
+	</View>
+	<BitmapView name="LagIndicator" view_flags="WID_AUTO_HIGHLIGHT" layout_borders="Rect(0,0,0,2)">
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/1.png"/>
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/2.png"/>
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/3.png"/>
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/4.png"/>
+		<nocreate:Bitmap name="../../Customized/gfx/lagmeter/5.png"/>
+	</BitmapView>
+</View>

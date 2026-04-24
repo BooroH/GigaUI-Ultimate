@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Change: 236233 $ (must be within the first 200 characters of the file) -->
+<View ColIconSize="18" ColDateSize="150" ColFromSize="130" ColTimesOutSize="90" ColLetter="244" name="Root" view_layout="stacked" icon_borders="Point(2,2)" slot_size="Point(67,67)">
+	<template:TextView template:source="LARGETextView"/>
+	<template:TextView template:source="TextInputTextViewTempl" template:name="TextInputViewTmpl" font="LARGE"/>
+	<View view_layout="vertical" max_size_extend="Point(COORD_MAX,-1)">
+		<View view_layout="vertical" max_size_extend="Point(COORD_MAX,COORD_MAX)">
+			<View name="MainMailView" view_layout="stacked" max_size_extend = "Point(COORD_MAX,-1)" min_size_extend="Point(710,-1)" layout_weight="1">
+				<View name="MailChangeView" view_layout="stacked" max_size_extend = "Point(COORD_MAX,-1)">
+					<View name="ComposeMail" h_alignment="LEFT" view_layout="vertical" max_size_extend = "Point(COORD_MAX,-1)">
+						<View view_layout="horizontal">
+							<View layout_borders="Rect(15,0,15,0)" h_alignment="LEFT" view_layout="vertical" max_size_extend="Point(COORD_MAX,COORD_MAX)">
+								<View v_alignment="TOP" view_layout="horizontal">
+									<TextView font="LARGE" layout_borders="Rect(0,8,0,0)" value="&lt;localized token=TradePostGUI_MailView_To category=Tradepost /&gt;"/>                            
+									<TextInputView name="ToName" font="LARGE" default_color="black" max_size_limit="Point(120,COORD_MAX)" textview_templ="TextInputViewTmpl"/>
+								</View>
+								<TextInputView name="MailMessage" min_size_extend="Point(530,140)" max_size_extend="Point(COORD_MAX,142)" max_size_limit="Point(COORD_MAX,142)"
+   									view_flags="TIVF_MULTILINE" text_font="LARGE"/>
+							</View>
+							<View view_layout="vertical" min_size_extend="Point(-1,170)" layout_borders="Rect(0,35,15,0)" >
+								<View name="ComposeItemSlotsContainer" view_layout="horizontal"/>
+								<MoneyInputView name="ComposeMoneyInputView"/>
+							</View>
+						</View>
+					</View>
+				</View>
+			</View>
+		</View>
+		<BitmapView name="BottomView" v_alignment="CENTER" layout_inner_borders="Rect(20,12,20,3)" view_layout="horizontal" 
+			bitmap_gfx="TradeItemGUI/tradepost_bottom.tga" view_flags="BMF_TILE|BMF_IGNORE_BITMAP_SIZE">
+			<MoneyView name="BankMoneyView" value="0"/>
+			<HLayoutSpacer/>
+			<Button name="SendButton" template:source="ClearButton" label_font="SC_LARGE_BOLD" label="&lt;localized token=TradePostGUI_MailView_Send category=Tradepost /&gt;"/>
+			<Button name="Close" template:source="ClearButton" label_font="SC_LARGE_BOLD" label="&lt;localized token=Close /&gt;"/>
+		</BitmapView>
+	</View>
+</View>

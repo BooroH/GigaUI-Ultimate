@@ -1,0 +1,77 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked"
+      name="TabbedWindowRoot"
+      resize_tl   = "Point(19,19)"
+      resize_tr   = "Point(15,30)"
+      resize_bl   = "Point(19,19)"
+      resize_br   = "Point(19,19)"
+      resize_edges       = "Rect(10,10,8,20)"
+      dragbar_height     = "15"
+      minimum_border_size = "Point(142,120)"
+>
+	<View view_layout="stacked" h_alignment="RIGHT">
+		<View view_layout="vertical">
+			<TabSelector name="WndTabSelector"
+				tab_gfx_selected_left     = "../../Customized/gfx/chat/chatwindow_activetab_left.png"
+				tab_gfx_selected_middle   = "chat/chatwindow_activetab_center.tga"
+				tab_gfx_selected_right    = "../../Customized/gfx/chat/chatwindow_activetab_right.png"
+			 
+				tab_gfx_unselected_left     = "../../Customized/gfx/chat/chatwindow_inactivetab_left.png"
+				tab_gfx_unselected_middle   = "chat/chatwindow_inactivetab_center.tga"
+				tab_gfx_unselected_right    = "../../Customized/gfx/chat/chatwindow_inactivetab_right.png"
+			 
+				border_gfx_left = "../../Customized/gfx/chat/chatwindow_upperleft.png"
+				border_gfx_center = "../../Customized/gfx/chat/chatwindow_top.png"
+				border_gfx_right  = "../../Customized/gfx/chat/chatwindow_upperright.png"
+			 
+				tab_label_borders_selected   = "Rect(10,7,13,3)"
+				tab_label_borders_unselected = "Rect(10,5,13,3)"
+			 
+				tab_spacing = "0.0"
+			 
+				left_margin  = "30.0"
+				right_margin = "40.0"
+			 
+			/>
+			<BorderView view_layout="horizontal" max_size_extend="Point(COORD_MAX,COORD_MAX)"
+				bg_bitmap_borders    = "Rect(2,0,0,10)"
+				gfx_tl         = ""
+				gfx_tr         = ""
+				gfx_bl         = "chat/chatwindow_bottomleft.tga"
+				gfx_br         = "../../Customized/gfx/chat/chatwindow_bottomright.png"
+				gfx_left       = "chat/chatwindow_left.tga"
+				gfx_top        = ""
+				gfx_right      = ""
+				gfx_bottom     = "chat/chatwindow_bottom.tga"
+				gfx_background = "chat/chatwindow_background.tga"
+			/>
+		</View>
+		<View view_layout="horizontal">
+			<HLayoutSpacer/>
+			<ScrollBar name="TextScrollBar"
+				layout_borders = "Rect(0,27,0,10)"
+				interaction_borders="Rect(0,10,6,10)"
+				v_button_up    = "VButtonUp"
+				v_button_down  = "VButtonDown"
+		       
+				v_knob_center        = "chat/chatwindow_right_scrollbar.tga"
+				v_knob_top           = ""
+				v_knob_bottom        = ""
+				v_background         = "chat/chatwindow_right_notscrollbar.tga"
+			>
+				<template:Button template:name="VButtonUp"
+					gfxid_raised    = "chat/chatwindow_right_notscrollbar.tga"
+				 	gfxid_pressed   = "chat/chatwindow_right_notscrollbar.tga"
+				 	gfxid_highlight = ""
+				 />
+				<template:Button template:name="VButtonDown"
+					 gfxid_raised    = "chat/chatwindow_right_notscrollbar.tga"
+					 gfxid_pressed   = "chat/chatwindow_right_notscrollbar.tga"
+					 gfxid_highlight = ""
+				 />
+			</ScrollBar>
+		</View>
+	</View>
+	<ViewSelector name="WndViewSelector" layout_borders="Rect(11,30,25,15)"/>
+</View>

@@ -1,0 +1,75 @@
+.root {
+    -fx-background-color: #f5f5f7;
+    -fx-font-family: "GG Medium";
+    -fx-text-fill: #1c1c1e;
+}
+
+/* 라벨 */
+.label {
+    -fx-text-fill: #1c1c1e;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+.button {
+    -fx-background-color: 
+        linear-gradient(to bottom, #ffffff, #e9e9eb); /* subtle gradient */
+    -fx-text-fill: #1c1c1e;
+    -fx-font-weight: 600;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-color: #d1d1d6;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-padding: 6 14 6 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 1);
+}
+
+/* Hover 효과 (밝게 강조) */
+.button:hover {
+    -fx-background-color: 
+        linear-gradient(to bottom, #fdfdfd, #ededf0);
+}
+
+/* Pressed 효과 (살짝 어두워짐) */
+.button:pressed {
+    -fx-background-color: 
+        linear-gradient(to bottom, #e2e2e5, #d1d1d4);
+    -fx-effect: none;
+}
+
+/* 라디오 버튼 */
+.radio-button {
+    -fx-text-fill: #1c1c1e;
+    -fx-font-weight: 500;
+}
+
+.radio-button .radio {
+    -fx-mark-color: #007aff;
+}
+
+/* 슬라이더 */
+.slider {
+    -fx-control-inner-background: transparent;
+}
+
+.slider .track {
+    -fx-background-color: #d1d1d6;
+    -fx-background-radius: 2;
+    -fx-padding: 3;
+}
+
+.slider .thumb {
+    -fx-background-color: 
+        radial-gradient(center 50% 50%, radius 60%, #ffffff, #d9d9db);
+    -fx-border-color: #c7c7cc;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0, 0, 1);
+}
+
+/* 컨테이너 */
+.border-pane, .vbox, .hbox {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}

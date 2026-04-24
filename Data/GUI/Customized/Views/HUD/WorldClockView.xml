@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View view_layout="horizontal">
+    <BitmapView name="SunMoonIcon" view_flags="WID_IGNORE_WHEN_HIDDEN" layout_borders="Rect(0,-12,0,-4)">
+        <nocreate:Bitmap name="Misc/icon_day.tga"/>
+        <nocreate:Bitmap name="Misc/icon_night.tga"/>
+    </BitmapView>
+    <TextView name="WorldClockText" view_layout="horizontal" font="NORMAL_BOLD" default_color="#b4b4b4"
+              feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+</View>

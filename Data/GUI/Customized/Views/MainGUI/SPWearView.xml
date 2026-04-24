@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Change: 595638 $ (must be within the first 200 characters of the file) -->
+<View view_layout="stacked" max_size_extend="Point(COORD_MAX,COORD_MAX)">
+    <template:TextView feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>   
+    <template:ItemSlotView
+            max_zoom="1.5"
+            no_icon_borders="Point(3,3)"
+            template:name="SlotTempl"
+            view_flags="WID_HANDLE_MOUSE|SHOW_BCKG_COLORS"
+            zoom_in_time="0.15"
+            zoom_out_time="0.3"/>
+
+    <template:ItemSlotView icon_borders="Point(9,9)"
+            slot_size="Point(63,63)"
+            max_size_limit="Point(63,63)" min_size_extend="Point(63,63)"
+            layout_borders="Rect(5,5,5,10)"
+            template:name="BigSlotTempl"
+            template:source="SlotTempl"/>
+
+    <template:ItemSlotView icon_borders="Point(5,5)"
+            layout_borders="Rect(2,0,2,0)"
+            slot_size="Point(58,58)"
+            template:name="SmallSlotTempl"
+            template:source="SlotTempl"/>
+            
+    <template:OptionCheckbox template:name="PaperdollCheckbox"
+            layout_borders="Rect(0,0,0,2)"/>
+    
+    <template:OptionCheckbox template:name="PaperdollVanityCheckbox"
+            v_local_alignment="BOTTOM"
+            h_local_alignment="LEFT"
+            label=""
+            layout_inner_borders="Rect(2,0,0,6)"/>
+
+  <template:OptionCheckbox template:name="VanityWeaponCheckbox"
+          v_local_alignment="BOTTOM"
+          h_local_alignment="LEFT"
+          label=""
+          layout_borders="Rect(-2,0,0,0)"/>
+
+    <template:BorderView gfx_background=""
+                        gfx_bl=""
+                        gfx_bottom=""
+                        gfx_br=""
+                        gfx_left=""
+                        gfx_right=""
+                        gfx_tl=""
+                        gfx_top=""
+                        gfx_tr=""
+                        layout_borders="Rect(5,0,5,3)"
+                        max_size_extend="Point(COORD_MAX,COORD_MAX)"
+                        v_alignment="TOP"
+                        view_flags="WID_IGNORE_WHEN_HIDDEN"
+                        view_layout="stacked"
+                        name="PaperdollBorderView"
+                        template:name="PaperdollBorderView"
+	/>
+    
+    <View layout_borders="Rect(0,0,0,26)" view_layout="horizontal">
+        <HLayoutSpacer/>
+        <View max_size_limit="Point(167,37i2)" min_size_extend="Point(167,372)" name="PortraitView"/>
+        <HLayoutSpacer/>
+    </View>
+    
+    <View view_layout="vertical" max_size_extend="Point(COORD_MAX,COORD_MAX)">
+        <TabSelector border_gfx_center="sidebars/darksetin_t.tga"
+             border_gfx_left="sidebars/darksetin_tl.tga"
+             border_gfx_right="sidebars/darksetin_tr.tga"
+             layout_borders="Rect(5,5,5,-2)"
+             name="TabSelector"
+             tab_gfx_selected_left="../../Customized/gfx/sidebars/darksetin_tab_active_left.png"
+             tab_gfx_selected_middle="../../Customized/gfx/sidebars/darksetin_tab_active_center.png"
+             tab_gfx_selected_right="../../Customized/gfx/sidebars/darksetin_tab_active_right.png"
+             tab_gfx_unselected_left="../../Customized/gfx/sidebars/darksetin_tab_inactive_left.png"
+             tab_gfx_unselected_middle="../../Customized/gfx/sidebars/darksetin_tab_inactive_center.png"
+             tab_gfx_unselected_right="../../Customized/gfx/sidebars/darksetin_tab_inactive_right.png"
+             tab_label_borders_selected="Rect(13,4,15,3)"
+             tab_label_borders_unselected="Rect(13,4,15,3)"
+             tab_spacing="-4.0">
+            <Tab label="&lt;localized category=MiscGUI token=Power&gt;"/>
+            <Tab label="&lt;localized category=MiscGUI token=Vanity&gt;" view_tooltip_text="&lt;localized category=MiscGUI token=VanityInfo&gt;"/>
+        </TabSelector>
+        
+        <ViewSelector name="ViewSelector">
+            <View name="PowerView" max_size_extend="Point(COORD_MAX,COORD_MAX)" view_layout="vertical">
+                <BorderView template:source="PaperdollBorderView">
+                  <BitmapView layout_inner_borders="Rect(4,0,4,0)" view_layout="horizontal" view_flags="BMF_IGNORE_BITMAP_SIZE" bitmap_gfx="Inventory/weargui_paperdoll_frame_power.tga" view_local_alpha="0">
+                    <View layout_borders="Rect(0,50,0,0)" view_layout="vertical">
+                      <View view_layout="stacked">
+                        <ItemSlotView name="CloakSlot" no_item_gfx="Inventory/icon_cloak.tga" template:source="BigSlotTempl"/>
+                        <OptionCheckBox name="HidePowerCloak" template:source="PaperdollVanityCheckbox" view_tooltip_text="&lt;localized token=MainMenu_Options_HidePowerCloak_View_Tooltip_Text /&gt;"/>
+                      </View>
+                      <ItemSlotView name="WristSlot" no_item_gfx="Inventory/icon_wrist.tga" template:source="BigSlotTempl"/>
+                      <ItemSlotView name="LFingerSlot" no_item_gfx="Inventory/icon_ring_left.tga" template:source="BigSlotTempl"/>
+                      <ItemSlotView name="BeltSlot" no_item_gfx="Inventory/icon_belt.tga" template:source="BigSlotTempl"/>
+                      <ItemSlotView name="LegsArmorSlot" no_item_gfx="Inventory/icon_legs_plate.tga" template:source="BigSlotTempl" no_icon_borders="Point(9,9)" />
+                      <VLayoutSpacer/>
+                    </View>
+
+                    <HLayoutSpacer/>
+                    
+                    <View view_layout="vertical">
+                      <View view_layout="stacked">
+                        <ItemSlotView name="HeadSlot" no_icon_borders="Point(9,9)" no_item_gfx="Inventory/icon_head.tga" template:source="BigSlotTempl"/>
+                        <OptionCheckBox name="HidePowerHelmet" template:source="PaperdollVanityCheckbox" view_tooltip_text="&lt;localized token=MainMenu_Options_HidePowerHelmet_View_Tooltip_Text /&gt;"/>
+                      </View>
+                      <VLayoutSpacer/>
+                      <ItemSlotView name="FeetSlot" no_icon_borders="Point(9,9)" no_item_gfx="Inventory/icon_feet.tga" template:source="BigSlotTempl"/>
+                    </View>
+                    
+                    <HLayoutSpacer/>
+
+                    <View layout_borders="Rect(0,50,0,0)" view_layout="vertical">
+                      <ItemSlotView name="NeckSlot" no_item_gfx="Inventory/icon_neck.tga" template:source="BigSlotTempl"/>
+                      <ItemSlotView name="ShoulderSlot" no_item_gfx="Inventory/icon_shoulders.tga" template:source="BigSlotTempl"/>
+                      <ItemSlotView name="RFingerSlot" no_item_gfx="Inventory/icon_ring_right.tga" template:source="BigSlotTempl"/>
+                      <ItemSlotView name="HandsSlot" no_item_gfx="Inventory/icon_hands.tga" template:source="BigSlotTempl"/>
+                      <ItemSlotView name="ChestArmorSlot" no_item_gfx="Inventory/icon_chest_plate.tga" template:source="BigSlotTempl"/>
+                      <VLayoutSpacer/>
+                    </View>
+                  </BitmapView>
+                </BorderView>
+              
+                <BitmapView layout_borders="Rect(0,0,0,0)"
+                        layout_inner_borders="Rect(15,6,20,10)"
+                        view_layout="horizontal"
+                        bitmap_gfx=""
+                        view_flags="BMF_IGNORE_BITMAP_SIZE"
+                        view_local_alpha="0.4">
+                    <View view_layout="stacked">
+                        <ItemSlotView name="PriWeaponSlot" no_item_gfx="Inventory/icon_mainhand.tga" template:source="SmallSlotTempl"/>
+                    </View>
+                    <View view_layout="stacked">
+                        <ItemSlotView name="SecWeaponSlot" no_item_gfx="Inventory/icon_offhand.tga" template:source="SmallSlotTempl"/>   
+                    </View>             
+                    <HLayoutSpacer/>
+                    <Button gfxid_highlight="Inventory/switch_button_hover.tga" gfxid_pressed="Inventory/switch_button_down.tga" gfxid_raised="Inventory/switch_button_normal.tga" layout_borders="Rect(2,2,0,0)" name="SwitchWeaponsetButton"/>
+                    <HLayoutSpacer/>
+                    <ItemSlotView name="AltPrimary" no_item_gfx="Inventory/icon_mainhand.tga" template:source="SmallSlotTempl"/>
+                    <ItemSlotView name="AltSecondary" no_item_gfx="Inventory/icon_offhand.tga" template:source="SmallSlotTempl"/>
+                </BitmapView>
+            </View>
+            
+            <View name="VanityView" max_size_extend="Point(COORD_MAX,COORD_MAX)" view_layout="vertical">
+              <View name ="VanityViewInner" max_size_extend="Point(COORD_MAX,COORD_MAX)" view_layout="stacked">
+                <View name ="VanityViewToggle" max_size_extend="Point(COORD_MAX,COORD_MAX)" view_layout="vertical">
+                  <BorderView template:source="PaperdollBorderView">
+                    <View layout_inner_borders="Rect(4,0,4,0)" view_layout="horizontal">
+                      <View layout_borders="Rect(0,50,0,0)" view_layout="vertical">
+                        <View view_layout="stacked">
+                          <ItemSlotView name="CloakSlot" no_item_gfx="Inventory/icon_cloak.tga" template:source="BigSlotTempl"/>
+                          <OptionCheckBox name="CloakSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                        <View view_layout="stacked">
+                          <ItemSlotView name="WristSlot" no_item_gfx="Inventory/icon_wrist.tga" template:source="BigSlotTempl"/>
+                          <OptionCheckBox name="WristSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                        <View name="LFingerSlot" template:source="BigSlotTempl"/>
+                        <View view_layout="stacked">
+                          <ItemSlotView name="BeltSlot" no_item_gfx="Inventory/icon_belt.tga" template:source="BigSlotTempl"/>
+                          <OptionCheckBox name="BeltSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                        <View view_layout="stacked">
+                          <ItemSlotView name="LegsArmorSlot" no_item_gfx="Inventory/icon_legs_plate.tga" template:source="BigSlotTempl" no_icon_borders="Point(9,9)" />
+                          <OptionCheckBox name="LegsArmorSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                        <VLayoutSpacer/>
+                      </View>
+
+                      <HLayoutSpacer/>
+
+                      <View view_layout="vertical">
+
+                        <View view_layout="stacked">
+                          <ItemSlotView name="HeadSlot" no_icon_borders="Point(9,9)" no_item_gfx="Inventory/icon_head.tga" template:source="BigSlotTempl"/>
+                          <OptionCheckBox name="HeadSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                        <VLayoutSpacer  layout_borders="Rect(0,0,0,-50)"/>
+
+                        <View view_layout="stacked">
+                          <ItemSlotView name="FeetSlot" no_icon_borders="Point(9,9)" no_item_gfx="Inventory/icon_feet.tga" template:source="BigSlotTempl"/>
+                          <OptionCheckBox name="FeetSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                      </View>
+
+                      <HLayoutSpacer/>
+
+                      <View layout_borders="Rect(0,50,0,0)" view_layout="vertical">
+                        <View view_layout="stacked">
+                          <ItemSlotView name="NeckSlot" no_item_gfx="Inventory/icon_neck.tga" template:source="BigSlotTempl"/>
+                          <OptionCheckBox name="NeckSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                        <View view_layout="stacked">
+                          <ItemSlotView name="ShoulderSlot" no_item_gfx="Inventory/icon_shoulders.tga" template:source="BigSlotTempl"/>
+                          <OptionCheckBox name="ShoulderSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                        <View name="RFingerSlot" template:source="BigSlotTempl"/>
+                        <View view_layout="stacked">
+                          <ItemSlotView name="HandsSlot" no_item_gfx="Inventory/icon_hands.tga" template:source="BigSlotTempl"/>
+                          <OptionCheckBox name="HandsSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                        <View view_layout="stacked">
+                          <ItemSlotView name="ChestArmorSlot" no_item_gfx="Inventory/icon_chest_plate.tga" template:source="BigSlotTempl"/>
+                          <OptionCheckBox name="ChestArmorSlotCheckBox" template:source="PaperdollVanityCheckbox"/>
+                        </View>
+                        <VLayoutSpacer/>
+                      </View>
+                    </View>
+                  </BorderView>
+
+                  <BitmapView layout_borders="Rect(0,-2,0,0)"
+                      layout_inner_borders="Rect(15,6,20,10)"
+                      view_layout="horizontal"
+                      bitmap_gfx=""
+                      view_flags="BMF_IGNORE_BITMAP_SIZE"
+                      view_local_alpha="0.4">
+                    <View view_layout="stacked">
+                      <ItemSlotView name="PriWeaponSlot" no_item_gfx="Inventory/icon_mainhand.tga" template:source="SmallSlotTempl"/>
+                      <OptionCheckBox name="PriWeaponSlotCheckBox" template:source="VanityWeaponCheckbox"/>
+                    </View>
+                    <View view_layout="stacked">
+                      <ItemSlotView name="SecWeaponSlot" no_item_gfx="Inventory/icon_offhand.tga" template:source="SmallSlotTempl"/>
+                      <OptionCheckBox name="SecWeaponSlotCheckBox" template:source="VanityWeaponCheckbox"/>
+                    </View>
+                    <HLayoutSpacer/>
+                    <Button gfxid_highlight="Inventory/switch_button_hover.tga" gfxid_pressed="Inventory/switch_button_down.tga" gfxid_raised="Inventory/switch_button_normal.tga" layout_borders="Rect(2,2,0,0)" name="SwitchWeaponsetButton"/>
+                    <HLayoutSpacer/>
+                    <View view_layout="stacked">
+                      <ItemSlotView name="AltPrimary" no_item_gfx="Inventory/icon_mainhand.tga" template:source="SmallSlotTempl"/>
+                      <OptionCheckBox name="AltPrimaryCheckBox" template:source="VanityWeaponCheckbox"/>
+                    </View>
+                    <View view_layout="stacked">
+                      <ItemSlotView name="AltSecondary" no_item_gfx="Inventory/icon_offhand.tga" template:source="SmallSlotTempl"/>
+                      <OptionCheckBox name="AltSecondaryCheckBox" template:source="VanityWeaponCheckbox"/>
+                    </View>
+                  </BitmapView>
+                </View>
+                <OptionCheckBox name="ShowVanityArmor" template:source="PaperdollCheckbox" layout_borders="Rect(0,14,5,0)" h_local_alignment="RIGHT" v_local_alignment="TOP" label = "&lt;localized token=MainMenu_Options_HideVanityArmor /&gt;" view_tooltip_text="&lt;localized token=MainMenu_Options_HideVanityArmor_View_Tooltip_Text /&gt;"/>
+                <TextView name="VanityDisabled" view_flags="WID_IGNORE_WHEN_HIDDEN" default_color="red" layout_borders="Rect(4,0,0,0)" h_local_alignment="LEFT" v_local_alignment="BOTTOM" pref_size_mode="FLEXIBLE_WIDTH" value="&lt;center&gt;&lt;localized category=MiscGUI token=VanityDisabled&gt;&lt;/center&gt;" feature_flags="TVF_MULTILINE|TVF_WORD_WRAP" />
+              </View>
+            </View>
+        </ViewSelector>
+    </View>
+</View>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- $Change: 599229 $ (must be within the first 200 characters of the file) -->
+<View name="left_portrait" view_layout="vertical">
+	<template:ProgressBar template:name = "ManaBarShort"
+		bg_gfx="../../Customized/gfx/portrait/var_mana_s_bg_img"
+		fg_gfx="../../Customized/gfx/portrait/mana_s.png"
+		left_margin="0"
+		right_margin="var_margin"
+	/>
+	<template:ProgressBar template:name = "ManaBarLong"
+		bg_gfx="../../Customized/gfx/portrait/var_stam_bg_img"
+		fg_gfx="../../Customized/gfx/portrait/mana.png"
+		left_margin="var_margin"
+		right_margin="var_margin"
+	/>
+	<template:ProgressBar template:name = "StaminaBarShort"
+		bg_gfx="../../Customized/gfx/portrait/var_stam_s_bg_img"
+		fg_gfx="../../Customized/gfx/portrait/stam_s.png"
+		left_margin="var_margin"
+		right_margin="0"
+	/>
+	<template:ProgressBar template:name = "StaminaBarLong"
+		bg_gfx="../../Customized/gfx/portrait/var_stam_bg_img"
+		fg_gfx="../../Customized/gfx/portrait/stam.png"
+		left_margin="var_margin"
+		right_margin="var_margin"
+	/>
+
+	<BuffListView name="BuffListView"
+		layout_borders="Rect(0,0,0,5)"
+		filter="hostile"
+		icon_size="Point(var_icon_size,var_icon_size)"
+		full_size_limit="0"
+		icon_spacing="Point(var_icon_spacing,var_icon_spacing)"
+		max_columns="var_max_columns"
+	/>
+	<View view_layout="horizontal" layout_borders="Rect(0,0,0,-5)">
+		<TextView name           = "NameView"
+			feature_flags  = "TVF_RENDER_SHADOW|TVF_RENDER_HALO"
+			font           = "LARGE_BOLD"
+		/>
+		<TextView name           = "LevelView"
+			feature_flags  = "TVF_RENDER_SHADOW|TVF_RENDER_HALO"
+			font           = "LARGE_BOLD"
+		/>
+    	</View>
+	<BitmapView name="StatBarsContainer"
+		view_layout="stacked"
+		v_alignment="TOP"
+		view_flags="WID_HANDLE_MOUSE"
+		bitmap_gfx="../../Customized/gfx/portrait/c_l.png"
+		var_container_size
+	>
+		<ProgressBar name="HealthBar"
+			flash_on_reduce="false"
+			slide_down_time="0.12"
+			bg_gfx="../../Customized/gfx/portrait/var_hp_bg_img"
+			fg_gfx="../../Customized/gfx/portrait/hp.png"
+			left_margin="var_margin"
+			right_margin="var_margin"
+			label_color="#eef0f2"
+			var_label_font
+			var_hp_size
+		/>
+		<View view_layout="horizontal" layout_borders="Rect(0,var_stam_layout_top,0,0)"var_stam_size>
+			<ProgressBar name="StaminaBar"
+				flash_on_reduce="false"
+				slide_down_time="0.03"
+				view_flags="WID_IGNORE_WHEN_HIDDEN"
+				label_color="#000000"
+				label_offset="Point(0,40)"
+			/>
+			<ProgressBar name="ManaBar"
+				flash_on_reduce="false"
+				slide_down_time="0.03"
+				view_flags="WID_IGNORE_WHEN_HIDDEN"
+				label_color="#000000"
+				label_offset="Point(0,40)"
+			/>
+		</View>
+	</BitmapView>
+</View>

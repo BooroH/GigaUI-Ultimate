@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
+<View layout_inner_borders="Rect(0,15,0,0)"
+        listview_color_selected="active"
+        listview_color_unselected="standard"
+        listview_font="LARGE_SC"
+        view_layout="vertical">
+    <View view_layout="stacked">    
+        <TabSelector border_gfx_center="sidebars/darksetin_t.tga"
+                border_gfx_left="sidebars/darksetin_tl.tga"
+                border_gfx_right="sidebars/darksetin_tr.tga"
+                layout_borders="Rect(10,0,10,0)"
+                name="TabSelector"
+                tab_gfx_selected_left="../../Customized/gfx/sidebars/darksetin_tab_active_left.png"
+                tab_gfx_selected_middle="../../Customized/gfx/sidebars/darksetin_tab_active_center.png"
+                tab_gfx_selected_right="../../Customized/gfx/sidebars/darksetin_tab_active_right.png"
+                tab_gfx_unselected_left="../../Customized/gfx/sidebars/darksetin_tab_inactive_left.png"
+                tab_gfx_unselected_middle="../../Customized/gfx/sidebars/darksetin_tab_inactive_center.png"
+                tab_gfx_unselected_right="../../Customized/gfx/sidebars/darksetin_tab_inactive_right.png"
+                tab_label_borders_selected="Rect(13,4,15,3)"
+                tab_label_borders_unselected="Rect(13,4,15,3)"
+                tab_spacing="-4.0">
+            <Tab label="&lt;localized token=CombosTab&gt;"/>
+            <Tab label="&lt;localized token=AbilitiesTab&gt;"/>
+            <Tab label="&lt;localized token=PerksTab&gt;"/>
+            <Tab label="&lt;localized token=CompanionsTab&gt;"/>
+        </TabSelector>
+        <View name="SortModeContainer" view_layout="horizontal" layout_borders="Rect(0,-7,0,0)">
+            <HLayoutSpacer/>
+            <TextView value="&lt;localized token=FeatsGUI_FeatOverviewView_SortBy /&gt;"/>
+            <DropdownMenu name="SortMode" template:source="DropdownMenu" text_font="NORMAL" />
+        </View>
+    </View>
+    <View max_size_extend="Point(COORD_MAX,COORD_MAX)" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="vertical">
+        <ScrollView view_flags="WID_HANDLE_MOUSE" v_scrollctrl_mode="SCROLLBAR_AUTO_RESERVE" view_layout="vertical">
+            <ScrollViewChild view_layout="stacked">
+                <BorderView gfx_background="../../Customized/gfx/sidebars/darksetin_bg.png"
+                        gfx_bl="sidebars/darksetin_ll.tga"
+                        gfx_bottom="sidebars/darksetin_bottom.tga"
+                        gfx_br="sidebars/darksetin_lr.tga"
+                        gfx_left="sidebars/darksetin_l.tga"
+                        gfx_right="sidebars/darksetin_r.tga"
+                        gfx_tl=""
+                        gfx_top=""
+                        gfx_tr=""
+                        layout_borders="Rect(10,0,5,0)"
+                        layout_inner_borders="Rect(10,5,10,10)"
+                        max_size_extend="Point(COORD_MAX,COORD_MAX)"
+                        v_alignment="TOP"
+                        view_flags="WID_IGNORE_WHEN_HIDDEN"
+                        view_layout="stacked">
+                    <ViewSelector name="ViewSelector">
+                        <ComboList name="ComboListView"
+                                view_flags="WID_IGNORE_WHEN_HIDDEN"
+                                view_layout="vertical"
+                                layout_inner_borders="Rect(2,2,0,0)"
+                                filter="3"
+                                hostile="true"
+                                />
+                        <AbilityList name="AbilityListView"
+                                view_flags="WID_IGNORE_WHEN_HIDDEN"
+                                layout_inner_borders="Rect(2,2,0,0)"
+                                view_layout="vertical"
+                                filter="3"
+                                hostile="true"
+                                />
+                        <PerkList name="PerkListView"
+                              view_flags="WID_IGNORE_WHEN_HIDDEN"
+                              layout_inner_borders="Rect(2,2,0,0)"
+                              view_layout="vertical"
+                              hostile="false"
+                                />
+                        <CompanionList name="CompanionListView"
+                              view_flags="WID_IGNORE_WHEN_HIDDEN"
+                              layout_inner_borders="Rect(2,2,0,0)"
+                              view_layout="vertical"
+                              hostile="false"
+                                />
+                    </ViewSelector>
+                </BorderView>
+            </ScrollViewChild>
+        </ScrollView>
+
+        <BitmapView bitmap_gfx="spellgui/golden_line.tga" max_size_extend="Point(COORD_MAX,-1)"/>
+        <View max_size_extend="Point(COORD_MAX,-1)" view_flags="WID_IGNORE_WHEN_HIDDEN" view_layout="horizontal">
+            <BitmapView bitmap_gfx="spellgui/ornament_left.tga" max_size_extend="Point(-1,-1)"/>
+            <Button gfxid_highlight="spellgui/button_active.tga"
+                    gfxid_pressed="spellgui/button_active.tga"
+                    gfxid_raised="spellgui/button_normal.tga"
+                    label="&lt;localized token=SpellGUI_SPSpellsRightView_119 /&gt;"
+                    name="Button_1"
+                    view_flags="WID_IGNORE_WHEN_HIDDEN"
+                    max_size_extend="Point(COORD_MAX,-1)"/>
+            <Button gfxid_highlight="spellgui/button_active.tga"
+                    gfxid_pressed="spellgui/button_active.tga"
+                    gfxid_raised="spellgui/button_normal.tga"
+                    label="&lt;localized token=SpellGUI_SPSpellsRightView_2039 /&gt;"
+                    layout_borders="Rect(0,0,0,0)"
+                    name="Button_2"
+                    view_flags="WID_IGNORE_WHEN_HIDDEN"
+                    max_size_extend="Point(COORD_MAX,-1)"/>
+            <Button gfxid_highlight="spellgui/button_active.tga"
+                    gfxid_pressed="spellgui/button_active.tga"
+                    gfxid_raised="spellgui/button_normal.tga"
+                    label="&lt;localized token=SpellGUI_SPSpellsRightView_4059 /&gt;"
+                    layout_borders="Rect(0,0,0,0)"
+                    name="Button_3"
+                    view_flags="WID_IGNORE_WHEN_HIDDEN"
+                    max_size_extend="Point(COORD_MAX,-1)"/>
+            <Button gfxid_highlight="spellgui/button_active.tga"
+                    gfxid_pressed="spellgui/button_active.tga"
+                    gfxid_raised="spellgui/button_normal.tga"
+                    label="&lt;localized token=SpellGUI_SPSpellsRightView_6080 /&gt;"
+                    layout_borders="Rect(0,0,0,0)"
+                    name="Button_4"
+                    view_flags="WID_IGNORE_WHEN_HIDDEN"
+                    max_size_extend="Point(COORD_MAX,-1)"/>
+            <BitmapView bitmap_gfx="spellgui/ornament_right.tga" max_size_extend="Point(-1,-1)"/>
+        </View>
+    </View>
+</View>
