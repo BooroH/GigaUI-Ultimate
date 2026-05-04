@@ -44,6 +44,7 @@ public class Installer {
 		FileManager.deleteDirectory(customizedDir+"/Views/HUD/SoulFragmentBar.bxml");
 		FileManager.deleteDirectory(customizedDir+"/WindowSkins/Normal.bxml");
 		FileManager.deleteDirectory(customizedDir+"/Views/MainGUI/SPWearView.bxml");
+		FileManager.deleteDirectory(customizedDir+"/TextColors.bxml");
 		
 		BottomBar.writeBottomBar(customizedDir);
 		BuffListViewIcon.writeBuffListViewIcon(customizedDir);
@@ -68,6 +69,7 @@ public class Installer {
 		SoulFragmentBar.writeSoulFragmentBar(customizedDir);
 		WindowSkins.writeWindowSkins(customizedDir);
 		SPWearView.writeSPWearView(customizedDir);
+		TextColors.writeTextColors(customizedDir);
 		
 		return true;
 	}

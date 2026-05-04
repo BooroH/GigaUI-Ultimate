@@ -26,7 +26,7 @@
 	<TextView name="PatchingInfo" feature_flags="TVF_RENDER_HALO|TVF_RENDER_SHADOW" v_local_alignment="BOTTOM" layout_borders="Rect(0,0,0,47)"/>
 
     	<!-- message "bubble" -->
-	<TextView value="GigaUI Ultimate v2.3.1" font="LARGE_BOLD" v_local_alignment="TOP" h_local_alignment="RIGHT"/>
+	<TextView value="GigaUI Ultimate v2.3.2" font="LARGE_BOLD" v_local_alignment="TOP" h_local_alignment="RIGHT"/>
 	<View name="TipsAndDescription" view_layout="horizontal">
 		<HLayoutSpacer min_size="50" max_size="50"/>
 		<View view_layout = "vertical">

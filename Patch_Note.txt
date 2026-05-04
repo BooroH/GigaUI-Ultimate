@@ -1,6 +1,3 @@
 ************* Ver 2.3.1 *************
-- added bigger side panel size
-- changed font formats
-- added missing glyphs to font
-- adjusted text layouts
-- fixed minor bugs
+- Fixed a bug where tradeskill window looked weird in DX9.
+- changed minor things

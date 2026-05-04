@@ -127,9 +127,18 @@ public class Settings {
 	private boolean isRemoveRankButton = false;
 	private boolean isRemoveXpBar = false;
 	private boolean isCastbarSparkleOn = true;
+	private boolean isDmgTextGigaSolution = false;
 
 	private String cdFontWeight = "GG Bold";
 	private String overheadFontWeight = "GG Regular";
+	
+	public boolean isDmgTextGigaSolution() {
+		return isDmgTextGigaSolution;
+	}
+
+	public void setDmgTextGigaSolution(boolean isDmgTextGigaSolution) {
+		this.isDmgTextGigaSolution = isDmgTextGigaSolution;
+	}
 	
 	public int getBuff_stack_loc() {
 		return buff_stack_loc;

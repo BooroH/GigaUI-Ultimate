@@ -133,6 +133,7 @@ public class SettingManager {
 			sb.append("isRemoveXpBar=").append(settings.isRemoveXpBar()).append("\n");
 			sb.append("isCastbarSparkleOn=").append(settings.isCastbarSparkleOn()).append("\n");
 			sb.append("buff_stack_loc=").append(settings.getBuff_stack_loc()).append("\n");
+			sb.append("isDmgTextGigaSolution=").append(settings.isDmgTextGigaSolution()).append("\n");
 
 			Files.write(file.toPath(), sb.toString().getBytes());
 		} catch (IOException ex) {
@@ -493,6 +494,9 @@ public class SettingManager {
 					case "isCastbarSparkleOn":
 						settings.setCastbarSparkleOn(Boolean.parseBoolean(value));
 						break;
+					case "isDmgTextGigaSolution":
+						settings.setDmgTextGigaSolution(Boolean.parseBoolean(value));
+						break;
 
 					case "cdFontWeight":
 						settings.setCDFontWeight(value);
@@ -540,6 +544,7 @@ public class SettingManager {
 		MainSplitView.readMainSplitView(customizedDir);
 		SoulFragmentBar.readSoulFragmentBar(customizedDir);
 		FloatingShortcutBarH.readFloatingShortcutBarH(customizedDir);
+		TextColors.readTextColors(customizedDir);
 
 		correctPortraitLayoutDiff();
 	}

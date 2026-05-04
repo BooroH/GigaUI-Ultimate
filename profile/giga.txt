@@ -111,3 +111,4 @@ isRemoveRankButton=true
 isRemoveXpBar=true
 isCastbarSparkleOn=true
 buff_stack_loc=0
+isDmgTextGigaSolution=true
