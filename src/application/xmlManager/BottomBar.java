@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 
 import application.setting.Settings;
 import application.util.FileManager;
-import application.util.ImageManager;
 import application.util.ImageManagerV2;
 
 public class BottomBar {
@@ -314,6 +313,26 @@ public class BottomBar {
 				* ((settings.getSlot_size() + 1 + settings.getIcon_spacing()) * (settings.getBottomBar_column() - 1) / 2
 						+ 3)
 				+ slot_size - 47 + (6 - Integer.valueOf(slot_margin)) * 2;
+
+		// 3x22레이아웃용 레이아웃 조정
+		if (settings.getBottomBar_row() == 3 && settings.getBottomBar_column() == 22) {
+			int correction = settings.getSlot_size() + settings.getIcon_spacing() + 1;
+			
+			if((correction-1)%2 == 0) {
+				correction = correction + 1;
+			}
+			
+			perkSwitchButtonPosX = perkSwitchButtonPosX - correction;
+			
+			content = content.replaceAll("var_upper_bottombar_layout", " layout_borders=\"Rect(0,0,"
+					+ String.valueOf(correction) + ",0)\"");
+			
+			content = content.replaceAll("var_overall_layout", " layout_borders=\"Rect("
+					+ String.valueOf(correction) + ",0,0,0)\"");
+			
+			content = content.replaceAll("var_lagMeter_layout", " layout_borders=\"Rect(0,0,"+String.valueOf(correction)+",2)\"");
+		}
+
 		int pageButtonPosY;
 
 		if (settings.getBottomBar_row() == 2) {
@@ -377,25 +396,23 @@ public class BottomBar {
 
 		int font_size = settings.getFontSize();
 		int font_spacing_adjust;
-		if(font_size==0) {
+		if (font_size == 0) {
 			font_spacing_adjust = 0;
-		}
-		else if(font_size==1) {
+		} else if (font_size == 1) {
 			font_spacing_adjust = -1;
-		}
-		else if(font_size==2) {
-			font_spacing_adjust = -1;
-		}
-
-		else if(font_size==3) {
+		} else if (font_size == 2) {
 			font_spacing_adjust = -1;
 		}
 
-		else if(font_size==4) {
+		else if (font_size == 3) {
 			font_spacing_adjust = -1;
 		}
 
-		else if(font_size==5) {
+		else if (font_size == 4) {
+			font_spacing_adjust = -1;
+		}
+
+		else if (font_size == 5) {
 			font_spacing_adjust = -1;
 		}
 
@@ -403,10 +420,9 @@ public class BottomBar {
 			font_spacing_adjust = -1;
 		}
 
-
 		// 폰트사이즈+15(디폴트 라지볼드)+5(마진) - 9(레이아웃)
-		portraits_layout_bottom_diff = (tot_height + 1) + target_category_tag_size + (font_size + 10 + font_spacing_adjust)
-				+ settings.getToT_layout_top();
+		portraits_layout_bottom_diff = (tot_height + 1) + target_category_tag_size
+				+ (font_size + 10 + font_spacing_adjust) + settings.getToT_layout_top();
 
 		content = content.replaceAll("var_lp_pos_x", String.valueOf(-2 * settings.getLPortrait_x()));
 		content = content.replaceAll("var_rp_pos_x", String.valueOf(2 * settings.getRPortrait_x()));

@@ -64,7 +64,7 @@ public abstract class BaseWindow {
 	} // 초기 세로 크기
 
 	protected String getTitle() {
-		return "GigaUI Ultimate v2.3.2";
+		return "GigaUI Ultimate";
 	}
 
 	protected Slider createSlider(int min, int max, int value, int tick, int width) {

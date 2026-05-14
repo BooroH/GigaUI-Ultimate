@@ -35,7 +35,7 @@ public class TopBuffIconsWindow extends BaseWindow {
 		int gap = manager.getSettings().getTop_buff_spacing();
 		int col = manager.getSettings().getTop_buff_column();
 		
-		sizeSlider = createSlider(31, 99, size, 1, 360);
+		sizeSlider = createSlider(31, 119, size, 1, 360);
 		sizeLabel = new Label(String.valueOf(size));
 		
 		gapSlider = createSlider(0, 5, gap, 1, 200);
