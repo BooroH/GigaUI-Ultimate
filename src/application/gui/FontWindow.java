@@ -1,5 +1,6 @@
 package application.gui;
 
+import application.util.HexConverter;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -31,6 +32,9 @@ public class FontWindow extends BaseWindow {
 
 	private Slider BuffStackLocSlider;
 	private Label BuffStackLocLabel;
+	
+	private Slider buffTimerColorSlider;
+	private Label buffTimerColorLabel;
 
 	private CheckBox isDmgTextGigaSolution;
 
@@ -82,6 +86,10 @@ public class FontWindow extends BaseWindow {
 		} else {
 			BuffStackLocLabel.setText("Above the icon");
 		}
+		
+		int buffTimerColor_p = HexConverter.hexToInt(manager.getSettings().getBuffTimerColor());
+		buffTimerColorSlider = createSlider(75, 100, buffTimerColor_p, 1, 200);
+		buffTimerColorLabel = new Label(String.valueOf(buffTimerColor_p)+"%");
 
 		isDmgTextGigaSolution = new CheckBox("");
 		isDmgTextGigaSolution.setSelected(manager.getSettings().isDmgTextGigaSolution());
@@ -98,6 +106,7 @@ public class FontWindow extends BaseWindow {
 		HBox isHpNumBoldBox = new HBox(10, new Label("Bold"), isHpNumBold);
 		HBox isBuffTimerBoldBox = new HBox(10, new Label("Bold"), isBuffTimerBold);
 		HBox buffStackLocBox = new HBox(10, new Label("Stack number location"), BuffStackLocSlider, BuffStackLocLabel);
+		HBox buffTimerColorBox = new HBox(10, new Label("Brightness"), buffTimerColorSlider, buffTimerColorLabel);
 		HBox isDmgTextGigaSolutionBox = new HBox(10, new Label("Giga Solution"), isDmgTextGigaSolution);
 
 		Label generalSectionLabel = new Label("General");
@@ -113,7 +122,7 @@ public class FontWindow extends BaseWindow {
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
 		centerBox.getChildren().addAll(generalSectionLabel, generalSizeBox, cdSectionLabel, cdSizeBox, cdWeightBox,
-				hpSectionLabel, isHpNumBoldBox, buffSectionLabel, buffStackLocBox, isBuffTimerBoldBox);
+				hpSectionLabel, isHpNumBoldBox, buffSectionLabel, buffStackLocBox, buffTimerColorBox, isBuffTimerBoldBox);
 
 		Region spacer = new Region();
 		HBox.setHgrow(spacer, Priority.ALWAYS);
@@ -157,6 +166,11 @@ public class FontWindow extends BaseWindow {
 				BuffStackLocLabel.setText("Above the icon");
 			}
 		});
+		
+		buffTimerColorSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
+			buffTimerColorSlider.setValue(newVal.intValue());
+			buffTimerColorLabel.setText(String.valueOf(newVal.intValue()) + "%");
+		});
 
 		backButton.setOnAction(e -> manager.showAdvanced(stage));
 		okButton.setOnAction(e -> {
@@ -174,6 +188,8 @@ public class FontWindow extends BaseWindow {
 			manager.getSettings().setHPLabelBold(isHpNumBold.isSelected());
 			manager.getSettings().setBuffTimerBold(isBuffTimerBold.isSelected());
 			manager.getSettings().setBuff_stack_loc((int) BuffStackLocSlider.getValue());
+			int buffTimerColor_p = (int) buffTimerColorSlider.getValue();
+			manager.getSettings().setBuffTimerColor(HexConverter.intToHex(buffTimerColor_p, buffTimerColor_p, buffTimerColor_p));
 			// manager.getSettings().setDmgTextGigaSolution(isDmgTextGigaSolution.isSelected());
 			manager.showAdvanced(stage);
 		});
@@ -186,7 +202,7 @@ public class FontWindow extends BaseWindow {
 
 	@Override
 	protected double getHeight() {
-		return 520;
+		return 540;
 	}
 
 	@Override

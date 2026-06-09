@@ -275,26 +275,21 @@
 			gfxid_pressed="GUIcomponents/closebuttons/close_white_pressed.tga"
 			gfxid_highlight="GUIcomponents/closebuttons/close_white_hover.tga"
 		/>
-		<View view_layout="horizontal" v_local_alignment="BOTTOM" layout_borders="Rect(12,0,10,3)">
+		<View view_layout="horizontal" v_local_alignment="BOTTOM" layout_borders="Rect(12,0,12,6)">
 			<DropdownMenu name="DistrictMenu"
 				view_flags="_DMF_DONT_UPDATE_LABEL"
 				current_text="&lt;localized token=Region /&gt;"
-				min_size_limit="Point(70,-1)"
+				min_size_limit="Point(70,50)"
 			/>
 			<DropdownMenu name="RegionMenu"
 				view_flags="DMF_DONT_AUTOSELECT_ON_INSERT"
 				current_text="&lt;localized token=Region /&gt;"
 				max_size_limit="Point(250,50)"
 				max_size_extend="Point(250,-1)"
-				min_size_limit="Point(70,-1)"
+				min_size_limit="Point(70,50)"
 			/>
 			<Button name="WorldMapButton" template:source="ClearButton" label="<localized category=MapGUI token=MapGUI_WorldMapButton>" label_font="SC_BOLD" layout_borders="Rect(-13,0,-15,0)"/>
-			<Button name="CurrentPFButton"
-				gfxid_raised="WorldmapGUI/current_location_icon.tga"
-				gfxid_pressed="WorldmapGUI/current_location_icon_click.tga"
-				gfxid_highlight="WorldmapGUI/current_location_icon_hover.tga"
-				layout_borders="Rect(0,0,0,1)"
-			/>
+			<Button name="CurrentPFButton" template:source="ClearButton" label="Back" label_font="SC_BOLD" layout_borders="Rect(-13,0,-12,0)"/>
 		</View>
 	</BorderView>
 </View>

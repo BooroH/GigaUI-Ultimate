@@ -131,6 +131,15 @@ public class Settings {
 
 	private String cdFontWeight = "GG Bold";
 	private String overheadFontWeight = "GG Regular";
+	private String buffTimerColor = "dddddd";
+	
+	public String getBuffTimerColor() {
+		return buffTimerColor;
+	}
+
+	public void setBuffTimerColor(String buffTimerColor) {
+		this.buffTimerColor = buffTimerColor;
+	}
 	
 	public boolean isDmgTextGigaSolution() {
 		return isDmgTextGigaSolution;

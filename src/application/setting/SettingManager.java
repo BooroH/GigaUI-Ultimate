@@ -134,6 +134,7 @@ public class SettingManager {
 			sb.append("isCastbarSparkleOn=").append(settings.isCastbarSparkleOn()).append("\n");
 			sb.append("buff_stack_loc=").append(settings.getBuff_stack_loc()).append("\n");
 			sb.append("isDmgTextGigaSolution=").append(settings.isDmgTextGigaSolution()).append("\n");
+			sb.append("buffTimerColor=").append(settings.getBuffTimerColor()).append("\n");
 
 			Files.write(file.toPath(), sb.toString().getBytes());
 		} catch (IOException ex) {
@@ -503,6 +504,9 @@ public class SettingManager {
 						break;
 					case "overheadFontWeight":
 						settings.setOverheadFontWeight(value);
+						break;
+					case "buffTimerColor":
+						settings.setBuffTimerColor(value);
 						break;
 					}
 				}

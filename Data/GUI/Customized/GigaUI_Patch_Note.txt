@@ -1,3 +1,7 @@
+************* Ver 2.3.4 *************
+- now you can adjust buff timer's text brightness again
+
+
 ************* Ver 2.3.3 *************
 - added layouts 3x21 to 3x29
 

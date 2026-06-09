@@ -33,6 +33,19 @@ public class BuffListViewIcon {
 			settings.setBuff_stack_loc(1);
 		}
 
+		// 남은시간 텍스트 색
+		p = Pattern.compile("<TextView\\s+name=\"RemainingTimeView\"[^>]*default_color=\"#([0-9a-fA-F]{6})\"");
+
+		m = p.matcher(content);
+
+		if (m.find()) {
+			String rgb = m.group(1);
+			if(rgb.equals("dddddd")) {
+				rgb = "dedede";
+			}
+			settings.setBuffTimerColor(rgb);
+		}
+
 	}
 
 	public static void writeBuffListViewIcon(String customizedDir) {
@@ -46,35 +59,44 @@ public class BuffListViewIcon {
 		String content = FileManager.fileToString(targetDir);
 
 		String fullCode;
-		
+
 		// 버프타이머 폰트
 		String font;
-		
+
 		if (settings.isBuffTimerBold()) {
 			font = " font=\"NORMAL_BOLD\"";
 		} else {
 			font = "";
 		}
-		
+
 		int stackLoc = settings.getBuff_stack_loc();
 		String stack_layout_borders = " layout_borders=\"Rect(0,-1,0,-2)\"";
+		
+		//텍스트컬러
+		String timerColor = settings.getBuffTimerColor();
+		
+		if(timerColor.equals("dedede")) {
+			timerColor = "dddddd";
+		}
 
 		if (stackLoc == 0) {
 			fullCode = "<View view_layout=\"stacked\">\r\n"
 					+ "		<ItemIconView name=\"IconView\" view_flags=\"F_DISABLE_COOLDOWN|F_ALWAYS_SHOW_ENABLED\"/>\r\n"
-					+ "		<TextView name=\"StackSizeView\" default_color=\"#ffffff\""+font+" feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\" v_local_alignment=\"TOP\" h_local_alignment=\"RIGHT\"/>\r\n"
+					+ "		<TextView name=\"StackSizeView\" default_color=\"#ffffff\"" + font
+					+ " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\" v_local_alignment=\"TOP\" h_local_alignment=\"RIGHT\"/>\r\n"
 					+ "	</View>\r\n"
 					+ "	<View name=\"RemainingTimeContainer\" view_layout=\"horizontal\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
-					+ "		<TextView name=\"RemainingTimeView\" default_color=\"#dbdddf\""+font+" feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"/>\r\n"
-					+ "	</View>";
+					+ "		<TextView name=\"RemainingTimeView\" default_color=\"#"+timerColor+"\"" + font
+					+ " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"/>\r\n" + "	</View>";
 		} else {
 			fullCode = "<View name=\"StackSizeContainer\" view_layout=\"horizontal\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
-					+ "		<TextView name=\"StackSizeView\" default_color=\"#dbdddf\""+font+" feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\""+stack_layout_borders+"/>\r\n"
+					+ "		<TextView name=\"StackSizeView\" default_color=\"#"+timerColor+"\"" + font
+					+ " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"" + stack_layout_borders + "/>\r\n"
 					+ "	</View>\r\n"
 					+ "	<ItemIconView name=\"IconView\" view_flags=\"F_DISABLE_COOLDOWN|F_ALWAYS_SHOW_ENABLED\"/>\r\n"
 					+ "	<View name=\"RemainingTimeContainer\" view_layout=\"horizontal\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
-					+ "		<TextView name=\"RemainingTimeView\" default_color=\"#dbdddf\""+font+" feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"/>\r\n"
-					+ "	</View>";
+					+ "		<TextView name=\"RemainingTimeView\" default_color=\"#"+timerColor+"\"" + font
+					+ " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"/>\r\n" + "	</View>";
 		}
 
 		content = content.replaceAll("var_code", fullCode);
