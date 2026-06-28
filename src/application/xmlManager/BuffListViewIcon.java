@@ -40,8 +40,8 @@ public class BuffListViewIcon {
 
 		if (m.find()) {
 			String rgb = m.group(1);
-			if(rgb.equals("dddddd")) {
-				rgb = "dedede";
+			if(rgb.equals("dbdddf")) {
+				rgb = "dadcde";
 			}
 			settings.setBuffTimerColor(rgb);
 		}
@@ -75,8 +75,8 @@ public class BuffListViewIcon {
 		//텍스트컬러
 		String timerColor = settings.getBuffTimerColor();
 		
-		if(timerColor.equals("dedede")) {
-			timerColor = "dddddd";
+		if(timerColor.equals("dadcde")) {
+			timerColor = "dbdddf";
 		}
 
 		if (stackLoc == 0) {

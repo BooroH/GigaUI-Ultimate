@@ -6,6 +6,6 @@
 		<TextView name="StackSizeView" default_color="#ffffff" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO" v_local_alignment="TOP" h_local_alignment="RIGHT"/>
 	</View>
 	<View name="RemainingTimeContainer" view_layout="horizontal" view_flags="WID_IGNORE_WHEN_HIDDEN">
-		<TextView name="RemainingTimeView" default_color="#dddddd" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
+		<TextView name="RemainingTimeView" default_color="#dbdddf" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
 	</View>
 </View>

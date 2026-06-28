@@ -189,7 +189,7 @@ public class FontWindow extends BaseWindow {
 			manager.getSettings().setBuffTimerBold(isBuffTimerBold.isSelected());
 			manager.getSettings().setBuff_stack_loc((int) BuffStackLocSlider.getValue());
 			int buffTimerColor_p = (int) buffTimerColorSlider.getValue();
-			manager.getSettings().setBuffTimerColor(HexConverter.intToHex(buffTimerColor_p, buffTimerColor_p, buffTimerColor_p));
+			manager.getSettings().setBuffTimerColor(HexConverter.intToHex(buffTimerColor_p));
 			// manager.getSettings().setDmgTextGigaSolution(isDmgTextGigaSolution.isSelected());
 			manager.showAdvanced(stage);
 		});

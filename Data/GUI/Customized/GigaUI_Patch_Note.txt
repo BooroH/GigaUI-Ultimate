@@ -1,3 +1,8 @@
+************* Ver 2.3.5 *************
+- tweaked portrait bar textures
+- changed minor things
+
+
 ************* Ver 2.3.4 *************
 - now you can adjust buff timer's text brightness again
 
