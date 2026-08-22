@@ -1,3 +1,7 @@
+************* Ver 2.3.6 *************
+- fixed a bug that occurred when moving target of target to the left
+
+
 ************* Ver 2.3.5 *************
 - tweaked portrait bar textures
 - changed minor things

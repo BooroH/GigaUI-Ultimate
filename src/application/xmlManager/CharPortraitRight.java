@@ -290,7 +290,7 @@ public class CharPortraitRight {
 		int tot_pos_x = settings.getTargetOfTargetX();
 		int tot_layout_top = settings.getToT_layout_top();
 		if (tot_pos_x < 0) {
-			tot_layout_right = tot_pos_x;
+			tot_layout_right = -tot_pos_x;
 			tot_layout_left = 0;
 		} else {
 			tot_layout_right = 0;
