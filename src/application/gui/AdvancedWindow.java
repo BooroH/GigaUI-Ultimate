@@ -32,13 +32,13 @@ public class AdvancedWindow extends BaseWindow {
 
 	@Override
 	protected void initComponents() {
-		topBuffIconsButton = new Button("Top Buff Icons");
+		topBuffIconsButton = new Button("Buff Icons");
 		miniSlotButton = new Button("Action Bar");
 		mainPortraitButton = new Button("Left & Right Portrait");
 		floatingPortraitButton = new Button("Floating Portrait");
 		castBarButton = new Button("Castbar");
 		csiButton = new Button("Combo Sequencer");
-		soulshardButton = new Button("Misc");
+		soulshardButton = new Button("MISC");
 		unitListButton = new Button("Group, Raid, Pet");
 		overheadButton = new Button("Overhead");
 		fontButton = new Button("Font");
@@ -51,8 +51,8 @@ public class AdvancedWindow extends BaseWindow {
 	protected Parent createView() {
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
-		centerBox.getChildren().addAll(miniSlotButton, castBarButton, csiButton, mainPortraitButton,
-				floatingPortraitButton, unitListButton, topBuffIconsButton, overheadButton, fontButton, darkModeButton,
+		centerBox.getChildren().addAll(miniSlotButton, castBarButton, csiButton, topBuffIconsButton, mainPortraitButton,
+				floatingPortraitButton, unitListButton, overheadButton, fontButton, darkModeButton,
 				soulshardButton);
 
 		HBox bottomButtons = new HBox(10, closeButton);

@@ -1,21 +1,26 @@
 .root {
     -fx-background-color: #f5f5f7;
     -fx-font-family: "GG Medium";
+    -fx-font-size: 13px;
     -fx-text-fill: #1c1c1e;
+}
+.section-title {
+    -fx-font-family: "GG Bold";
+    -fx-text-fill: #1c1c1e;
+    -fx-font-size: 14px;
 }
 
 /* 라벨 */
 .label {
     -fx-text-fill: #1c1c1e;
-    -fx-font-size: 13px;
-    -fx-font-weight: 500;
 }
 
 .button {
     -fx-background-color: 
         linear-gradient(to bottom, #ffffff, #e9e9eb); /* subtle gradient */
+    -fx-font-family: "GG Bold";
     -fx-text-fill: #1c1c1e;
-    -fx-font-weight: 600;
+    -fx-font-size: 13px;
     -fx-background-radius: 8;
     -fx-cursor: hand;
     -fx-border-color: #d1d1d6;
@@ -41,7 +46,6 @@
 /* 라디오 버튼 */
 .radio-button {
     -fx-text-fill: #1c1c1e;
-    -fx-font-weight: 500;
 }
 
 .radio-button .radio {

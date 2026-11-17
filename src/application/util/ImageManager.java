@@ -82,7 +82,7 @@ public class ImageManager {
 		}
 	}
 
-	static int transform(int ri, int gi, int bi, double hueShift, double chromaAdj, double lightAdj) {
+	public static int transform(int ri, int gi, int bi, double hueShift, double chromaAdj, double lightAdj) {
 
 		// 1. sRGB 8bit → linear
 		double R = srgbToLinear(ri / 255.0);

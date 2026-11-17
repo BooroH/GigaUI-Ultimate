@@ -7,25 +7,25 @@
 	energy_full_gfx="../../Customized/gfx/portrait/e_3.png"
 >
 	<template:ProgressBar template:name = "ManaBarShort"
-		bg_gfx="../../Customized/gfx/portrait/mana_s_bg_a65.png"
+		bg_gfx="../../Customized/gfx/portrait/mana_s_bg_a70.png"
 		fg_gfx="../../Customized/gfx/portrait/mana_s.png"
 		left_margin="0"
 		right_margin="8"
 	/>
 	<template:ProgressBar template:name = "ManaBarLong"
-		bg_gfx="../../Customized/gfx/portrait/stam_bg_a65.png"
+		bg_gfx="../../Customized/gfx/portrait/stam_bg_a70.png"
 		fg_gfx="../../Customized/gfx/portrait/mana.png"
 		left_margin="8"
 		right_margin="8"
 	/>
 	<template:ProgressBar template:name = "StaminaBarShort"
-		bg_gfx="../../Customized/gfx/portrait/stam_s_bg_a65.png"
+		bg_gfx="../../Customized/gfx/portrait/stam_s_bg_a70.png"
 		fg_gfx="../../Customized/gfx/portrait/stam_s.png"
 		left_margin="8"
 		right_margin="0"
 	/>
 	<template:ProgressBar template:name = "StaminaBarLong"
-		bg_gfx="../../Customized/gfx/portrait/stam_bg_a65.png"
+		bg_gfx="../../Customized/gfx/portrait/stam_bg_a70.png"
 		fg_gfx="../../Customized/gfx/portrait/stam.png"
 		left_margin="8"
 		right_margin="8"
@@ -55,7 +55,7 @@
 			view_layout="stacked"
 			view_flags="WID_HANDLE_MOUSE"
 			v_alignment="TOP"
-			max_size_limit="Point(235,70)"
+			max_size_limit="Point(235,68)"
 		>
 			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- minion -->
 			<nocreate:Bitmap name="../../Customized/gfx/portrait/c_null.png"/>		<!-- normal -->
@@ -73,14 +73,13 @@
 			<ProgressBar name="HealthBar"
 				flash_on_reduce="false"
 				slide_down_time="0.07"
-				bg_gfx="../../Customized/gfx/portrait/hp_bg_a65.png"
+				bg_gfx="../../Customized/gfx/portrait/hp_bg_a70.png"
 				fg_gfx="../../Customized/gfx/portrait/hp.png"
 				left_margin="8"
 				right_margin="8"
 				label_color="#f6f6f6"
 				
 				max_size_limit="Point(235,39)"
-
 			/>
 			<View view_layout="horizontal" layout_borders="Rect(0,26,0,0)" max_size_limit="Point(235,27)">
 				<ProgressBar name="StaminaBar"
@@ -98,10 +97,10 @@
 					label_offset="Point(0,40)"
 				/>
 			</View>
-			<BitmapView name="EnergyIcon" layout_borders="Rect(0,0,0,5)" v_local_alignment="BOTTOM"/>
+			<BitmapView name="EnergyIcon" layout_borders="Rect(0,0,0,3)" v_local_alignment="BOTTOM"/>
 		</BitmapView>
-		<View name="TargetContainerView" view_layout="stacked" v_alignment="BOTTOM" layout_borders="Rect(220,-14,0,0)">
-			<BitmapView name="TargetHealthBarBg" view_layout="vertical" bitmap_gfx="../../Customized/gfx/portrait/t_bg_a65.png" max_size_limit="Point(115,27)">
+		<View name="TargetContainerView" view_layout="stacked" v_alignment="BOTTOM" layout_borders="Rect(220,-12,0,0)">
+			<BitmapView name="TargetHealthBarBg" view_layout="vertical" bitmap_gfx="../../Customized/gfx/portrait/t_bg_a70.png" max_size_limit="Point(115,27)">
 				<CharStatBar name="TargetHealthBar"
 					stat_type="health"
 					flash_on_reduce="false"

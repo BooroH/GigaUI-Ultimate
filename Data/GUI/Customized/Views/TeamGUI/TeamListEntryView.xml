@@ -2,19 +2,19 @@
 <!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
 <View view_layout="horizontal">
 	<View name="HoverInfoArea" view_layout="vertical" view_flags="WID_AUTO_HIGHLIGHT">
-		<BitmapView view_layout="horizontal" bitmap_gfx="../../Customized/gfx/teamlist/name_bg.png" layout_borders="Rect(0,0,0,-4)" view_local_alpha="0.7" max_size_limit="Point(121,18)">
+		<BitmapView view_layout="horizontal" bitmap_gfx="../../Customized/gfx/teamlist/name_bg.png" layout_borders="Rect(0,0,0,-4)" view_local_alpha="0.7" max_size_limit="Point(119,18)">
 			<View view_layout="horizontal">
 				<TeamMemberClassView name="ClassIconView"/>
 				<TextView name="NameView"
 					layout_borders="Rect(3,0,0,0)"
-					min_size_extend="Point(97,-1)"
-					max_size_limit="Point(97,23)"
+					min_size_extend="Point(95,-1)"
+					max_size_limit="Point(95,23)"
 					feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"
 					font="NORMAL_BOLD"
 				/>
 			</View>
 		</BitmapView>
-		<View name="Health" view_layout="stacked" max_size_limit="Point(121,17)">
+		<View name="Health" view_layout="stacked" max_size_limit="Point(119,15)">
 			<CharStatBar name="HealthBar"
 				stat_type="health"
 				flash_on_reduce="false"
@@ -22,7 +22,7 @@
 				fg_gfx="../../Customized/gfx/teamlist/hp.png"
 				left_margin="1.4"
 				right_margin="1.4"
-				view_local_alpha="0.97"
+				view_local_alpha="0.98"
 			/>
 			<BitmapView name="OutOfRangeOverlay" bitmap_gfx="../../Customized/gfx/teamlist/oor.png"/>
 			<TextView name="DeadOverlay"

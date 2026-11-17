@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
@@ -43,8 +44,9 @@ public class MainPortraitWindow extends BaseWindow {
 	private Label r_moveXLabel;
 	private Slider r_moveYSlider;
 	private Label r_moveYLabel;
-	private Slider r_buffFilterSlider;
-	private Label r_buffFilterLabel;
+	
+	private ComboBox<String> buffFilterComboBox;
+	private ComboBox<String> hpWeightComboBox;
 
 	private Slider ttXSlider;
 	private Label ttXLabel;
@@ -150,21 +152,19 @@ public class MainPortraitWindow extends BaseWindow {
 		r_colSlider = createSlider(5, 20, r_col, 1, 200);
 		r_colLabel = new Label(String.valueOf(r_col));
 
-		r_buffFilterSlider = createSlider(1, 3, r_buffFilter, 2, 100);
-		r_buffFilterLabel = new Label("");
+		
+		buffFilterComboBox = new ComboBox<>();
+		buffFilterComboBox.getItems().addAll("Hostile", "Hostile & Friendly");
+		if(r_buffFilter==1)
+			buffFilterComboBox.setValue("Hostile");
+		else if(r_buffFilter==3)
+			buffFilterComboBox.setValue("Hostile & Friendly");
 
 		ttXSlider = createSlider(-300, 300, tt_x, 1, 300);
 		ttXLabel = new Label(String.valueOf(tt_x));
 
 		ttYSlider = createSlider(-60, 60, tt_layout_top, 1, 300);
 		ttYLabel = new Label(String.valueOf(tt_layout_top));
-
-		if (r_buffFilter == 1)
-			r_buffFilterLabel.setText("Hostile only");
-		else if (r_buffFilter == 3)
-			r_buffFilterLabel.setText("Hostile and Friendly");
-		else
-			r_buffFilterLabel.setText("");
 
 		lPortraitXListener = (ObservableValue<? extends Number> o, Number oldVal, Number newVal) -> {
 			r_moveXSlider.setValue(-newVal.intValue());
@@ -201,6 +201,15 @@ public class MainPortraitWindow extends BaseWindow {
 			l_gapSlider.valueProperty().addListener(lpBuffSpacingListener);
 			l_colSlider.valueProperty().addListener(lpBuffColumnListener);
 		}
+		
+		hpWeightComboBox = new ComboBox<>();
+		hpWeightComboBox.getItems().addAll("Medium", "Bold");
+		if(manager.getSettings().isHPLabelBold()) {
+			hpWeightComboBox.setValue("Bold");
+		}
+		else {
+			hpWeightComboBox.setValue("Medium");
+		}
 
 		backButton = new Button("Back");
 		okButton = new Button("OK");
@@ -208,39 +217,45 @@ public class MainPortraitWindow extends BaseWindow {
 
 	@Override
 	protected Parent createView() {
-		HBox l_hp_height_box = new HBox(10, new Label("Portraits size"), l_hp_height_slider, l_hp_height_label);
-		HBox l_bg_alpha_box = new HBox(10, new Label("BG alpha"), l_bg_alpha_slider, l_bg_alpha_label);
+		HBox l_hp_height_box = new HBox(10, new Label("Portraits Size"), l_hp_height_slider, l_hp_height_label);
+		HBox l_bg_alpha_box = new HBox(10, new Label("BG Alpha"), l_bg_alpha_slider, l_bg_alpha_label);
+		HBox hpWeightBox = new HBox(10, new Label("HP Label Weight"), hpWeightComboBox);
+		
+		Label generalLabel = new Label("GENERAL");
+		generalLabel.getStyleClass().add("section-title");
 
-		Label lp = new Label("Left Portrait");
-		VBox.setMargin(lp, new Insets(20, 0, 0, 0));
+		Label lp = new Label("LEFT PORTRAIT");
+		lp.getStyleClass().add("section-title");
+		VBox.setMargin(lp, new Insets(10, 0, 0, 0));
 
-		HBox l_sizeBox = new HBox(10, new Label("Buff size"), l_sizeSlider, l_sizeLabel);
-		HBox l_gapBox = new HBox(10, new Label("Buff gap"), l_gapSlider, l_gapLabel);
-		HBox l_colBox = new HBox(10, new Label("Buff column"), l_colSlider, l_colLabel);
+		HBox l_sizeBox = new HBox(10, new Label("Buff Size"), l_sizeSlider, l_sizeLabel);
+		HBox l_gapBox = new HBox(10, new Label("Buff Gap"), l_gapSlider, l_gapLabel);
+		HBox l_colBox = new HBox(10, new Label("Buff Column"), l_colSlider, l_colLabel);
 		HBox l_moveXBox = new HBox(10, new Label("Move x"), l_moveXSlider, l_moveXLabel);
 		HBox l_moveYBox = new HBox(10, new Label("Move y"), l_moveYSlider, l_moveYLabel);
 		HBox syncBox = new HBox(10, new Label("Sync Left/Right"), syncCheckBox);
 		VBox.setMargin(syncBox, new Insets(20, 0, 0, 0));
 
-		Label right = new Label("Rright Portrait");
-		VBox.setMargin(right, new Insets(5, 0, 0, 0));
+		Label right = new Label("RIGHT PORTRAIT");
+		right.getStyleClass().add("section-title");
 
-		HBox r_sizeBox = new HBox(10, new Label("Buff size"), r_sizeSlider, r_sizeLabel);
-		HBox r_gapBox = new HBox(10, new Label("Buff gap"), r_gapSlider, r_gapLabel);
-		HBox r_colBox = new HBox(10, new Label("Buff column"), r_colSlider, r_colLabel);
+		HBox r_sizeBox = new HBox(10, new Label("Buff Size"), r_sizeSlider, r_sizeLabel);
+		HBox r_gapBox = new HBox(10, new Label("Buff Gap"), r_gapSlider, r_gapLabel);
+		HBox r_colBox = new HBox(10, new Label("Buff Column"), r_colSlider, r_colLabel);
 		HBox r_moveXBox = new HBox(10, new Label("Move x"), r_moveXSlider, r_moveXLabel);
 		HBox r_moveYBox = new HBox(10, new Label("Move y"), r_moveYSlider, r_moveYLabel);
-		HBox r_buffFilterBox = new HBox(10, new Label("Filter"), r_buffFilterSlider, r_buffFilterLabel);
+		HBox r_buffFilterBox = new HBox(10, new Label("Filter"), buffFilterComboBox);
 
-		Label tt = new Label("Target of Target");
-		VBox.setMargin(tt, new Insets(20, 0, 0, 0));
+		Label tt = new Label("TARGET OF TARGET");
+		tt.getStyleClass().add("section-title");
+		VBox.setMargin(tt, new Insets(10, 0, 0, 0));
 
 		HBox ttXBox = new HBox(10, new Label("Move x"), ttXSlider, ttXLabel);
 		HBox ttYBox = new HBox(10, new Label("Spacing y"), ttYSlider, ttYLabel);
 
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
-		centerBox.getChildren().addAll(new Label("General"), l_hp_height_box, l_bg_alpha_box, lp, l_moveXBox,
+		centerBox.getChildren().addAll(generalLabel, l_hp_height_box, l_bg_alpha_box, hpWeightBox, lp, l_moveXBox,
 				l_moveYBox, l_sizeBox, l_gapBox, l_colBox, syncBox, right, r_moveXBox, r_moveYBox, r_sizeBox, r_gapBox,
 				r_colBox, r_buffFilterBox, tt, ttXBox, ttYBox);
 
@@ -348,15 +363,6 @@ public class MainPortraitWindow extends BaseWindow {
 			r_moveYSlider.setValue(newVal.intValue());
 			r_moveYLabel.setText(String.valueOf(newVal.intValue()));
 		});
-		r_buffFilterSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			r_buffFilterSlider.setValue(newVal.intValue());
-			if (newVal.intValue() == 1)
-				r_buffFilterLabel.setText("Hostile only");
-			else if (newVal.intValue() == 3)
-				r_buffFilterLabel.setText("Hostile and Friendly");
-			else
-				r_buffFilterLabel.setText("");
-		});
 		ttXSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
 			ttXSlider.setValue(newVal.intValue());
 			ttXLabel.setText(String.valueOf(newVal.intValue()));
@@ -408,7 +414,25 @@ public class MainPortraitWindow extends BaseWindow {
 			manager.getSettings().setRP_buff_size((int) r_sizeSlider.getValue());
 			manager.getSettings().setRP_buff_spacing((int) r_gapSlider.getValue());
 			manager.getSettings().setRP_buff_column((int) r_colSlider.getValue());
-			manager.getSettings().setRP_buff_filter((int) r_buffFilterSlider.getValue());
+			
+			int buffFilter;
+			
+			if(buffFilterComboBox.getValue().equals("Hostile"))
+				buffFilter=1;
+			else
+				buffFilter=3;
+			
+			manager.getSettings().setRP_buff_filter(buffFilter);
+			
+			//라벨 두께
+			boolean isHPBold;
+    		if(hpWeightComboBox.getValue().equals("Bold")) {
+    			isHPBold = true;
+    		}
+    		else {
+    			isHPBold = false;
+    		}
+    		manager.getSettings().setHPLabelBold(isHPBold);
 
 			manager.showAdvanced(stage);
 		});
@@ -421,7 +445,7 @@ public class MainPortraitWindow extends BaseWindow {
 
 	@Override
 	protected double getHeight() {
-		return 880;
+		return 850;
 	}
 
 	@Override

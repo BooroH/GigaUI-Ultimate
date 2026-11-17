@@ -147,13 +147,30 @@ public class TeamListBigEntryView {
 			nameBg_height="22";
 			name_layout_borders="layout_borders=\"Rect(3,0,0,0)\"";
 		}
-		else {
+		else if(font_size==5 || font_size==6) {
 			nameBg_height="22";
 			name_layout_borders="layout_borders=\"Rect(3,-1,0,0)\"";
+		}
+		else {
+			nameBg_height="22";
+			name_layout_borders="layout_borders=\"Rect(3,-3,0,0)\"";
 		}
 		
 		content = content.replaceAll("var_nameBg_height", nameBg_height);
 		content = content.replaceAll("var_name_layout_borders", name_layout_borders);
+		
+		//상태바 컬러셋
+		String colorSet = settings.getColorSet();
+		String var_color_set = "";
+				
+		if(colorSet.equals("clr")) {
+			var_color_set = "";
+		}
+		else {
+			var_color_set = colorSet + "_";
+		}
+				
+		content = content.replaceAll("var_color_set", var_color_set);
 
 		FileManager.stringToFile(targetDir, content);
 

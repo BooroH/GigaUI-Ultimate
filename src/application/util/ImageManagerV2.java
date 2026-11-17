@@ -68,7 +68,7 @@ public class ImageManagerV2 {
     static int transform(int ri, int gi, int bi, double hueShift, double chromaAdj, double lightAdj) {
 
         // 파라미터 정규화
-        double hue = hueShift / 180.0;  // -1.0 ~ 1.0
+    	double hue = hueShift / 360.0;  // 한 바퀴 = 1.0
         double sat = chromaAdj / 100.0; // -1.0 ~ 1.0
         double lit = lightAdj  / 100.0; // -1.0 ~ 1.0
 
@@ -98,11 +98,10 @@ public class ImageManagerV2 {
 
         // Hue
         H += hue;
-        if (H < 0.0) H += 1.0;
-        if (H > 1.0) H -= 1.0;
+        H -= Math.floor(H);
 
         // Saturation
-        S = Math.max(0.0, Math.min(1.0, S + sat));
+        S = Math.max(0.0, Math.min(1.0, S * (sat + 1.0)));
 
         // Lightness: GIMP 소스 공식
         // v < 0  →  L * (v + 1)

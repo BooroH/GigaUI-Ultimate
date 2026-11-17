@@ -116,6 +116,10 @@ public class Fonts {
 		content = content.replaceAll("var_scaled_size", String.valueOf(settings.getFontSize() + 21));
 		// 빅그룹
 		content = content.replaceAll("var_medium_size", String.valueOf(settings.getFontSize() + 14));
+		// SC노말
+		content = content.replaceAll("var_SC_normal_size", String.valueOf(settings.getFontSize() + 14));
+		// SC라지
+		content = content.replaceAll("var_SC_large_size", String.valueOf(settings.getFontSize() + 16));
 
 		FileManager.stringToFile(targetDir, content);
 

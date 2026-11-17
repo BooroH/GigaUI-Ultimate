@@ -96,16 +96,17 @@ public class Settings {
 	private int lPortrait_bg_alpha=70;
 	private int lPortrait_hp_height;
 	private int floatingPortrait_bg_alpha = 70;
-	private int buff_stack_loc = 0; // 0 인사이드 1 어보브
+	private int buff_stack_loc = 1; // 0 인사이드 1 어보브
 
 	private double nameplate_alpha = 0.5;
 	private double petListAlpha = 0.95;
-	private double overheadHPAlpha = 0.94;
+	private double overheadHPAlpha = 0.9;
 	private double groupHPAlpha = 0.95;
 	private double raidHPAlpha = 0.95;
 	private double csi_highlight_alpha = 70;
 	private double group_nameBg_alpha = 0.7;
 	private double raid_nameBg_alpha = 0.7;
+	private double stackPlateAlpha = 0.5;
 	
 	private double castBar_hue = 0;
 	private double castBar_chroma = 0;
@@ -131,7 +132,52 @@ public class Settings {
 
 	private String cdFontWeight = "GG Bold";
 	private String overheadFontWeight = "GG Regular";
+	private String stackColor = "dbdddf";
 	private String buffTimerColor = "dbdddf";
+	private String colorSet = "hyb";
+	private String stackWeight = "Medium";
+	private String timerLayout = "Below";
+	
+	
+	public double getStackPlateAlpha() {
+		return stackPlateAlpha;
+	}
+
+	public void setStackPlateAlpha(double stackPlateAlpha) {
+		this.stackPlateAlpha = stackPlateAlpha;
+	}
+	
+	public String getTimerLayout() {
+		return timerLayout;
+	}
+
+	public void setTimerLayout(String timerLayout) {
+		this.timerLayout = timerLayout;
+	}
+	
+	public String getStackColor() {
+		return stackColor;
+	}
+
+	public void setStackColor(String stackColor) {
+		this.stackColor = stackColor;
+	}
+	
+	public String getStackWeight() {
+		return stackWeight;
+	}
+
+	public void setStackWeight(String stackWeight) {
+		this.stackWeight = stackWeight;
+	}
+	
+	public String getColorSet() {
+		return colorSet;
+	}
+
+	public void setColorSet(String colorSet) {
+		this.colorSet = colorSet;
+	}
 	
 	public String getBuffTimerColor() {
 		return buffTimerColor;

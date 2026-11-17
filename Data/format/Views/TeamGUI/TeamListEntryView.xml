@@ -19,7 +19,7 @@
 				stat_type="health"
 				flash_on_reduce="false"
 				bg_gfx="../../Customized/gfx/teamlist/bg.png"
-				fg_gfx="../../Customized/gfx/teamlist/hp.png"
+				fg_gfx="../../Customized/gfx/teamlist/var_color_sethp.png"
 				left_margin="var_left_margin"
 				right_margin="var_right_margin"
 				var_hp_alpha

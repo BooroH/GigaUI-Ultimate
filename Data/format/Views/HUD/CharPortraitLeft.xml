@@ -3,25 +3,25 @@
 <View name="left_portrait" view_layout="vertical">
 	<template:ProgressBar template:name = "ManaBarShort"
 		bg_gfx="../../Customized/gfx/portrait/var_mana_s_bg_img"
-		fg_gfx="../../Customized/gfx/portrait/mana_s.png"
+		fg_gfx="../../Customized/gfx/portrait/var_color_setmana_s.png"
 		left_margin="0"
 		right_margin="var_margin"
 	/>
 	<template:ProgressBar template:name = "ManaBarLong"
 		bg_gfx="../../Customized/gfx/portrait/var_stam_bg_img"
-		fg_gfx="../../Customized/gfx/portrait/mana.png"
+		fg_gfx="../../Customized/gfx/portrait/var_color_setmana.png"
 		left_margin="var_margin"
 		right_margin="var_margin"
 	/>
 	<template:ProgressBar template:name = "StaminaBarShort"
 		bg_gfx="../../Customized/gfx/portrait/var_stam_s_bg_img"
-		fg_gfx="../../Customized/gfx/portrait/stam_s.png"
+		fg_gfx="../../Customized/gfx/portrait/var_color_setstam_s.png"
 		left_margin="var_margin"
 		right_margin="0"
 	/>
 	<template:ProgressBar template:name = "StaminaBarLong"
 		bg_gfx="../../Customized/gfx/portrait/var_stam_bg_img"
-		fg_gfx="../../Customized/gfx/portrait/stam.png"
+		fg_gfx="../../Customized/gfx/portrait/var_color_setstam.png"
 		left_margin="var_margin"
 		right_margin="var_margin"
 	/>
@@ -55,7 +55,7 @@
 			flash_on_reduce="false"
 			slide_down_time="0.12"
 			bg_gfx="../../Customized/gfx/portrait/var_hp_bg_img"
-			fg_gfx="../../Customized/gfx/portrait/hp.png"
+			fg_gfx="../../Customized/gfx/portrait/var_color_sethp.png"
 			left_margin="var_margin"
 			right_margin="var_margin"
 			label_color="#eef0f2"

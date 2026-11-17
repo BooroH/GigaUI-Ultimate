@@ -118,18 +118,21 @@ public class FloatingPortraitWindow extends BaseWindow {
 
 	@Override
 	protected Parent createView() {
-		HBox nameBgAlphaBox = new HBox(10, new Label("Nameplate alpha"), nameBgAlphaSlider, nameBgAlphaLabel);
+		HBox nameBgAlphaBox = new HBox(10, new Label("Nameplate Alpha"), nameBgAlphaSlider, nameBgAlphaLabel);
 		HBox buffSizeBox = new HBox(10, new Label("Size"), buffSizeSlider, buffSizeLabel);
 		HBox buffGapBox = new HBox(10, new Label("Gap"), buffGapSlider, buffGapLabel);
 		HBox buffColBox = new HBox(10, new Label("Column"), buffColSlider, buffColLabel);
-		HBox barAlphaBox = new HBox(10, new Label("BG alpha"), barAlphaSlider, barAlphaLabel);
+		HBox barAlphaBox = new HBox(10, new Label("BG Alpha"), barAlphaSlider, barAlphaLabel);
 		HBox sizeBox = new HBox(10, new Label("Size"), hp_height_slider, hp_height_label);
-		HBox showManaBox = new HBox(10, new Label("Show mana/stam"), showManaCheckBox);
-		HBox showDebuffBox = new HBox(10, new Label("Show debuff"), showDebuffCheckBox);
+		HBox showManaBox = new HBox(10, new Label("Show Mana/Stam"), showManaCheckBox);
+		HBox showDebuffBox = new HBox(10, new Label("Show Debuff"), showDebuffCheckBox);
 
 		Label barLabel = new Label("STATUS BAR");
+		barLabel.getStyleClass().add("section-title");
+		
 		Label debuffLabel = new Label("DEBUFF");
-		VBox.setMargin(debuffLabel, new Insets(20, 0, 0, 0));
+		debuffLabel.getStyleClass().add("section-title");
+		VBox.setMargin(debuffLabel, new Insets(10, 0, 0, 0));
 
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
@@ -244,7 +247,7 @@ public class FloatingPortraitWindow extends BaseWindow {
 
 	@Override
 	protected double getHeight() {
-		return 500;
+		return 480;
 	}
 
 	@Override

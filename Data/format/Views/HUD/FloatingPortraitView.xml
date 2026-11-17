@@ -13,7 +13,7 @@
 			flash_on_reduce="false"
 			slide_down_time="0.04"
 			bg_gfx="../../Customized/gfx/portrait/var_hp_bg_img"
-			fg_gfx="../../Customized/gfx/portrait/hp.png"
+			fg_gfx="../../Customized/gfx/portrait/var_color_sethp.png"
 			left_margin="var_margin"
 			right_margin="var_margin"
 			label_color="#e3ebf2"

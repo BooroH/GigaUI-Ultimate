@@ -168,82 +168,82 @@ public class CharPortraitRight {
 			hp_width = 333;
 			stam_height = 38;
 			stam_layout_top = 36;
-			target_category_tag_size = 23;
+			target_category_tag_size = 21;
 			tot_width = 161;
 			margin = "10.8";
-			energy_layout_bottom = 10;
+			energy_layout_bottom = 8;
 		} else if (hp_height == 51) {
 			hp_width = 313;
 			stam_height = 35;
 			stam_layout_top = 34;
-			target_category_tag_size = 22;
+			target_category_tag_size = 19;
 			tot_width = 149;
 			margin = "10";
-			energy_layout_bottom = 9;
+			energy_layout_bottom = 7;
 		} else if (hp_height == 49) {
 			hp_width = 295;
 			stam_height = 34;
 			stam_layout_top = 32;
-			target_category_tag_size = 21;
+			target_category_tag_size = 18;
 			tot_width = 145;
 			margin = "9.8";
-			energy_layout_bottom = 8;
+			energy_layout_bottom = 6;
 		} else if (hp_height == 45) {
 			hp_width = 273;
 			stam_height = 31;
 			stam_layout_top = 30;
-			target_category_tag_size = 19;
+			target_category_tag_size = 17;
 			tot_width = 131;
 			margin = "9";
-			energy_layout_bottom = 7;
+			energy_layout_bottom = 5;
 		} else if (hp_height == 43) {
 			hp_width = 255;
 			stam_height = 30;
 			stam_layout_top = 28;
-			target_category_tag_size = 18;
+			target_category_tag_size = 16;
 			tot_width = 127;
 			margin = "8.6";
-			energy_layout_bottom = 6;
+			energy_layout_bottom = 4;
 		} else if (hp_height == 39) {
 			hp_width = 235;
 			stam_height = 27;
 			stam_layout_top = 26;
-			target_category_tag_size = 17;
+			target_category_tag_size = 15;
 			tot_width = 115;
 			margin = "8";
-			energy_layout_bottom = 5;
+			energy_layout_bottom = 3;
 		} else if (hp_height == 35) {
 			hp_width = 217;
 			stam_height = 24;
 			stam_layout_top = 23;
-			target_category_tag_size = 15;
+			target_category_tag_size = 13;
 			tot_width = 103;
 			margin = "7.2";
-			energy_layout_bottom = 4;
+			energy_layout_bottom = 2;
 		} else if (hp_height == 33) {
 			hp_width = 199;
 			stam_height = 23;
 			stam_layout_top = 22;
-			target_category_tag_size = 14;
+			target_category_tag_size = 12;
 			tot_width = 99;
 			margin = "7";
-			energy_layout_bottom = 3;
+			energy_layout_bottom = 1;
 		} else if (hp_height == 29) {
 			hp_width = 177;
 			stam_height = 20;
 			stam_layout_top = 19;
-			target_category_tag_size = 11;
+			target_category_tag_size = 9;
 			tot_width = 87;
 			margin = "6";
-			energy_layout_bottom = 2;
+			energy_layout_bottom = 0;
 		} else {
 			hp_width = 353;
 			stam_height = 41;
 			stam_layout_top = 39;
-			target_category_tag_size = 25;
+			target_category_tag_size = 22;
 			tot_width = 173;
 			margin = "12";
-			energy_layout_bottom = 11;
+			energy_layout_bottom = 9;
 		}
 
 		int container_height = stam_height + stam_layout_top + target_category_tag_size;
@@ -316,13 +316,28 @@ public class CharPortraitRight {
 			font_bottom_margin_reducer = -1;
 		} else if (settings.getFontSize() == 5) {
 			font_bottom_margin_reducer = -2;
-		} else {
+		} else if (settings.getFontSize() > 5 && settings.getFontSize() < 10) {
 			font_bottom_margin_reducer = -2;
+		} else {
+			font_bottom_margin_reducer = -3;
 		}
 		
 		int tot_name_layout_bottom = 18 + stam_height - 27 + font_bottom_margin_reducer;
 
 		content = content.replaceAll("var_tot_name_layout_bottom", String.valueOf(tot_name_layout_bottom));
+		
+		//상태바 컬러셋
+		String colorSet = settings.getColorSet();
+		String var_color_set = "";
+				
+		if(colorSet.equals("clr")) {
+			var_color_set = "";
+		}
+		else {
+			var_color_set = colorSet + "_";
+		}
+				
+		content = content.replaceAll("var_color_set", var_color_set);
 
 		FileManager.stringToFile(targetDir, content);
 	}

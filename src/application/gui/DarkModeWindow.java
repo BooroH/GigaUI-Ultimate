@@ -111,7 +111,9 @@ public class DarkModeWindow extends BaseWindow {
 
 	@Override
 	protected Parent createView() {
-		HBox darkModeBox = new HBox(10, new Label("Dark Mode"), darkMode_checkBox);
+		Label darkModeLabel = new Label("DARK MODE");
+		darkModeLabel.getStyleClass().add("section-title");
+		HBox darkModeBox = new HBox(10, darkModeLabel, darkMode_checkBox);
 		HBox slotBox = new HBox(10, new Label("Action bar"), slot_slider, slot_label);
 		HBox castbarBox = new HBox(10, new Label("Castbar"), castbar_slider, castbar_label);
 		HBox mainPortraittBox = new HBox(10, new Label("Main Portraits"), mainPortrait_slider, mainPortrait_label);
@@ -255,7 +257,7 @@ public class DarkModeWindow extends BaseWindow {
 
 	@Override
 	protected double getHeight() {
-		return 420;
+		return 430;
 	}
 
 	@Override

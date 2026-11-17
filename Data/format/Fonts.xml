@@ -32,6 +32,6 @@
 	<Font name="SCALED" face="GG Text Regular" size="Scaled(var_scaled_size)" antialias="Full"/>
 
 	<Font name="MEDIUM_BOLD" face="GG Bold" size="var_medium_size" antialias="Full"/>
-	<Font name="SC_BOLD" face="GG Comic Black" size="14" antialias="Full"/>
-	<Font name="SC_LARGE_BOLD" face="GG Comic Black" size="16" antialias="Full"/>
+	<Font name="SC_BOLD" face="GG Comic Black" size="var_SC_normal_size" antialias="Full"/>
+	<Font name="SC_LARGE_BOLD" face="GG Comic Black" size="var_SC_large_size" antialias="Full"/>
 </Fonts>

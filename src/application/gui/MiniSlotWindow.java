@@ -186,18 +186,24 @@ public class MiniSlotWindow extends BaseWindow {
 		HBox hideBox = new HBox(10, new Label("Hide Empty Slots"), hideCheckBox);
 		HBox sidebarSizeBox = new HBox(10, new Label("Size"), sidebarSizeSlider, sidebarSizeLabel);
 
-		Label miniBarLabel = new Label("Mini Bar");
-		VBox.setMargin(miniBarLabel, new Insets(20, 0, 0, 0));
+		Label bottomBarLabel = new Label("BOTTOM BAR");
+		bottomBarLabel.getStyleClass().add("section-title");
+		
+		Label miniBarLabel = new Label("MINI BAR");
+		miniBarLabel.getStyleClass().add("section-title");
+		VBox.setMargin(miniBarLabel, new Insets(10, 0, 0, 0));
 
-		Label sideBarLabel = new Label("Side Bar");
-		VBox.setMargin(sideBarLabel, new Insets(20, 0, 0, 0));
+		Label sideBarLabel = new Label("SIDE BAR");
+		sideBarLabel.getStyleClass().add("section-title");
+		VBox.setMargin(sideBarLabel, new Insets(10, 0, 0, 0));
 
-		Label generalLabel = new Label("General");
-		VBox.setMargin(generalLabel, new Insets(20, 0, 0, 0));
+		Label generalLabel = new Label("GENERAL");
+		generalLabel.getStyleClass().add("section-title");
+		VBox.setMargin(generalLabel, new Insets(10, 0, 0, 0));
 
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
-		centerBox.getChildren().addAll(new Label("Bottom Bar"), main_rowBox, main_colBox, main_slotSizeBox, mainGapBox,
+		centerBox.getChildren().addAll(bottomBarLabel, main_rowBox, main_colBox, main_slotSizeBox, mainGapBox,
 				mainMoveYBox, main_hideEmptySlotBox, miniBarLabel, colBox, sizeBox, gapBox, moveXBox, moveYBox, hideBox,
 				sideBarLabel, sidebarSizeBox, generalLabel, alphaBox);
 
@@ -450,7 +456,7 @@ public class MiniSlotWindow extends BaseWindow {
 
 	@Override
 	protected double getHeight() {
-		return 820;
+		return 760;
 	}
 
 	@Override

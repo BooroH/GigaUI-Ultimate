@@ -2,30 +2,30 @@
 <!-- $Change: 591162 $ (must be within the first 200 characters of the file) -->
 <View name="floating_portrait" view_layout="vertical" v_alignment="TOP">
 	<template:ProgressBar template:name = "ManaBarShort"
-		bg_gfx="../../Customized/gfx/portrait/mana_s_bg_a30.png"
+		bg_gfx="../../Customized/gfx/portrait/mana_s_bg_a35.png"
 		fg_gfx="../../Customized/gfx/portrait/mana_s.png"
 		left_margin="0"
-		right_margin="7.2"
+		right_margin="7"
 	/>
 	<template:ProgressBar template:name = "ManaBarLong"
-		bg_gfx="../../Customized/gfx/portrait/stam_bg_a30.png"
+		bg_gfx="../../Customized/gfx/portrait/stam_bg_a35.png"
 		fg_gfx="../../Customized/gfx/portrait/mana.png"
-		left_margin="7.2"
-		right_margin="7.2"
+		left_margin="7"
+		right_margin="7"
 	/>
 	<template:ProgressBar template:name = "StaminaBarShort"
-		bg_gfx="../../Customized/gfx/portrait/stam_s_bg_a30.png"
+		bg_gfx="../../Customized/gfx/portrait/stam_s_bg_a35.png"
 		fg_gfx="../../Customized/gfx/portrait/stam_s.png"
-		left_margin="7.2"
+		left_margin="7"
 		right_margin="0"
 	/>
 	<template:ProgressBar template:name = "StaminaBarLong"
-		bg_gfx="../../Customized/gfx/portrait/stam_bg_a30.png"
+		bg_gfx="../../Customized/gfx/portrait/stam_bg_a35.png"
 		fg_gfx="../../Customized/gfx/portrait/stam.png"
-		left_margin="7.2"
-		right_margin="7.2"
+		left_margin="7"
+		right_margin="7"
 	/>
-	<BitmapView view_layout="horizontal" bitmap_gfx="../../Customized/gfx/portrait/nameplate.png" layout_borders="Rect(0,0,0,-9)"max_size_limit="Point(217,24)" view_local_alpha="0.5">
+	<BitmapView view_layout="horizontal" bitmap_gfx="../../Customized/gfx/portrait/nameplate.png" layout_borders="Rect(0,0,0,-8)"max_size_limit="Point(199,24)" view_local_alpha="0.5">
 		<View view_layout="horizontal" layout_borders="Rect(0,-2,0,0)">
 			<TextView name="NameView" font="LARGE_BOLD" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
 			<TextView name="LevelView" font="LARGE_BOLD" feature_flags="TVF_RENDER_SHADOW|TVF_RENDER_HALO"/>
@@ -35,16 +35,16 @@
 		<ProgressBar name="HealthBar"
 			flash_on_reduce="false"
 			slide_down_time="0.04"
-			bg_gfx="../../Customized/gfx/portrait/hp_bg_a30.png"
+			bg_gfx="../../Customized/gfx/portrait/hp_bg_a35.png"
 			fg_gfx="../../Customized/gfx/portrait/hp.png"
-			left_margin="7.2"
-			right_margin="7.2"
+			left_margin="7"
+			right_margin="7"
 			label_color="#e3ebf2"
 			
-			max_size_limit="Point(217,35)"
+			max_size_limit="Point(199,33)"
 			view_local_alpha="0.94"
 		/>
-		<View view_layout="horizontal" layout_borders="Rect(0,23,0,0)" max_size_limit="Point(217,24)" view_alpha="0.94">
+		<View view_layout="horizontal" layout_borders="Rect(0,22,0,0)" max_size_limit="Point(199,23)" view_alpha="0.94">
 			<ProgressBar name="StaminaBar"
 				flash_on_reduce="false"
 				slide_down_time="0.01"

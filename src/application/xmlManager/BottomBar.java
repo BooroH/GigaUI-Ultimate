@@ -344,6 +344,10 @@ public class BottomBar {
 					+ (settings.getSlot_size() + 1 + settings.getIcon_spacing()) * (settings.getBottomBar_row() - 1)
 					+ (settings.getSlot_size() + 1) / 2;
 		}
+		
+		//폰트사이즈별 AA버튼 x 조정
+		int fontSize = settings.getFontSize();
+		perkSwitchButtonPosX = perkSwitchButtonPosX - fontSize * 2;
 
 		content = content.replaceAll("var_perk_switch_button_pos_x", String.valueOf(perkSwitchButtonPosX));
 		content = content.replaceAll("var_page_button_pos_y", String.valueOf(pageButtonPosY));
@@ -364,34 +368,34 @@ public class BottomBar {
 		int tot_height;
 		if (hp_height == 55) {
 			tot_height = 38;
-			target_category_tag_size = 23;
+			target_category_tag_size = 21;
 		} else if (hp_height == 51) {
 			tot_height = 35;
-			target_category_tag_size = 22;
+			target_category_tag_size = 19;
 		} else if (hp_height == 49) {
 			tot_height = 34;
-			target_category_tag_size = 21;
+			target_category_tag_size = 18;
 		} else if (hp_height == 45) {
 			tot_height = 31;
-			target_category_tag_size = 19;
+			target_category_tag_size = 17;
 		} else if (hp_height == 43) {
 			tot_height = 30;
-			target_category_tag_size = 18;
+			target_category_tag_size = 16;
 		} else if (hp_height == 39) {
 			tot_height = 27;
-			target_category_tag_size = 17;
+			target_category_tag_size = 15;
 		} else if (hp_height == 35) {
 			tot_height = 24;
-			target_category_tag_size = 15;
+			target_category_tag_size = 13;
 		} else if (hp_height == 33) {
 			tot_height = 23;
-			target_category_tag_size = 14;
+			target_category_tag_size = 12;
 		} else if (hp_height == 29) {
 			tot_height = 20;
-			target_category_tag_size = 11;
+			target_category_tag_size = 9;
 		} else {
 			tot_height = 41;
-			target_category_tag_size = 25;
+			target_category_tag_size = 22;
 		}
 
 		int font_size = settings.getFontSize();

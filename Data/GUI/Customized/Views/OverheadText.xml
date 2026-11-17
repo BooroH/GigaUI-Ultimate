@@ -22,6 +22,6 @@
 		bg_gfx="../../Customized/gfx/overhead/bg_2.png"
 		fg_gfx="../../Customized/gfx/overhead/fg_2.png"
 		max_size_limit="Point(121,14)"
-		view_alpha="0.94"
+		view_alpha="0.97"
 	/>
 </View>

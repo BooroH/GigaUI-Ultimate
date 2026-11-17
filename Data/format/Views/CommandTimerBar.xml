@@ -4,7 +4,7 @@
 	<ProgressBar name="TimerBar"
 		flash_on_reduce = "false"
 		bg_gfx="../../Customized/gfx/castbar/var_bg_imgName.png"
-		fg_gfx="../../Customized/gfx/castbar/var_text_locationfgvar_color.png"
+		fg_gfx="../../Customized/gfx/castbar/var_c_setvar_text_locationfgvar_color.png"
 		var_left_margin
 		var_right_margin
 		var_sparkle_img

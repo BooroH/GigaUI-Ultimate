@@ -50,6 +50,7 @@ public abstract class BaseWindow {
 	    stage.setTitle(getTitle());
 	    stage.getIcons().add(new Image(BaseWindow.class.getResourceAsStream("/application/icon7.png")));
 	    Font.loadFont("file:Data/GUI/Customized/Fonts/GG-Medium.ttf", 10);
+	    Font.loadFont("file:Data/GUI/Customized/Fonts/GG-Bold.ttf", 10);
 
 	    initActions();
 	    stage.show();
@@ -70,10 +71,13 @@ public abstract class BaseWindow {
 	protected Slider createSlider(int min, int max, int value, int tick, int width) {
 		Slider slider = new Slider(min, max, value);
 		slider.setShowTickLabels(false);
+		slider.setShowTickMarks(false);
+		/*
 		if (Math.abs(max - min) / tick > 75)
 			slider.setShowTickMarks(false);
 		else
 			slider.setShowTickMarks(true);
+		*/
 		slider.setMajorTickUnit(tick);
 		slider.setMinorTickCount(0);
 		slider.setBlockIncrement(tick);

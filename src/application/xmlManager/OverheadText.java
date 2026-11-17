@@ -86,6 +86,19 @@ public class OverheadText {
 
 		content = content.replaceAll("var_img_size", imgSize);
 		content = content.replaceAll("var_hp_size", hpSize);
+		
+		//컬러셋
+		String colorSet = settings.getColorSet();
+		String var_color_set = "";
+		
+		if(colorSet.equals("clr")) {
+			var_color_set = "";
+		}
+		else {
+			var_color_set = colorSet + "_";
+		}
+		
+		content = content.replaceAll("var_color_set", var_color_set);
 
 		FileManager.stringToFile(targetDir, content);
 

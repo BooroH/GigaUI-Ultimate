@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
@@ -22,8 +23,9 @@ public class OverheadWindow extends BaseWindow {
 	private Label hpHeightLabel;
 	private Slider hpAlphaSlider;
 	private Label hpAlphaLabel;
-	private Slider fontWeightSlider;
-	private Label fontWeightLabel;
+	
+	private ComboBox<String> fontWeightComboBox;
+	
 	private Slider fontSizeSlider;
 	private Label fontSizeLabel;
 
@@ -42,19 +44,16 @@ public class OverheadWindow extends BaseWindow {
 		int hpAlpha = (int) (manager.getSettings().getOverheadHPAlpha() * 100);
 		String fontWeight = manager.getSettings().getOverheadFontWeight();
 		int fontSize = manager.getSettings().getOverheadFontSize();
-
-		int weightNum = 2;
-		fontWeightLabel = new Label("");
-		if (fontWeight.equals("GG Text Regular")) {
-			weightNum = 1;
-			fontWeightLabel.setText("Regular");
-		} else if (fontWeight.equals("GG OTF Medium")) {
-			weightNum = 2;
-			fontWeightLabel.setText("Medium");
-		} else if (fontWeight.equals("GG Bold")) {
-			weightNum = 3;
-			fontWeightLabel.setText("Bold");
-		}
+		
+		fontWeightComboBox = new ComboBox<>();
+		fontWeightComboBox.getItems().addAll("Regular", "Medium", "Bold");
+		
+		if (fontWeight.equals("GG Text Regular"))
+			fontWeightComboBox.setValue("Regular");
+		else if (fontWeight.equals("GG OTF Medium"))
+			fontWeightComboBox.setValue("Medium");
+		else if (fontWeight.equals("GG Bold"))
+			fontWeightComboBox.setValue("Bold");
 
 		hpWidthSlider = createSlider(99, 227, hpWidth, 2, 280);
 		hpWidthLabel = new Label(String.valueOf(hpWidth));
@@ -64,8 +63,6 @@ public class OverheadWindow extends BaseWindow {
 
 		hpAlphaSlider = createSlider(70, 100, hpAlpha, 1, 300);
 		hpAlphaLabel = new Label(String.valueOf(hpAlpha));
-
-		fontWeightSlider = createSlider(1, 3, weightNum, 1, 150);
 
 		fontSizeSlider = createSlider(30, 48, fontSize, 1, 300);
 		fontSizeLabel = new Label(String.valueOf(fontSize));
@@ -79,15 +76,19 @@ public class OverheadWindow extends BaseWindow {
 		HBox hpWidthBox = new HBox(10, new Label("Width"), hpWidthSlider, hpWidthLabel);
 		HBox hpHeightBox = new HBox(10, new Label("Height"), hpHeightSlider, hpHeightLabel);
 		HBox hpAlphaBox = new HBox(10, new Label("Alpha"), hpAlphaSlider, hpAlphaLabel);
-		HBox fontWeightBox = new HBox(10, new Label("Weight"), fontWeightSlider, fontWeightLabel);
+		HBox fontWeightBox = new HBox(10, new Label("Weight"), fontWeightComboBox);
 		HBox fontSizeBox = new HBox(10, new Label("Size"), fontSizeSlider, fontSizeLabel);
 
+		Label hpLabel = new Label("HEALTH BAR");
+		hpLabel.getStyleClass().add("section-title");
+		
 		Label textLabel = new Label("TEXT");
-		VBox.setMargin(textLabel, new Insets(20, 0, 0, 0));
+		textLabel.getStyleClass().add("section-title");
+		VBox.setMargin(textLabel, new Insets(10, 0, 0, 0));
 
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
-		centerBox.getChildren().addAll(new Label("HEALTH BAR"), hpWidthBox, hpHeightBox, hpAlphaBox, textLabel,
+		centerBox.getChildren().addAll(hpLabel, hpWidthBox, hpHeightBox, hpAlphaBox, textLabel,
 				fontWeightBox, fontSizeBox);
 
 		Region spacer = new Region();
@@ -109,16 +110,6 @@ public class OverheadWindow extends BaseWindow {
 			hpAlphaSlider.setValue(newVal.intValue());
 			hpAlphaLabel.setText(String.valueOf(newVal.intValue()));
 		});
-		fontWeightSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			fontWeightSlider.setValue(newVal.intValue());
-			if (newVal.intValue() == 1) {
-				fontWeightLabel.setText("Regular");
-			} else if (newVal.intValue() == 2) {
-				fontWeightLabel.setText("Medium");
-			} else if (newVal.intValue() == 3) {
-				fontWeightLabel.setText("Bold");
-			}
-		});
 		fontSizeSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
 			fontSizeSlider.setValue(newVal.intValue());
 			fontSizeLabel.setText(String.valueOf(newVal.intValue()));
@@ -137,15 +128,17 @@ public class OverheadWindow extends BaseWindow {
 			manager.getSettings().setOverheadHPWidth((int) hpWidthSlider.getValue());
 			manager.getSettings().setOverheadHPHeight((int) hpHeightSlider.getValue());
 			manager.getSettings().setOverheadHPAlpha(hpAlphaSlider.getValue() / 100);
-			String fontType = "GG Medium";
-			if (((int) fontWeightSlider.getValue()) == 1) {
-				fontType = "GG Text Regular";
-			} else if (((int) fontWeightSlider.getValue()) == 2) {
-				fontType = "GG OTF Medium";
-			} else if (((int) fontWeightSlider.getValue()) == 3) {
-				fontType = "GG Bold";
-			}
-			manager.getSettings().setOverheadFontWeight(fontType);
+			
+			String fontWeight;
+			if(fontWeightComboBox.getValue().equals("Regular"))
+				fontWeight = "GG Text Regular";
+			else if(fontWeightComboBox.getValue().equals("Medium"))
+				fontWeight = "GG OTF Medium";
+			else
+				fontWeight = "GG Bold";
+			
+			manager.getSettings().setOverheadFontWeight(fontWeight);
+			
 			manager.getSettings().setOverheadFontSize((int) fontSizeSlider.getValue());
 			manager.showAdvanced(stage);
 		});

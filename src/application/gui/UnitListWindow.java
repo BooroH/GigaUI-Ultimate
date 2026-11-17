@@ -106,27 +106,31 @@ public class UnitListWindow extends BaseWindow {
 
 	@Override
 	protected Parent createView() {
-		HBox limitBox = new HBox(10, new Label("Limit height"), petLimitCheckBox);
-		HBox petLimitBox = new HBox(10, new Label("Maximum height"), petLimitSlider, petLimitLabel);
+		HBox limitBox = new HBox(10, new Label("Limit Height"), petLimitCheckBox);
+		HBox petLimitBox = new HBox(10, new Label("Maximum Height"), petLimitSlider, petLimitLabel);
 		HBox petAlphaBox = new HBox(10, new Label("Alpha"), petAlphaSlider, petAlphaLabel);
 		HBox groupAlphaBox = new HBox(10, new Label("Alpha"), groupAlphaSlider, groupAlphaLabel);
 		HBox raidAlphaBox = new HBox(10, new Label("Alpha"), raidAlphaSlider, raidAlphaLabel);
 		HBox groupWidthBox = new HBox(10, new Label("Width"), groupWidthSlider, groupWidthLabel);
 		HBox groupHeightBox = new HBox(10, new Label("Height"), groupHeightSlider, groupHeightLabel);
-		HBox nameBgBox = new HBox(10, new Label("Name area alpha"), nameBgSlider, nameBgLabel);
+		HBox nameBgBox = new HBox(10, new Label("Nameplate Alpha"), nameBgSlider, nameBgLabel);
 		HBox raidWdithBox = new HBox(10, new Label("Width"), raidWdithSlider, raidWdithLabel);
 		HBox raidHeightBox = new HBox(10, new Label("Height"), raidHeightSlider, raidHeightLabel);
 
 		Label petLabel = new Label("PET");
-		VBox.setMargin(petLabel, new Insets(20, 0, 0, 0));
+		petLabel.getStyleClass().add("section-title");
+		VBox.setMargin(petLabel, new Insets(10, 0, 0, 0));
 		
-		Label raidLabel = new Label("Raid");
-		VBox.setMargin(raidLabel, new Insets(20, 0, 0, 0));
+		Label raidLabel = new Label("RAID");
+		raidLabel.getStyleClass().add("section-title");
+		VBox.setMargin(raidLabel, new Insets(10, 0, 0, 0));
 		
-		Label groupLabel = new Label("Group");
-		VBox.setMargin(groupLabel, new Insets(20, 0, 0, 0));
+		Label groupLabel = new Label("GROUP");
+		groupLabel.getStyleClass().add("section-title");
+		VBox.setMargin(groupLabel, new Insets(10, 0, 0, 0));
 		
-		Label generalLabel = new Label("General");
+		Label generalLabel = new Label("GENERAL");
+		generalLabel.getStyleClass().add("section-title");
 
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
@@ -216,7 +220,7 @@ public class UnitListWindow extends BaseWindow {
 	@Override
 	protected double getWidth() { return 550; }
 	@Override
-    protected double getHeight() { return 700; }
+    protected double getHeight() { return 640; }
 	@Override
 	protected String getTitle() {
 		return "Group, Raid, Pet List";

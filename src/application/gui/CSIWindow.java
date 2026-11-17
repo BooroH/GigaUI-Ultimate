@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
@@ -14,8 +15,7 @@ import javafx.stage.Stage;
 public class CSIWindow extends BaseWindow {
 	private final WindowManager manager;
 
-	private Slider csiSlider;
-	private Label csiLabel;
+	private ComboBox<String> csiTypeComboBox;
 	
 	private Slider csiSizeSlider;
 	private Label csiSizeLabel;
@@ -45,13 +45,14 @@ public class CSIWindow extends BaseWindow {
 		int bgAlpha = manager.getSettings().getCsi_bg_alpha();
 		double highLightAlpha = manager.getSettings().getCsi_highlight_alpha();
 		
-		csiSlider = createSlider(0, 1, csiType, 1, 120);
-		csiLabel = new Label("");
-		
+		csiTypeComboBox = new ComboBox<>();
+		csiTypeComboBox.getItems().addAll("Vertical", "Horizontal");
 		if(csiType==0)
-			csiLabel.setText("Vertical");
+			csiTypeComboBox.setValue("Vertical");
 		else if(csiType==1)
-			csiLabel.setText("Horizontal");
+			csiTypeComboBox.setValue("Horizontal");
+
+
 		
 		csiSizeSlider = createSlider(47, 83, size, 2, 320);
 		csiSizeLabel = new Label(String.valueOf(size));
@@ -72,8 +73,11 @@ public class CSIWindow extends BaseWindow {
 
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
+		
+		Label csiLabel = new Label("COMBO SEQUENCER");
+		csiLabel.getStyleClass().add("section-title");
 
-		HBox csiBox = new HBox(10, new Label("Type"), csiSlider, csiLabel);
+		HBox csiBox = new HBox(10, new Label("Type"), csiTypeComboBox);
 		HBox csiSizeBox = new HBox(10, new Label("Size"), csiSizeSlider, csiSizeLabel);
 		HBox csiGapBox = new HBox(10, new Label("Gap"), csiGapSlider, csiGapLabel);
 		HBox csiBgAlphaBox = new HBox(10, new Label("bg Alpha"), csiBgAlphaSlider, csiBgAlphaLabel);
@@ -86,7 +90,7 @@ public class CSIWindow extends BaseWindow {
 		bottomButtons.setPadding(new Insets(15));
 		bottomButtons.setAlignment(Pos.BOTTOM_RIGHT);
 
-		centerBox.getChildren().addAll(csiBox,csiSizeBox,csiGapBox,csiHighLightAlphaBox,csiBgAlphaBox);
+		centerBox.getChildren().addAll(csiLabel,csiBox,csiSizeBox,csiGapBox,csiHighLightAlphaBox,csiBgAlphaBox);
 
 		root.setCenter(centerBox);
 		root.setBottom(bottomButtons);
@@ -96,13 +100,6 @@ public class CSIWindow extends BaseWindow {
 
 	@Override
 	protected void initActions() {
-		csiSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			csiSlider.setValue(newVal.intValue());
-			if(newVal.intValue()==0)
-				csiLabel.setText("Vertical");
-			else if(newVal.intValue()==1)
-				csiLabel.setText("Horizontal");
-		});
 		csiSizeSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
 			csiSizeSlider.setValue(newVal.intValue());
 			csiSizeLabel.setText(String.valueOf(newVal.intValue()));
@@ -122,7 +119,15 @@ public class CSIWindow extends BaseWindow {
 
 		backButton.setOnAction(e -> manager.showAdvanced(stage));
 		okButton.setOnAction(e -> {
-			manager.getSettings().setIsCSIHorizontal((int)csiSlider.getValue());
+			int csiType;
+			
+			if(csiTypeComboBox.getValue().equals("Vertical"))
+				csiType=0;
+			else
+				csiType=1;
+			
+			manager.getSettings().setIsCSIHorizontal(csiType);
+			
 			manager.getSettings().setCsi_size((int)csiSizeSlider.getValue());
 			manager.getSettings().setCsi_gap((int)csiGapSlider.getValue());
 			manager.getSettings().setCsi_bg_alpha((int)csiBgAlphaSlider.getValue());

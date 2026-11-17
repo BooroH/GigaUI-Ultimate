@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
@@ -23,18 +24,8 @@ public class FontWindow extends BaseWindow {
 
 	private Slider cdSizeSlider;
 	private Label cdSizeLabel;
-
-	private Slider cdWeightSlider;
-	private Label cdWeightLabel;
-
-	private CheckBox isHpNumBold;
-	private CheckBox isBuffTimerBold;
-
-	private Slider BuffStackLocSlider;
-	private Label BuffStackLocLabel;
 	
-	private Slider buffTimerColorSlider;
-	private Label buffTimerColorLabel;
+	private ComboBox<String> cdWeightComboBox;
 
 	private CheckBox isDmgTextGigaSolution;
 
@@ -55,41 +46,19 @@ public class FontWindow extends BaseWindow {
 
 		generalSizeLabel = new Label(String.valueOf(generalSize));
 		cdSizeLabel = new Label(String.valueOf(cdSize));
-		cdWeightLabel = new Label("");
-
-		int cd_Font_Weight = 3;
-		if (cdWeight.equals("GG Text Regular")) {
-			cd_Font_Weight = 1;
-			cdWeightLabel.setText("Regular");
-		} else if (cdWeight.equals("GG Medium")) {
-			cd_Font_Weight = 2;
-			cdWeightLabel.setText("Medium");
-		} else if (cdWeight.equals("GG Bold")) {
-			cd_Font_Weight = 3;
-			cdWeightLabel.setText("Bold");
-		}
-
-		generalSizeSlider = createSlider(0, 6, generalSize, 1, 180);
-		cdSizeSlider = createSlider(12, 24, cdSize, 1, 300);
-		cdWeightSlider = createSlider(1, 3, cd_Font_Weight, 1, 150);
-		isHpNumBold = new CheckBox("");
-		isHpNumBold.setSelected(hpNumBold);
-
-		isBuffTimerBold = new CheckBox("");
-		isBuffTimerBold.setSelected(manager.getSettings().isBuffTimerBold());
-
-		int buffStackLoc = manager.getSettings().getBuff_stack_loc();
-		BuffStackLocSlider = createSlider(0, 1, buffStackLoc, 1, 100);
-		BuffStackLocLabel = new Label("");
-		if (buffStackLoc == 0) {
-			BuffStackLocLabel.setText("On the icon");
-		} else {
-			BuffStackLocLabel.setText("Above the icon");
-		}
 		
-		int buffTimerColor_p = HexConverter.hexToInt(manager.getSettings().getBuffTimerColor());
-		buffTimerColorSlider = createSlider(75, 100, buffTimerColor_p, 1, 200);
-		buffTimerColorLabel = new Label(String.valueOf(buffTimerColor_p)+"%");
+		cdWeightComboBox = new ComboBox<>();
+		cdWeightComboBox.getItems().addAll("Regular", "Medium", "Bold");
+		
+		if (cdWeight.equals("GG Text Regular"))
+			cdWeightComboBox.setValue("Regular");
+		else if (cdWeight.equals("GG Medium"))
+			cdWeightComboBox.setValue("Medium");
+		else if (cdWeight.equals("GG Bold"))
+			cdWeightComboBox.setValue("Bold");
+		
+		cdSizeSlider = createSlider(12, 24, cdSize, 1, 300);
+		generalSizeSlider = createSlider(0, 10, generalSize, 1, 180);
 
 		isDmgTextGigaSolution = new CheckBox("");
 		isDmgTextGigaSolution.setSelected(manager.getSettings().isDmgTextGigaSolution());
@@ -102,27 +71,21 @@ public class FontWindow extends BaseWindow {
 	protected Parent createView() {
 		HBox generalSizeBox = new HBox(10, new Label("Font Size"), generalSizeSlider, generalSizeLabel);
 		HBox cdSizeBox = new HBox(10, new Label("Size"), cdSizeSlider, cdSizeLabel);
-		HBox cdWeightBox = new HBox(10, new Label("Weight"), cdWeightSlider, cdWeightLabel);
-		HBox isHpNumBoldBox = new HBox(10, new Label("Bold"), isHpNumBold);
-		HBox isBuffTimerBoldBox = new HBox(10, new Label("Bold"), isBuffTimerBold);
-		HBox buffStackLocBox = new HBox(10, new Label("Stack number location"), BuffStackLocSlider, BuffStackLocLabel);
-		HBox buffTimerColorBox = new HBox(10, new Label("Brightness"), buffTimerColorSlider, buffTimerColorLabel);
+		HBox cdWeightBox = new HBox(10, new Label("Weight"), cdWeightComboBox);
 		HBox isDmgTextGigaSolutionBox = new HBox(10, new Label("Giga Solution"), isDmgTextGigaSolution);
 
-		Label generalSectionLabel = new Label("General");
-		Label cdSectionLabel = new Label("Cooldown Timer");
-		VBox.setMargin(cdSectionLabel, new Insets(15, 0, 0, 0));
-		Label hpSectionLabel = new Label("HP Numbers");
-		VBox.setMargin(hpSectionLabel, new Insets(15, 0, 0, 0));
-		Label buffSectionLabel = new Label("Buff Timers");
-		VBox.setMargin(buffSectionLabel, new Insets(15, 0, 0, 0));
+		Label generalSectionLabel = new Label("GENERAL");
+		generalSectionLabel.getStyleClass().add("section-title");
+		Label cdSectionLabel = new Label("COOLDOWN TIMER");
+		cdSectionLabel.getStyleClass().add("section-title");
+		VBox.setMargin(cdSectionLabel, new Insets(10, 0, 0, 0));
 		Label dmgTextLabel = new Label("Damage Text");
-		VBox.setMargin(buffSectionLabel, new Insets(15, 0, 0, 0));
+		dmgTextLabel.getStyleClass().add("section-title");
+		VBox.setMargin(dmgTextLabel, new Insets(10, 0, 0, 0));
 
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
-		centerBox.getChildren().addAll(generalSectionLabel, generalSizeBox, cdSectionLabel, cdSizeBox, cdWeightBox,
-				hpSectionLabel, isHpNumBoldBox, buffSectionLabel, buffStackLocBox, buffTimerColorBox, isBuffTimerBoldBox);
+		centerBox.getChildren().addAll(generalSectionLabel, generalSizeBox, cdSectionLabel, cdSizeBox, cdWeightBox);
 
 		Region spacer = new Region();
 		HBox.setHgrow(spacer, Priority.ALWAYS);
@@ -148,48 +111,23 @@ public class FontWindow extends BaseWindow {
 			cdSizeSlider.setValue(newVal.intValue());
 			cdSizeLabel.setText(String.valueOf(newVal.intValue()));
 		});
-		cdWeightSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			cdWeightSlider.setValue(newVal.intValue());
-			if (newVal.intValue() == 1) {
-				cdWeightLabel.setText("Regular");
-			} else if (newVal.intValue() == 2) {
-				cdWeightLabel.setText("Medium");
-			} else if (newVal.intValue() == 3) {
-				cdWeightLabel.setText("Bold");
-			}
-		});
-		BuffStackLocSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			BuffStackLocSlider.setValue(newVal.intValue());
-			if (newVal.intValue() == 0) {
-				BuffStackLocLabel.setText("On the icon");
-			} else {
-				BuffStackLocLabel.setText("Above the icon");
-			}
-		});
-		
-		buffTimerColorSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			buffTimerColorSlider.setValue(newVal.intValue());
-			buffTimerColorLabel.setText(String.valueOf(newVal.intValue()) + "%");
-		});
 
 		backButton.setOnAction(e -> manager.showAdvanced(stage));
 		okButton.setOnAction(e -> {
 			manager.getSettings().setFontSize((int) generalSizeSlider.getValue());
 			manager.getSettings().setCDFontSize((int) cdSizeSlider.getValue());
-			String fontType = "GG Bold";
-			if (((int) cdWeightSlider.getValue()) == 1) {
-				fontType = "GG Text Regular";
-			} else if (((int) cdWeightSlider.getValue()) == 2) {
-				fontType = "GG Medium";
-			} else if (((int) cdWeightSlider.getValue()) == 3) {
-				fontType = "GG Bold";
-			}
-			manager.getSettings().setCDFontWeight(fontType);
-			manager.getSettings().setHPLabelBold(isHpNumBold.isSelected());
-			manager.getSettings().setBuffTimerBold(isBuffTimerBold.isSelected());
-			manager.getSettings().setBuff_stack_loc((int) BuffStackLocSlider.getValue());
-			int buffTimerColor_p = (int) buffTimerColorSlider.getValue();
-			manager.getSettings().setBuffTimerColor(HexConverter.intToHex(buffTimerColor_p));
+			
+			String cdWeight;
+			
+			if(cdWeightComboBox.getValue().equals("Regular"))
+				cdWeight = "GG Text Regular";
+			else if(cdWeightComboBox.getValue().equals("Medium"))
+				cdWeight = "GG Medium";
+			else
+				cdWeight = "GG Bold";
+
+			manager.getSettings().setCDFontWeight(cdWeight);
+			
 			// manager.getSettings().setDmgTextGigaSolution(isDmgTextGigaSolution.isSelected());
 			manager.showAdvanced(stage);
 		});
@@ -202,12 +140,11 @@ public class FontWindow extends BaseWindow {
 
 	@Override
 	protected double getHeight() {
-		return 540;
+		return 300;
 	}
 
 	@Override
 	protected String getTitle() {
 		return "Font";
 	}
-
 }

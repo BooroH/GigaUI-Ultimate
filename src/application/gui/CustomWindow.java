@@ -20,6 +20,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+
 public class CustomWindow extends BaseWindow {
 	private WindowManager manager;
 
@@ -35,6 +40,11 @@ public class CustomWindow extends BaseWindow {
 	private ToggleGroup themeGroup;
 	private RadioButton gigaThemeButton;
 	private RadioButton darkThemeButton;
+	
+	private ToggleGroup colorGroup;
+	private RadioButton hyborianButton;
+	private RadioButton clarityButton;
+	private RadioButton oldSchoolButton;
 
 	public CustomWindow(Stage stage, WindowManager manager) {
 		super(stage);
@@ -56,7 +66,24 @@ public class CustomWindow extends BaseWindow {
 
 		gigaThemeButton.setToggleGroup(themeGroup);
 		darkThemeButton.setToggleGroup(themeGroup);
-
+		
+		colorGroup = new ToggleGroup();		
+		clarityButton  = createThemeRadio("Clarity", "/preview/clarity.png", colorGroup, "Maximum visibility. For best performance in pvp/raid.");
+		hyborianButton  = createThemeRadio("Hyborian", "/preview/hyborian.png", colorGroup, "Calm and antique. For relaxing gameplay.");
+		oldSchoolButton  = createThemeRadio("Old School", "/preview/oldschool.png", colorGroup, "Rough and classic. If you’re looking for original vibe.");
+		
+		String colorSet = manager.getSettings().getColorSet();
+		
+		if(colorSet.equals("clr")) {
+			clarityButton.setSelected(true);
+		}
+		else if(colorSet.equals("hyb")) {
+			hyborianButton.setSelected(true);
+		}
+		else if(colorSet.equals("ols")) {
+			oldSchoolButton.setSelected(true);
+		}
+		
 		importButton = new Button("Import");
 		exportButton = new Button("Export");
 		advancedButton = new Button("Advanced");
@@ -66,14 +93,17 @@ public class CustomWindow extends BaseWindow {
 
 	@Override
 	protected Parent createView() {
-		Label quickSetup = new Label("Quick Setup");
+		Label quickSetup = new Label("QUICK SETUP");
+		quickSetup.getStyleClass().add("section-title");
 		Label scaleLabel = new Label("Scale");
 		Label themeLabel = new Label("Theme");
-		VBox.setMargin(themeLabel, new Insets(20, 0, 0, 0));
-		VBox.setMargin(scaleLabel, new Insets(6, 0, 0, 0));
+		Label colorLabel = new Label("Color Set");
+		VBox.setMargin(themeLabel, new Insets(10, 0, 0, 0));
+		VBox.setMargin(colorLabel, new Insets(10, 0, 0, 0));
 
 		HBox sizeBox = new HBox(10, sizeComboBox,restartLabel);
 		HBox themeBox = new HBox(10, gigaThemeButton, darkThemeButton);
+		HBox colorBox = new HBox(10, clarityButton, hyborianButton, oldSchoolButton);
 
 		HBox topRow = new HBox(10);
 		topRow.setAlignment(Pos.CENTER_LEFT);
@@ -83,7 +113,7 @@ public class CustomWindow extends BaseWindow {
 
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
-		centerBox.getChildren().addAll(topRow, scaleLabel, sizeBox, themeLabel, themeBox);
+		centerBox.getChildren().addAll(topRow, scaleLabel, sizeBox, themeLabel, themeBox, colorLabel, colorBox);
 
 		Region spacer2 = new Region();
 		HBox.setHgrow(spacer2, Priority.ALWAYS);
@@ -138,6 +168,7 @@ public class CustomWindow extends BaseWindow {
 				break;
 			}
 		});
+		
 		themeGroup.selectedToggleProperty().addListener((obs, oldVal, newVal) -> {
 			if (gigaThemeButton.isSelected()) {
 				manager.getSettings().setSlot_bg_lightness(0);
@@ -161,8 +192,20 @@ public class CustomWindow extends BaseWindow {
 
 			}
 		});
-
+		
 		saveButton.setOnAction(e -> {
+			if (hyborianButton.isSelected()) {
+				manager.getSettings().setColorSet("hyb");
+			}
+			else if (clarityButton.isSelected()) {
+				manager.getSettings().setColorSet("clr");
+			}
+			else if (oldSchoolButton.isSelected()) {
+				manager.getSettings().setColorSet("ols");
+			}
+			else {	
+			}
+			
 			if (Installer.runEditor(manager.getAoCDir())) {
 				ShowAlert.showInfo("Complete", "Customizing Done");
 			}
@@ -186,6 +229,18 @@ public class CustomWindow extends BaseWindow {
 				if (SettingManager.loadProfile(file)) {
 					sizeComboBox.setValue("Custom");
 					ShowAlert.showInfo("Complete", "Profile is successfully loaded");
+					
+					String colorSet = manager.getSettings().getColorSet();
+					
+					if(colorSet.equals("clr")) {
+						clarityButton.setSelected(true);
+					}
+					else if(colorSet.equals("hyb")) {
+						hyborianButton.setSelected(true);
+					}
+					else if(colorSet.equals("ols")) {
+						oldSchoolButton.setSelected(true);
+					}
 				} else {
 					ShowAlert.showError("Error", "Wrong file");
 				}
@@ -215,4 +270,25 @@ public class CustomWindow extends BaseWindow {
 			manager.showAdvanced();
 		});
 	}
+	
+	private RadioButton createThemeRadio(String name, String imagePath, ToggleGroup group, String toolTip) {
+        RadioButton rb = new RadioButton(name);
+        rb.setToggleGroup(group);
+
+        // 이미지는 한 번만 로드해서 재사용
+        Image img = new Image(
+            getClass().getResourceAsStream(imagePath),
+            240, 0, true, true   // 너비 240, 비율 유지, 부드럽게 축소
+        );
+        ImageView view = new ImageView(img);
+
+        Tooltip tip = new Tooltip(toolTip);
+        tip.setGraphic(view);
+        tip.setShowDelay(Duration.millis(250));   // 0.5초 후 표시
+        tip.setHideDelay(Duration.millis(0));     // 커서가 벗어나면 바로 숨김
+        tip.setShowDuration(Duration.INDEFINITE); // 마우스를 올려둔 동안 유지
+
+        rb.setTooltip(tip);
+        return rb;
+    }
 }

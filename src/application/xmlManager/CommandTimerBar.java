@@ -183,10 +183,23 @@ public class CommandTimerBar {
 
 		content = content.replaceAll("var_left_margin", castBar_left_margin);
 		content = content.replaceAll("var_right_margin", castBar_right_margin);
+		
+		//바 컬러셋
+		String colorSet = settings.getColorSet();
+		String var_color_set = "";
+						
+		if(colorSet.equals("clr")) {
+			var_color_set = "";
+		}
+		else {
+			var_color_set = colorSet + "_";
+		}
+						
+		content = content.replaceAll("var_c_set", var_color_set);
 
 		// 컬러
-		String castbarSouceImgDir = customizedDir + "/gfx/castbar/" + castBarTextLocation + "fg.png";
-		String castbarCustomImgDir = customizedDir + "/gfx/castbar/" + castBarTextLocation + "fg.png";
+		String castbarSouceImgDir = customizedDir + "/gfx/castbar/" + var_color_set + castBarTextLocation + "fg.png";
+		String castbarCustomImgDir = customizedDir + "/gfx/castbar/" + var_color_set + castBarTextLocation + "fg.png";
 
 		String fxSouceImgDir = customizedDir + "/gfx/castbar/fx_" + castBarTextLocation + String.valueOf(height)
 				+ ".png";
@@ -203,7 +216,7 @@ public class CommandTimerBar {
 					+ String.valueOf((int) settings.getCastBar_chroma()) + "_"
 					+ String.valueOf((int) settings.getCastBar_lightness());
 
-			castbarCustomImgDir = customizedDir + "/gfx/castbar/" + castBarTextLocation + "fg" + castBar_colorname
+			castbarCustomImgDir = customizedDir + "/gfx/castbar/" + var_color_set + castBarTextLocation + "fg" + castBar_colorname
 					+ ".png";
 			ImageManager.process(castbarSouceImgDir, castbarCustomImgDir, settings.getCastBar_hue(),
 					settings.getCastBar_chroma(), settings.getCastBar_lightness());

@@ -135,6 +135,11 @@ public class SettingManager {
 			sb.append("buff_stack_loc=").append(settings.getBuff_stack_loc()).append("\n");
 			sb.append("isDmgTextGigaSolution=").append(settings.isDmgTextGigaSolution()).append("\n");
 			sb.append("buffTimerColor=").append(settings.getBuffTimerColor()).append("\n");
+			sb.append("colorSet=").append(settings.getColorSet()).append("\n");
+			sb.append("stackWeight=").append(settings.getStackWeight()).append("\n");
+			sb.append("stackColor=").append(settings.getStackColor()).append("\n");
+			sb.append("timerLayout=").append(settings.getTimerLayout()).append("\n");
+			sb.append("stackPlateAlpha=").append(settings.getStackPlateAlpha()).append("\n");
 
 			Files.write(file.toPath(), sb.toString().getBytes());
 		} catch (IOException ex) {
@@ -455,6 +460,9 @@ public class SettingManager {
 					case "raid_nameBg_alpha":
 						settings.setRaid_nameBg_alpha(Double.parseDouble(value));
 						break;
+					case "stackPlateAlpha":
+						settings.setStackPlateAlpha(Double.parseDouble(value));
+						break;
 
 					case "isHideEmptySlots":
 						settings.setHideEmptySlots(Boolean.parseBoolean(value));
@@ -507,6 +515,18 @@ public class SettingManager {
 						break;
 					case "buffTimerColor":
 						settings.setBuffTimerColor(value);
+						break;
+					case "colorSet":
+						settings.setColorSet(value);
+						break;
+					case "stackWeight":
+						settings.setStackWeight(value);
+						break;
+					case "stackColor":
+						settings.setStackColor(value);
+						break;
+					case "timerLayout":
+						settings.setTimerLayout(value);
 						break;
 					}
 				}
@@ -564,34 +584,34 @@ public class SettingManager {
 				int tot_height;
 				if (hp_height == 55) {
 					tot_height = 38;
-					target_category_tag_size = 23;
+					target_category_tag_size = 21;
 				} else if (hp_height == 51) {
 					tot_height = 35;
-					target_category_tag_size = 22;
+					target_category_tag_size = 19;
 				} else if (hp_height == 49) {
 					tot_height = 34;
-					target_category_tag_size = 21;
+					target_category_tag_size = 18;
 				} else if (hp_height == 45) {
 					tot_height = 31;
-					target_category_tag_size = 19;
+					target_category_tag_size = 17;
 				} else if (hp_height == 43) {
 					tot_height = 30;
-					target_category_tag_size = 18;
+					target_category_tag_size = 16;
 				} else if (hp_height == 39) {
 					tot_height = 27;
-					target_category_tag_size = 17;
+					target_category_tag_size = 15;
 				} else if (hp_height == 35) {
 					tot_height = 24;
-					target_category_tag_size = 15;
+					target_category_tag_size = 13;
 				} else if (hp_height == 33) {
 					tot_height = 23;
-					target_category_tag_size = 14;
+					target_category_tag_size = 12;
 				} else if (hp_height == 29) {
 					tot_height = 20;
-					target_category_tag_size = 11;
+					target_category_tag_size = 9;
 				} else {
 					tot_height = 41;
-					target_category_tag_size = 25;
+					target_category_tag_size = 22;
 				}
 
 				int font_size = settings.getFontSize();

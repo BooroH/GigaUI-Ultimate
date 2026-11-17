@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
@@ -24,20 +25,16 @@ public class SoulShardWindow extends BaseWindow {
 
 	private Slider minimapSizeSlider;
 	private Label minimapSizeLabel;
-	private Slider minimalMapSlider;
-	private Label minimalMapLabel;
+	private ComboBox<String> mapTypeComboBox;
 
 	private Slider sidePanelSizeSlider;
 	private Label sidePanelSizeLabel;
-	private Slider invenSlider;
-	private Label invenLabel;
-	private Slider traderSlider;
-	private Label traderLabel;
+	
+	private ComboBox<String> invenComboBox;
+	private ComboBox<String> traderComboBox;
 
-	private Slider menuIcon_location_slider;
-	private Label menuIcon_location_label;
-	private Slider menuIcon_layout_slider;
-	private Label menuIcon_layout_label;
+	private ComboBox<String> menuIconLocationComboBox;
+	private ComboBox<String> menuIconLayoutComboBox;
 
 	private CheckBox removeMinimap;
 	private CheckBox removeHelp;
@@ -74,13 +71,14 @@ public class SoulShardWindow extends BaseWindow {
 
 		minimapSizeSlider = createSlider(228, 404, minimapSize, 2, 300);
 		minimapSizeLabel = new Label(String.valueOf(minimapSize));
-		minimalMapSlider = createSlider(0, 1, minimalMap, 1, 150);
-		minimalMapLabel = new Label("");
-
+		
+		mapTypeComboBox = new ComboBox<>();
+		mapTypeComboBox.getItems().addAll("Default", "Minimal");
+		
 		if (minimalMap == 0)
-			minimalMapLabel.setText("No");
-		else if (minimalMap == 1)
-			minimalMapLabel.setText("Yes");
+			mapTypeComboBox.setValue("Default");
+		else
+			mapTypeComboBox.setValue("Minimal");
 
 		// 사이드패널,인벤토리
 		int inven = manager.getSettings().getInventory_layout();
@@ -96,26 +94,27 @@ public class SoulShardWindow extends BaseWindow {
 		} else {
 			sidePanelSize = 4;
 		}
+		
 		sidePanelSizeSlider = createSlider(1, 4, sidePanelSize, 1, 200);
 		sidePanelSizeLabel = new Label(String.valueOf(sidePanelSize));
-
-		invenSlider = createSlider(1, 3, inven, 1, 200);
-		invenLabel = new Label("");
-
-		traderSlider = createSlider(1, 2, trader, 1, 200);
-		traderLabel = new Label("");
-
+		
+		invenComboBox = new ComboBox<>();
+		invenComboBox.getItems().addAll("8 x 10", "10 x 13", "12 x 15");
+		
 		if (inven == 1)
-			invenLabel.setText("8 x 10");
+			invenComboBox.setValue("8 x 10");
 		else if (inven == 2)
-			invenLabel.setText("10 x 13");
-		else if (inven == 3)
-			invenLabel.setText("12 x 15");
+			invenComboBox.setValue("10 x 13");
+		else
+			invenComboBox.setValue("12 x 15");
 
+		traderComboBox = new ComboBox<>();
+		traderComboBox.getItems().addAll("10 x 5", "15 x 7");
+		
 		if (trader == 1)
-			traderLabel.setText("10 x 5");
-		else if (trader == 2)
-			traderLabel.setText("15 x 7");
+			traderComboBox.setValue("10 x 5");
+		else
+			traderComboBox.setValue("15 x 7");
 
 		// 메뉴아이콘
 		int isMenuIcon_right;
@@ -129,22 +128,22 @@ public class SoulShardWindow extends BaseWindow {
 			isMenuIcon_horizontal = 1;
 		else
 			isMenuIcon_horizontal = 0;
-
-		menuIcon_location_slider = createSlider(0, 1, isMenuIcon_right, 1, 130);
-		menuIcon_location_label = new Label("");
-
-		menuIcon_layout_slider = createSlider(0, 1, isMenuIcon_horizontal, 1, 130);
-		menuIcon_layout_label = new Label("");
-
+		
+		menuIconLocationComboBox = new ComboBox<>();
+		menuIconLocationComboBox.getItems().addAll("Left Bottom", "Right Bottom");
+		
 		if (isMenuIcon_right == 0)
-			menuIcon_location_label.setText("left");
-		else if (isMenuIcon_right == 1)
-			menuIcon_location_label.setText("right");
-
+			menuIconLocationComboBox.setValue("Left Bottom");
+		else
+			menuIconLocationComboBox.setValue("Right Bottom");
+		
+		menuIconLayoutComboBox = new ComboBox<>();
+		menuIconLayoutComboBox.getItems().addAll("Vertical", "Horizontal");
+		
 		if (isMenuIcon_horizontal == 0)
-			menuIcon_layout_label.setText("vertical");
-		else if (isMenuIcon_horizontal == 1)
-			menuIcon_layout_label.setText("horizontal");
+			menuIconLayoutComboBox.setValue("Vertical");
+		else
+			menuIconLayoutComboBox.setValue("Horizontal");
 
 		// 최적화
 		int minimap = manager.getSettings().getShowMiniMap();
@@ -167,36 +166,41 @@ public class SoulShardWindow extends BaseWindow {
 
 	@Override
 	protected Parent createView() {
-		Label souldShardLabel = new Label("Assassin Soulshards");
+		Label souldShardLabel = new Label("ASSASSIN SOULSHARD");
+		souldShardLabel.getStyleClass().add("section-title");
 		HBox heightBox = new HBox(10, new Label("Size"), heightSlider, heightLabel);
 		HBox moveXBox = new HBox(10, new Label("Move x"), moveXSlider, moveXLabel);
 		HBox moveYBox = new HBox(10, new Label("Move y"), moveYSlider, moveYLabel);
 
 		// 맵,미니맵
-		Label mapLabel = new Label("Minimap & Map");
-		VBox.setMargin(mapLabel, new Insets(20, 0, 0, 0));
-		HBox minimapSizeBox = new HBox(10, new Label("Minimap size"), minimapSizeSlider, minimapSizeLabel);
-		HBox minimalMapBox = new HBox(10, new Label("Minimal map"), minimalMapSlider, minimalMapLabel);
+		Label mapLabel = new Label("MINIMAP & MAP");
+		mapLabel.getStyleClass().add("section-title");
+		VBox.setMargin(mapLabel, new Insets(10, 0, 0, 0));
+		HBox minimapSizeBox = new HBox(10, new Label("Minimap Size"), minimapSizeSlider, minimapSizeLabel);
+		HBox minimalMapBox = new HBox(10, new Label("Map Window Type"), mapTypeComboBox);
 
 		// 사이드패널,인벤토리
-		Label sidePanelInventoryLabel = new Label("Side panel & Inventory");
-		VBox.setMargin(sidePanelInventoryLabel, new Insets(20, 0, 0, 0));
-		HBox sidePanelSizeBox = new HBox(10, new Label("Side panel size"), sidePanelSizeSlider, sidePanelSizeLabel);
-		HBox invenBox = new HBox(10, new Label("Inventory layout"), invenSlider, invenLabel);
-		HBox traderBox = new HBox(10, new Label("Trader layout"), traderSlider, traderLabel);
+		Label sidePanelInventoryLabel = new Label("SIDE PANEL & INVENTORY");
+		sidePanelInventoryLabel.getStyleClass().add("section-title");
+		VBox.setMargin(sidePanelInventoryLabel, new Insets(10, 0, 0, 0));
+		HBox sidePanelSizeBox = new HBox(10, new Label("Side Panel Size"), sidePanelSizeSlider, sidePanelSizeLabel);
+		HBox invenBox = new HBox(10, new Label("Inventory Layout"), invenComboBox);
+		HBox traderBox = new HBox(10, new Label("Trader Layout"), traderComboBox);
 
 		// 메뉴아이콘
-		Label menuIconsLabel = new Label("Menu Icons");
-		VBox.setMargin(menuIconsLabel, new Insets(20, 0, 0, 0));
-		HBox locationBox = new HBox(10, new Label("Location"), menuIcon_location_slider, menuIcon_location_label);
-		HBox layoutBox = new HBox(10, new Label("Layout"), menuIcon_layout_slider, menuIcon_layout_label);
-
-		Label optimizeLabel = new Label("Optimize");
-		VBox.setMargin(optimizeLabel, new Insets(20, 0, 0, 0));
-		HBox removeMinimapBox = new HBox(10, new Label("Remove minimap, clock"), removeMinimap);
-		HBox removeHelpBox = new HBox(10, new Label("Remove help button"), removeHelp);
-		HBox removeRankBox = new HBox(10, new Label("Remove rank button"), removeRank);
-		HBox removeXpBarBox = new HBox(10, new Label("Remove xp bar"), removeXpBar);
+		Label menuIconsLabel = new Label("MENU ICONS");
+		menuIconsLabel.getStyleClass().add("section-title");
+		VBox.setMargin(menuIconsLabel, new Insets(10, 0, 0, 0));
+		HBox locationBox = new HBox(10, new Label("Location"), menuIconLocationComboBox);
+		HBox layoutBox = new HBox(10, new Label("Layout"), menuIconLayoutComboBox);
+		
+		Label optimizeLabel = new Label("OPTIMIZE");
+		optimizeLabel.getStyleClass().add("section-title");
+		VBox.setMargin(optimizeLabel, new Insets(10, 0, 0, 0));
+		HBox removeMinimapBox = new HBox(10, new Label("Remove Minimap, Clock"), removeMinimap);
+		HBox removeHelpBox = new HBox(10, new Label("Remove Help Button"), removeHelp);
+		HBox removeRankBox = new HBox(10, new Label("Remove Rank Button"), removeRank);
+		HBox removeXpBarBox = new HBox(10, new Label("Remove XP Bar"), removeXpBar);
 
 		VBox centerBox = new VBox(15);
 		centerBox.setPadding(new Insets(20));
@@ -236,51 +240,11 @@ public class SoulShardWindow extends BaseWindow {
 			minimapSizeSlider.setValue(newVal.intValue());
 			minimapSizeLabel.setText(String.valueOf(newVal.intValue()));
 		});
-		minimalMapSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			minimalMapSlider.setValue(newVal.intValue());
-			if (newVal.intValue() == 0)
-				minimalMapLabel.setText("no");
-			else if (newVal.intValue() == 1)
-				minimalMapLabel.setText("yes");
-		});
 
 		// 사이드패널,인벤토리
 		sidePanelSizeSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
 			sidePanelSizeSlider.setValue(newVal.intValue());
 			sidePanelSizeLabel.setText(String.valueOf(newVal.intValue()));
-		});
-		invenSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			invenSlider.setValue(newVal.intValue());
-			if (newVal.intValue() == 1)
-				invenLabel.setText("8 x 10");
-			else if (newVal.intValue() == 2)
-				invenLabel.setText("10 x 13");
-			else if (newVal.intValue() == 3)
-				invenLabel.setText("12 x 15");
-		});
-
-		traderSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			traderSlider.setValue(newVal.intValue());
-			if (newVal.intValue() == 1)
-				traderLabel.setText("10 x 5");
-			else if (newVal.intValue() == 2)
-				traderLabel.setText("15 x 7");
-		});
-
-		// 메뉴아이콘
-		menuIcon_location_slider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			menuIcon_location_slider.setValue(newVal.intValue());
-			if (newVal.intValue() == 0)
-				menuIcon_location_label.setText("left");
-			else if (newVal.intValue() == 1)
-				menuIcon_location_label.setText("right");
-		});
-		menuIcon_layout_slider.valueProperty().addListener((obs, oldVal, newVal) -> {
-			menuIcon_layout_slider.setValue(newVal.intValue());
-			if (newVal.intValue() == 0)
-				menuIcon_layout_label.setText("vertical");
-			else if (newVal.intValue() == 1)
-				menuIcon_layout_label.setText("horizontal");
 		});
 
 		backButton.setOnAction(e -> manager.showAdvanced(stage));
@@ -291,11 +255,36 @@ public class SoulShardWindow extends BaseWindow {
 
 			// 맵
 			manager.getSettings().setMinimap_size((int) minimapSizeSlider.getValue());
-			manager.getSettings().setIsSimpleMap((int) minimalMapSlider.getValue());
+			
+			int mapType;
+			if(mapTypeComboBox.getValue().equals("Default"))
+				mapType=0;
+			else
+				mapType=1;
+			
+			manager.getSettings().setIsSimpleMap(mapType);
 
-			// 사이드패널,인벤토리
-			manager.getSettings().setInventory_layout((int) invenSlider.getValue());
-			manager.getSettings().setTrader_layout((int) traderSlider.getValue());
+			//인벤토리
+			int inven;
+			if(invenComboBox.getValue().equals("8 x 10"))
+				inven=1;
+			else if(invenComboBox.getValue().equals("10 x 13"))
+				inven=2;
+			else
+				inven=3;
+			
+			manager.getSettings().setInventory_layout(inven);
+			
+			//트레이더
+			int trader;
+			if(traderComboBox.getValue().equals("10 x 5"))
+				trader=1;
+			else
+				trader=2;
+			
+			manager.getSettings().setTrader_layout(trader);
+			
+			//사이드메뉴
 			if ((int) sidePanelSizeSlider.getValue() == 1) {
 				manager.getSettings().setSidePanelWidth(389);
 			} else if ((int) sidePanelSizeSlider.getValue() == 2) {
@@ -307,16 +296,23 @@ public class SoulShardWindow extends BaseWindow {
 				manager.getSettings().setSidePanelWidth(605);
 			}
 
-			// 메뉴아이콘
-			if (((int) menuIcon_location_slider.getValue()) == 1)
-				manager.getSettings().setMenuIcon_right(true);
+			// 메뉴아이콘 위치
+			boolean isMenuIcon_right;
+			if(menuIconLocationComboBox.getValue().equals("Left Bottom"))
+				isMenuIcon_right=false;
 			else
-				manager.getSettings().setMenuIcon_right(false);
+				isMenuIcon_right=true;
 
-			if (((int) menuIcon_layout_slider.getValue()) == 1)
-				manager.getSettings().setMenuIcon_horizontal(true);
+			manager.getSettings().setMenuIcon_right(isMenuIcon_right);
+
+			//메뉴아이콘 레이아웃
+			boolean isMenuIcon_horizontal;
+			if(menuIconLayoutComboBox.getValue().equals("Vertical"))
+				isMenuIcon_horizontal=false;
 			else
-				manager.getSettings().setMenuIcon_horizontal(false);
+				isMenuIcon_horizontal=true;
+			
+			manager.getSettings().setMenuIcon_horizontal(isMenuIcon_horizontal);
 
 			// 최적화
 			if (removeMinimap.isSelected()) {
@@ -339,7 +335,7 @@ public class SoulShardWindow extends BaseWindow {
 
 	@Override
 	protected double getHeight() {
-		return 840;
+		return 800;
 	}
 
 	@Override

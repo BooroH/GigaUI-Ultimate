@@ -284,25 +284,40 @@ public class FloatingPortraitView {
 		content = content.replaceAll("var_nameplate_layout_bottom", String.valueOf(nameplate_layout_bottom));
 		content = content.replaceAll("var_margin", margin);
 
+		
+		//상태바 컬러셋
+		String colorSet = settings.getColorSet();
+		String var_color_set = "";
+						
+		if(colorSet.equals("clr")) {
+			var_color_set = "";
+		}
+		else {
+			var_color_set = colorSet + "_";
+		}
+						
+		content = content.replaceAll("var_color_set", var_color_set);
+				
+				
 		// 리소스바
 		String mana_template = "";
 		String mana_bar = "";
 		if (settings.isFloatingPortrait_show_mana()) {
 			mana_template = "<template:ProgressBar template:name = \"ManaBarShort\"\r\n"
 					+ "		bg_gfx=\"../../Customized/gfx/portrait/"+mana_s_bg_img_file+"\"\r\n"
-					+ "		fg_gfx=\"../../Customized/gfx/portrait/mana_s.png\"\r\n" + "		left_margin=\"0\"\r\n"
+					+ "		fg_gfx=\"../../Customized/gfx/portrait/"+var_color_set+"mana_s.png\"\r\n" + "		left_margin=\"0\"\r\n"
 					+ "		right_margin=\"" + margin + "\"\r\n" + "	/>\r\n"
 					+ "	<template:ProgressBar template:name = \"ManaBarLong\"\r\n"
 					+ "		bg_gfx=\"../../Customized/gfx/portrait/"+stam_bg_img_file+"\"\r\n"
-					+ "		fg_gfx=\"../../Customized/gfx/portrait/mana.png\"\r\n" + "		left_margin=\"" + margin
+					+ "		fg_gfx=\"../../Customized/gfx/portrait/"+var_color_set+"mana.png\"\r\n" + "		left_margin=\"" + margin
 					+ "\"\r\n" + "		right_margin=\"" + margin + "\"\r\n" + "	/>\r\n"
 					+ "	<template:ProgressBar template:name = \"StaminaBarShort\"\r\n"
 					+ "		bg_gfx=\"../../Customized/gfx/portrait/"+stam_s_bg_img_file+"\"\r\n"
-					+ "		fg_gfx=\"../../Customized/gfx/portrait/stam_s.png\"\r\n" + "		left_margin=\"" + margin
+					+ "		fg_gfx=\"../../Customized/gfx/portrait/"+var_color_set+"stam_s.png\"\r\n" + "		left_margin=\"" + margin
 					+ "\"\r\n" + "		right_margin=\"0\"\r\n" + "	/>\r\n"
 					+ "	<template:ProgressBar template:name = \"StaminaBarLong\"\r\n"
 					+ "		bg_gfx=\"../../Customized/gfx/portrait/"+stam_bg_img_file+"\"\r\n"
-					+ "		fg_gfx=\"../../Customized/gfx/portrait/stam.png\"\r\n" + "		left_margin=\"" + margin
+					+ "		fg_gfx=\"../../Customized/gfx/portrait/"+var_color_set+"stam.png\"\r\n" + "		left_margin=\"" + margin
 					+ "\"\r\n" + "		right_margin=\"" + margin + "\"\r\n" + "	/>";
 			mana_bar = "<View view_layout=\"horizontal\" layout_borders=\"Rect(0," + String.valueOf(stam_layout_top)
 					+ ",0,0)\"" + stam_size + " view_alpha=\"0.94\">\r\n" + "			<ProgressBar name=\"StaminaBar\"\r\n"

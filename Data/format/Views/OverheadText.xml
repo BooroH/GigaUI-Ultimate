@@ -19,7 +19,7 @@
 		view_flags="WID_IGNORE_WHEN_HIDDEN"
 		flash_on_reduce="false"
 		bg_gfx="../../Customized/gfx/overhead/bgvar_img_size.png"
-		fg_gfx="../../Customized/gfx/overhead/fgvar_img_size.png"
+		fg_gfx="../../Customized/gfx/overhead/var_color_setfgvar_img_size.png"
 		var_hp_size
 		var_hp_alpha
 	/>

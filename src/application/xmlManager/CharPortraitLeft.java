@@ -69,7 +69,7 @@ public class CharPortraitLeft {
 		}
 
 		// 다크모드 컬러
-		p = Pattern.compile("bitmap_gfx=\"../../Customized/gfx/portrait/[^\"]*_c_(-?\\d+)_(-?\\d+)_(-?\\d+)\\.png\"");
+		p = Pattern.compile("bg_gfx=\"../../Customized/gfx/portrait/[^\"]*_c_(-?\\d+)_(-?\\d+)_(-?\\d+)\\.png\"");
 		m = p.matcher(content);
 
 		if (m.find()) {
@@ -81,6 +81,18 @@ public class CharPortraitLeft {
 		} else {
 			settings.setMainPortrait_bg_lightness(0);
 		}
+		
+		//상태바 컬러셋
+		String prefix = "clr";
+
+		p = Pattern.compile("fg_gfx=\"[^\"]*?([^/_]+)_hp\\.png\"");
+		m = p.matcher(content);
+
+		if (m.find()) {
+		    prefix = m.group(1);
+		}
+		
+		settings.setColorSet(prefix);
 	}
 
 	public static void writeCharPortraitLeft(String customizedDir) {
@@ -229,6 +241,19 @@ public class CharPortraitLeft {
 			stam_size = "";
 			container_size = "";
 		}
+		
+		//상태바 컬러셋
+		String colorSet = settings.getColorSet();
+		String var_color_set = "";
+		
+		if(colorSet.equals("clr")) {
+			var_color_set = "";
+		}
+		else {
+			var_color_set = colorSet + "_";
+		}
+		
+		content = content.replaceAll("var_color_set", var_color_set);
 
 		content = content.replaceAll("var_hp_size", hp_size);
 		content = content.replaceAll("var_stam_size", stam_size);

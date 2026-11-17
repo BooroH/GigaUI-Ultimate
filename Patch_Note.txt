@@ -1,2 +1,16 @@
-************* Ver 2.3.6 *************
-- fixed a bug that occurred when moving target of target to the left
+************* Ver 2.4.0 *************
+** UI **
+- Color reboot: you can now choose one of three color sets
+- Improved castbar, portrait, group/raid and overhead textures
+- Brought back the background of buff stack/timer. now you can adjust alpha of background
+- Now you can pick any color for stack/timer
+- Tweaked CSI guide arrow images
+- Changed overall size & color of target tag
+- Increased font size cap
+- Now text buttons including top menu buttons scale with font size
+- Adjusted overall size and alpha of default presets
+
+** APP **
+- Improved the app's UI
+- Added previews and color pickers
+- Fixed bug on dark mode page where you couldn't load mainportrait's brightness

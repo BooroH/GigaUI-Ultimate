@@ -18,32 +18,78 @@ public class BuffListViewIcon {
 
 		Matcher m;
 		Pattern p;
-
-		// 폰트 볼드인지 확인
-		if (content.contains("font=\"NORMAL_BOLD\"")) {
-			settings.setBuffTimerBold(true);
-		} else {
-			settings.setBuffTimerBold(false);
-		}
-
-		// 스택넘버 로케이션
-		if (content.contains("<View view_layout=\"stacked\">")) {
-			settings.setBuff_stack_loc(0);
-		} else {
-			settings.setBuff_stack_loc(1);
-		}
-
-		// 남은시간 텍스트 색
-		p = Pattern.compile("<TextView\\s+name=\"RemainingTimeView\"[^>]*default_color=\"#([0-9a-fA-F]{6})\"");
+		
+		//스택 컬러
+		p = Pattern.compile("<TextView\\s+name=\"StackSizeView\"[^>]*default_color=\"#([0-9a-fA-F]{6})\"");
 
 		m = p.matcher(content);
 
 		if (m.find()) {
-			String rgb = m.group(1);
-			if(rgb.equals("dbdddf")) {
-				rgb = "dadcde";
-			}
-			settings.setBuffTimerColor(rgb);
+			String color = m.group(1);
+			settings.setStackColor(color);
+		}
+		
+		//타이머 컬러
+		p = Pattern.compile("<TextView\\s+name=\"RemainingTimeView\"[^>]*default_color=\"#([0-9a-fA-F]{6})\"");
+		m = p.matcher(content);
+
+		if (m.find()) {
+			String color = m.group(1);
+			settings.setBuffTimerColor(color);
+		}
+
+		//스택 두께
+		p = Pattern.compile("<TextView\\s+name=\"StackSizeView\"[^>]*font=\"([^\"]+)\"");
+		m = p.matcher(content);
+		
+		String stackWeight = "Medium";
+
+		if (m.find()) {
+			String font = m.group(1);
+			
+			if(font.equals("NORMAL_BOLD"))
+				stackWeight = "Bold";
+		}
+		
+		settings.setStackWeight(stackWeight);
+		
+		//타이머 두께
+		p = Pattern.compile("<TextView\\s+name=\"RemainingTimeView\"[^>]*font=\"([^\"]+)\"");
+		m = p.matcher(content);
+		
+		boolean isTimerBold = false;
+
+		if (m.find()) {
+			String font = m.group(1);
+			
+			if(font.equals("NORMAL_BOLD"))
+				isTimerBold = true;
+		}
+		
+		settings.setBuffTimerBold(isTimerBold);
+
+		// 스택 레이아웃
+		if (content.contains("StackSizeContainer")) {
+			settings.setBuff_stack_loc(1);
+		} else {
+			settings.setBuff_stack_loc(0);
+		}
+		
+		//타이머 레이아웃
+		if (content.contains("RemainingTimeContainer")) {
+			settings.setTimerLayout("Below");
+		} else {
+			settings.setTimerLayout("On");
+		}
+		
+		//플레이트 알파
+		p = Pattern.compile("view_local_alpha=\"([0-9]*\\.?[0-9]+)\"");
+
+		m = p.matcher(content);
+
+		if (m.find()) {
+			double alpha = Double.parseDouble(m.group(1));
+			settings.setStackPlateAlpha(alpha);
 		}
 
 	}
@@ -60,43 +106,165 @@ public class BuffListViewIcon {
 
 		String fullCode;
 
-		// 버프타이머 폰트
-		String font;
-
-		if (settings.isBuffTimerBold()) {
-			font = " font=\"NORMAL_BOLD\"";
+		//스택 폰트두께
+		String stackWeight;
+		if (settings.getStackWeight().equals("Bold")) {
+			stackWeight = " font=\"NORMAL_BOLD\"";
 		} else {
-			font = "";
+			stackWeight = "";
 		}
-
-		int stackLoc = settings.getBuff_stack_loc();
-		String stack_layout_borders = " layout_borders=\"Rect(0,-1,0,-2)\"";
 		
-		//텍스트컬러
+		//타이머 폰트두께
+		String timerWeight;
+		if (settings.isBuffTimerBold()) {
+			timerWeight = " font=\"NORMAL_BOLD\"";
+		} else {
+			timerWeight = "";
+		}
+		
+		//스택컬러
+		String stackColor = settings.getStackColor();
+		
+		//타이머컬러
 		String timerColor = settings.getBuffTimerColor();
 		
-		if(timerColor.equals("dadcde")) {
-			timerColor = "dbdddf";
-		}
+		//타이머레이아웃
+		String timerLayout = settings.getTimerLayout();
 
-		if (stackLoc == 0) {
-			fullCode = "<View view_layout=\"stacked\">\r\n"
-					+ "		<ItemIconView name=\"IconView\" view_flags=\"F_DISABLE_COOLDOWN|F_ALWAYS_SHOW_ENABLED\"/>\r\n"
-					+ "		<TextView name=\"StackSizeView\" default_color=\"#ffffff\"" + font
-					+ " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\" v_local_alignment=\"TOP\" h_local_alignment=\"RIGHT\"/>\r\n"
-					+ "	</View>\r\n"
-					+ "	<View name=\"RemainingTimeContainer\" view_layout=\"horizontal\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
-					+ "		<TextView name=\"RemainingTimeView\" default_color=\"#"+timerColor+"\"" + font
-					+ " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"/>\r\n" + "	</View>";
-		} else {
-			fullCode = "<View name=\"StackSizeContainer\" view_layout=\"horizontal\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
-					+ "		<TextView name=\"StackSizeView\" default_color=\"#"+timerColor+"\"" + font
-					+ " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"" + stack_layout_borders + "/>\r\n"
+		//스택레이아웃 0=on 1=above
+		int stackLoc = settings.getBuff_stack_loc();
+
+		//플레이트알파
+		double plateAlpha = settings.getStackPlateAlpha();
+		String plateAlpha_write = String.valueOf(plateAlpha);
+		
+		//스택 아웃라인 여부
+		String stackOutline;
+		if(plateAlpha<0.1 || stackLoc==0) {
+			stackOutline = " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"";
+		}
+		else {
+			stackOutline = "";
+		}
+		
+		//타이머 아웃라인 여부
+		String timerOutline;
+		if(plateAlpha<0.1 || timerLayout.equals("On")) {
+			timerOutline = " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"";
+		}
+		else {
+			timerOutline = "";
+		}
+		
+		//폰트크기별 플레이트 크기 지정
+		int fontSize = settings.getFontSize();
+		String stackPlateImgFile;
+		String timerPlateImgFile;
+		String stackPlateSize;
+		String timerPlateSize;
+		int minBuffSize = Math.max(31, Math.min(settings.getLP_buff_size(), Math.min(settings.getRP_buff_size(), settings.getTop_buff_size())));
+		
+		if(fontSize==0 && (settings.getLP_buff_size()==31 || settings.getRP_buff_size()==31 || settings.getTop_buff_size()==31)) {
+			stackPlateImgFile = "a.png";
+			timerPlateImgFile = "b.png";
+			stackPlateSize = "";
+			timerPlateSize = "";
+		}
+		else {
+			stackPlateImgFile = "a_4k.png";
+			timerPlateImgFile = "b_4k.png";
+			stackPlateSize = " max_size_limit=\"Point("+String.valueOf(minBuffSize)+","+String.valueOf(12+fontSize)+")\"";
+			timerPlateSize = " max_size_limit=\"Point("+String.valueOf(minBuffSize)+","+String.valueOf(12+fontSize)+")\"";
+		}
+		
+		String stack_layout_borders = "";
+		String timer_layout_borders = "";
+		
+		if(fontSize==0) {
+			stack_layout_borders = " layout_borders=\"Rect(0,-1,0,-1)\"";
+			timer_layout_borders = " layout_borders=\"Rect(0,-1,0,-1)\"";
+		}
+		if(fontSize==1) {
+			stack_layout_borders = " layout_borders=\"Rect(0,-2,0,-3)\"";
+			timer_layout_borders = " layout_borders=\"Rect(0,-2,0,-3)\"";
+		}
+		else if(fontSize==2) {
+			stack_layout_borders = " layout_borders=\"Rect(0,-1,0,-4)\"";
+			timer_layout_borders = " layout_borders=\"Rect(0,-1,0,-4)\"";
+		}
+		else if(fontSize>2 && fontSize<7) {
+			stack_layout_borders = " layout_borders=\"Rect(0,-2,0,-3)\"";
+			timer_layout_borders = " layout_borders=\"Rect(0,-2,0,-3)\"";
+		}
+		else {
+			stack_layout_borders = " layout_borders=\"Rect(0,-3,0,-3)\"";
+			timer_layout_borders = " layout_borders=\"Rect(0,-3,0,-3)\"";
+		}
+		
+		String stackSmallPlateImgFile;
+		String stackSmallPlateSize;
+		int extra = 2 * ((fontSize + 1) / 2);
+		
+		if(fontSize==0) {
+			stackSmallPlateImgFile = "s_a.png";
+			stackSmallPlateSize = "";
+		}
+		else {
+			stackSmallPlateImgFile = "s_a_4k.png";
+			stackSmallPlateSize = " max_size_limit=\"Point("+String.valueOf(15+extra)+","+String.valueOf(12+fontSize)+")\"";
+		}
+		
+		
+
+		if (stackLoc == 1 && timerLayout.equals("Below")) { // above & below
+			fullCode = "<View view_layout=\"vertical\">\r\n"
+					+ "	<View name=\"StackSizeContainer\" view_layout=\"stacked\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
+					+ "		<ViewSelector name=\"StackSizeBgSelector\">\r\n"
+					+ "			<BitmapView bitmap_gfx=\"../../Customized/gfx/buff/"+stackSmallPlateImgFile+"\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\" view_local_alpha=\""+plateAlpha_write+"\""+stackSmallPlateSize+"/>\r\n"
+					+ "			<BitmapView bitmap_gfx=\"../../Customized/gfx/buff/"+stackPlateImgFile+"\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\" view_local_alpha=\""+plateAlpha_write+"\""+stackPlateSize+"/>\r\n"
+					+ "		</ViewSelector>\r\n"
+					+ "		<TextView name=\"StackSizeView\" default_color=\"#"+stackColor+"\""+stackWeight+stackOutline+stack_layout_borders+"/>\r\n"
 					+ "	</View>\r\n"
 					+ "	<ItemIconView name=\"IconView\" view_flags=\"F_DISABLE_COOLDOWN|F_ALWAYS_SHOW_ENABLED\"/>\r\n"
-					+ "	<View name=\"RemainingTimeContainer\" view_layout=\"horizontal\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
-					+ "		<TextView name=\"RemainingTimeView\" default_color=\"#"+timerColor+"\"" + font
-					+ " feature_flags=\"TVF_RENDER_SHADOW|TVF_RENDER_HALO\"/>\r\n" + "	</View>";
+					+ "	<View name=\"RemainingTimeContainer\" view_layout=\"stacked\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
+					+ "		<BitmapView bitmap_gfx=\"../../Customized/gfx/buff/"+timerPlateImgFile+"\" view_local_alpha=\""+plateAlpha_write+"\""+timerPlateSize+"/>\r\n"
+					+ "		<TextView name=\"RemainingTimeView\" default_color=\"#"+timerColor+"\""+timerWeight+timerOutline+timer_layout_borders+"/>\r\n"
+					+ "	</View>\r\n"
+					+ "</View>";
+		}
+		else if (stackLoc == 0 && timerLayout.equals("Below")) { // on & below
+			fullCode = "<View view_layout=\"vertical\">\r\n"
+					+ "	<View view_layout=\"stacked\">\r\n"
+					+ "		<ItemIconView name=\"IconView\" view_flags=\"F_DISABLE_COOLDOWN|F_ALWAYS_SHOW_ENABLED\"/>\r\n"
+					+ "		<TextView name=\"StackSizeView\" default_color=\"#"+stackColor+"\""+stackWeight+stackOutline+" v_local_alignment=\"TOP\" h_local_alignment=\"RIGHT\"/>\r\n"
+					+ "	</View>\r\n"
+					+ "	<View name=\"RemainingTimeContainer\" view_layout=\"stacked\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
+					+ "		<BitmapView bitmap_gfx=\"../../Customized/gfx/buff/"+timerPlateImgFile+"\" view_local_alpha=\""+plateAlpha_write+"\""+timerPlateSize+"/>\r\n"
+					+ "		<TextView name=\"RemainingTimeView\" default_color=\"#"+timerColor+"\""+timerWeight+timerOutline+timer_layout_borders+"/>\r\n"
+					+ "	</View>\r\n"
+					+ "</View>";
+		}
+		else if (stackLoc == 1 && timerLayout.equals("On")) { // above & on
+			fullCode = "<View view_layout=\"vertical\">\r\n" 
+					+ "	<View name=\"StackSizeContainer\" view_layout=\"stacked\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\">\r\n"
+					+ "		<ViewSelector name=\"StackSizeBgSelector\">\r\n"
+					+ "			<BitmapView bitmap_gfx=\"../../Customized/gfx/buff/"+stackSmallPlateImgFile+"\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\" view_local_alpha=\""+plateAlpha_write+"\""+stackSmallPlateSize+"/>\r\n"
+					+ "			<BitmapView bitmap_gfx=\"../../Customized/gfx/buff/"+stackPlateImgFile+"\" view_flags=\"WID_IGNORE_WHEN_HIDDEN\" view_local_alpha=\""+plateAlpha_write+"\""+stackPlateSize+"/>\r\n"
+					+ "		</ViewSelector>\r\n"
+					+ "		<TextView name=\"StackSizeView\" default_color=\"#"+stackColor+"\""+stackWeight+stackOutline+stack_layout_borders+"/>\r\n"
+					+ "	</View>\r\n"
+					+ "	<View view_layout=\"stacked\">\r\n"
+					+ "		<ItemIconView name=\"IconView\" view_flags=\"F_DISABLE_COOLDOWN|F_ALWAYS_SHOW_ENABLED\"/>\r\n"
+					+ "		<TextView name=\"RemainingTimeView\" default_color=\"#"+timerColor+"\""+timerWeight+timerOutline+" v_local_alignment=\"BOTTOM\"/>\r\n"
+					+ "	</View>\r\n"
+					+ "</View>";
+		}
+		else { // on & on
+			fullCode = "<View view_layout=\"stacked\">\r\n"
+					+ "	<ItemIconView name=\"IconView\" view_flags=\"F_DISABLE_COOLDOWN|F_ALWAYS_SHOW_ENABLED\"/>\r\n"
+					+ "	<TextView name=\"StackSizeView\" default_color=\"#"+stackColor+"\""+stackWeight+stackOutline+" v_local_alignment=\"TOP\" h_local_alignment=\"RIGHT\"/>\r\n"
+					+ "	<TextView name=\"RemainingTimeView\" default_color=\"#"+timerColor+"\""+timerWeight+timerOutline+" v_local_alignment=\"BOTTOM\"/>\r\n"
+					+ "</View>";
 		}
 
 		content = content.replaceAll("var_code", fullCode);
