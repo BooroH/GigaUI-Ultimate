@@ -223,6 +223,9 @@ public class BottomBar {
 		String chroma_code = "";
 		String slot_margin = "";
 		String dir_margin = "";
+		
+		int fontSize = settings.getFontSize();
+		
 
 		// 슬롯마진
 		if (slot_size > 84) {
@@ -336,17 +339,19 @@ public class BottomBar {
 		int pageButtonPosY;
 
 		if (settings.getBottomBar_row() == 2) {
-			pageButtonPosY = -21
+			pageButtonPosY = -21 -1
 					+ (settings.getSlot_size() + 1 + settings.getIcon_spacing()) * (settings.getBottomBar_row() - 1)
 					+ (settings.getSlot_size() + 1) / 2;
 		} else {
-			pageButtonPosY = -20
+			pageButtonPosY = -20 -1
 					+ (settings.getSlot_size() + 1 + settings.getIcon_spacing()) * (settings.getBottomBar_row() - 1)
 					+ (settings.getSlot_size() + 1) / 2;
 		}
 		
+		//폰트사이즈별 페이지버튼 높이조절
+		pageButtonPosY = pageButtonPosY - fontSize / 2;
+		
 		//폰트사이즈별 AA버튼 x 조정
-		int fontSize = settings.getFontSize();
 		perkSwitchButtonPosX = perkSwitchButtonPosX - fontSize * 2;
 
 		content = content.replaceAll("var_perk_switch_button_pos_x", String.valueOf(perkSwitchButtonPosX));
@@ -514,19 +519,12 @@ public class BottomBar {
 								+ ")\"\r\n" + "			\r\n" + "		/>");
 			}
 		}
-
-		// 폰트사이즈별 최적화
-		if (settings.getFontSize() == 0) {
-			// 페이지 버튼 마진
-			content = content.replaceAll("var_page_margin", " layout_borders=\"Rect(0,-1,0,-1)\"");
-		} else if (settings.getFontSize() == 1) {
-			content = content.replaceAll("var_page_margin", " layout_borders=\"Rect(0,-2,0,-2)\"");
-		} else if (settings.getFontSize() == 2) {
-			content = content.replaceAll("var_page_margin", " layout_borders=\"Rect(0,-2,0,-2)\"");
-		} else if (settings.getFontSize() == 3) {
-			content = content.replaceAll("var_page_margin", " layout_borders=\"Rect(0,-3,0,-2)\"");
+		
+		// 폰트사이즈별 페이지버튼 최적화
+		if (settings.getFontSize() < 5) {
+			content = content.replaceAll("var_page_margin", "");
 		} else {
-			content = content.replaceAll("var_page_margin", " layout_borders=\"Rect(0,-3,0,-3)\"");
+			content = content.replaceAll("var_page_margin", " layout_borders=\"Rect(0,-1,0,-1)\"");
 		}
 
 		FileManager.stringToFile(targetDir, content);

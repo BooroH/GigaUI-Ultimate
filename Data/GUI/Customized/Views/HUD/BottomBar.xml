@@ -97,12 +97,12 @@
 			/>
 		</View>
 		<!-- Shortcutbar Page Button -->
-		<View view_layout="vertical" layout_borders="Rect(0,0,0,63)">
+		<View view_layout="vertical" layout_borders="Rect(0,0,0,62)">
 			<Button name="NextShortcutbarButton"
 				gfxid_raised    = "../../Customized/gfx/bottombar/arrow_up.png"
 				gfxid_highlight = "../../Customized/gfx/bottombar/arrow_up_hover.png"
 			/>
-			<TextView name="CurShortcutbarLabel" font="LARGE" layout_borders="Rect(0,-1,0,-1)"/>
+			<TextView name="CurShortcutbarLabel" font="LARGE"/>
 			<Button name="PrevShortcutbarButton"
 				gfxid_raised    = "../../Customized/gfx/bottombar/arrow_down.png"
 				gfxid_highlight = "../../Customized/gfx/bottombar/arrow_down_hover.png"

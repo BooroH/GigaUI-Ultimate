@@ -86,8 +86,8 @@ public class MinimapView {
 		int mapSize;
 		String frameSizeLimit = " max_size_limit=\"Point(" + String.valueOf(frameSize) + "," + String.valueOf(frameSize)
 				+ ")\"";
-		String menuButtonLayoutY = "";
-		String regionalMapLayoutX = "";
+		int menuButtonLayoutY;
+		int regionalMapLayoutX;
 		
 		if (frameSize == 404) {
 			frameSizeLimit = "";
@@ -95,42 +95,50 @@ public class MinimapView {
 
 		if (frameSize < 230) {
 			mapSize = frameSize - 14;
-			menuButtonLayoutY = "-9";
-			regionalMapLayoutX = "-26";
+			menuButtonLayoutY = -9;
+			regionalMapLayoutX = -26;
 		} else if (frameSize < 254) {
 			mapSize = frameSize - 16;
-			menuButtonLayoutY = "-8";
-			regionalMapLayoutX = "-25";
+			menuButtonLayoutY = -8;
+			regionalMapLayoutX = -25;
 		} else if (frameSize < 282) {
 			mapSize = frameSize - 18;
-			menuButtonLayoutY = "-8";
-			regionalMapLayoutX = "-25";
+			menuButtonLayoutY = -8;
+			regionalMapLayoutX = -25;
 		} else if (frameSize < 310) {
 			mapSize = frameSize - 20;
-			menuButtonLayoutY = "-7";
-			regionalMapLayoutX = "-24";
+			menuButtonLayoutY = -7;
+			regionalMapLayoutX = -24;
 		} else if (frameSize < 334) {
 			mapSize = frameSize - 22;
-			menuButtonLayoutY = "-7";
-			regionalMapLayoutX = "-24";
+			menuButtonLayoutY = -7;
+			regionalMapLayoutX = -24;
 		} else if (frameSize < 362) {
 			mapSize = frameSize - 24;
-			menuButtonLayoutY = "-6";
-			regionalMapLayoutX = "-23";
+			menuButtonLayoutY = -6;
+			regionalMapLayoutX = -23;
 		} else if (frameSize < 390) {
 			mapSize = frameSize - 26;
-			menuButtonLayoutY = "-6";
-			regionalMapLayoutX = "-23";
+			menuButtonLayoutY = -6;
+			regionalMapLayoutX = -23;
 		} else {
 			mapSize = frameSize - 28;
-			menuButtonLayoutY = "-5";
-			regionalMapLayoutX = "-22";
+			menuButtonLayoutY = -5;
+			regionalMapLayoutX = -22;
 		}
+		
+		//폰트사이즈별 마진
+		int fontSize = settings.getFontSize();
+		menuButtonLayoutY = menuButtonLayoutY - fontSize/2;
+		regionalMapLayoutX = regionalMapLayoutX - fontSize/2;
+		int overall_y1 = 34 + fontSize/2;
+		int overall_x2 = 12 + fontSize/2;
+		int zoomButton_x2 = -fontSize/2;
 
 		// 미니맵
 		String minimapView_code;
 		if (settings.getShowMiniMap() == 1) {
-			minimapView_code = "<View view_layout=\"stacked\" waypoint_cap_radius=\"65\" layout_inner_borders=\"Rect(10,34,12,0)\">\r\n"
+			minimapView_code = "<View view_layout=\"stacked\" waypoint_cap_radius=\"65\" layout_inner_borders=\"Rect(10,"+String.valueOf(overall_y1)+","+String.valueOf(overall_x2)+",0)\">\r\n"
 					+ "	<RegionMapRenderer name=\"MapView\"\r\n"
 					+ "		view_flags=\"RMRF_DISABLE_WAYPOINT_LABELS\"\r\n" + "		min_size_extend=\"Point("
 					+ String.valueOf(mapSize) + "," + String.valueOf(mapSize) + ")\"\r\n"
@@ -139,11 +147,11 @@ public class MinimapView {
 					+ "	<BitmapView bitmap_gfx=\"../../Customized/gfx/minimap/minimap" + chroma_code + ".png\""
 					+ frameSizeLimit + "/>\r\n"
 					+ "	<View view_layout=\"vertical\" h_local_alignment=\"RIGHT\" layout_borders=\"Rect(0,0,-29,0)\">\r\n"
-					+ "		<Button name=\"ZoomInButton\" template:source=\"ClearButton\" label=\"+\" label_font=\"SC_LARGE_BOLD\" layout_borders=\"Rect(-6,0,0,-5)\" interaction_borders=\"Rect(6,0,0,5)\"/>\r\n"
-					+ "		<Button name=\"ZoomOutButton\" template:source=\"ClearButton\" label=\"-\" label_font=\"SC_LARGE_BOLD\" layout_borders=\"Rect(-6,-5,0,0)\" interaction_borders=\"Rect(6,5,0,0)\"/>\r\n"
+					+ "		<Button name=\"ZoomInButton\" template:source=\"ClearButton\" label=\"+\" label_font=\"SC_LARGE_BOLD\" layout_borders=\"Rect(-6,0,"+String.valueOf(zoomButton_x2)+",-5)\" interaction_borders=\"Rect(6,0,0,5)\"/>\r\n"
+					+ "		<Button name=\"ZoomOutButton\" template:source=\"ClearButton\" label=\"-\" label_font=\"SC_LARGE_BOLD\" layout_borders=\"Rect(-6,-5,"+String.valueOf(zoomButton_x2)+",0)\" interaction_borders=\"Rect(6,5,0,0)\"/>\r\n"
 					+ "	</View>\r\n"
-					+ "	<Button name=\"MenuButton\" template:source=\"ClearButton\" label=\"⌃\" label_font=\"SC_LARGE_BOLD\" v_local_alignment=\"TOP\" layout_borders=\"Rect(0,"+menuButtonLayoutY+",0,0)\"/>\r\n"
-					+ "	<Button name=\"RegionMapButton\" template:source=\"ClearButton\" label=\"<\" label_font=\"SC_LARGE_BOLD\" h_local_alignment=\"LEFT\" layout_borders=\"Rect("+regionalMapLayoutX+",0,0,0)\" view_tooltip_text=\"&lt;localized token=MinimapToggleRegionButtonTooltip&gt;\"/>\r\n"
+					+ "	<Button name=\"MenuButton\" template:source=\"ClearButton\" label=\"⌃\" label_font=\"SC_LARGE_BOLD\" v_local_alignment=\"TOP\" layout_borders=\"Rect(0,"+String.valueOf(menuButtonLayoutY)+",0,0)\"/>\r\n"
+					+ "	<Button name=\"RegionMapButton\" template:source=\"ClearButton\" label=\"<\" label_font=\"SC_LARGE_BOLD\" h_local_alignment=\"LEFT\" layout_borders=\"Rect("+String.valueOf(regionalMapLayoutX)+",0,0,0)\" view_tooltip_text=\"&lt;localized token=MinimapToggleRegionButtonTooltip&gt;\"/>\r\n"
 					+ "	<View view_layout=\"vertical\" v_local_alignment=\"TOP\" h_local_alignment=\"RIGHT\" h_alignment=\"RIGHT\" layout_borders=\"Rect(0,-4,-6,0)\">\r\n"
 					+ "		<BitmapView name=\"NewMailButton\"\r\n"
 					+ "			bitmap_gfx=\"../../Customized/gfx/icons/mail.png\"\r\n"
